@@ -715,6 +715,105 @@
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
+
+/* Certifications Section */
+.certifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.certifications-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.certification-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.certification-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: rgba(251, 237, 82, 0.3);
+}
+
+.certification-image {
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.certification-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.certification-card:hover .certification-image img {
+    transform: scale(1.05);
+}
+
+.certification-content {
+    padding: 1.5rem;
+}
+
+.certification-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.certification-issuer {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.certification-details {
+    list-style: none;
+}
+
+.certification-details li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 1.2rem;
+    color: rgba(240, 240, 245, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.certification-details li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .certifications-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .certification-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
         
         .project-links a {
             display: flex;
@@ -1413,89 +1512,101 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="section" id="certifications">
-        <div class="container">
-            <div class="section-title">
-                <h2>Certifications</h2>
-            </div>
-            <div class="experience-container">
-                <div class="experience-item animate fade-in">
-                    <div class="experience-header">
+   <!-- Certifications Section -->
+<section class="section" id="certifications">
+    <div class="container">
+        <div class="section-title">
+            <h2>Certifications</h2>
+        </div>
+        <div class="certifications-container">
+            <!-- Row 1 -->
+            <div class="certifications-row">
+                <!-- Certification 1 -->
+                <div class="certification-card animate fade-in">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificates/Power-BI-Certificate.jpg" alt="Data Analyst using Power BI Certificate">
+                    </div>
+                    <div class="certification-content">
                         <h3>Data Analyst using Power BI</h3>
-                        <div class="experience-date">E-Youth</div>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Built interactive dashboards and visual reports using Power BI</li>
+                        <div class="certification-issuer">E-Youth</div>
+                        <ul class="certification-details">
+                            <li>Built interactive dashboards and visual reports</li>
                             <li>Data modeling and DAX calculations</li>
-                            <li>Skills: Data Modeling | Dashboard Creation | Data Analysis</li>
+                            <li>Skills: Data Modeling | Dashboard Creation</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="experience-item animate fade-in delay-1">
-                    <div class="experience-header">
+                <!-- Certification 2 -->
+                <div class="certification-card animate fade-in delay-1">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificates/Data-Analysis-Certificate.jpg" alt="Data Analysis Certificate">
+                    </div>
+                    <div class="certification-content">
                         <h3>Data Analysis</h3>
-                        <div class="experience-date">E-Youth</div>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Gained foundational knowledge in data analysis, cleaning, and visualization</li>
-                            <li>Skills: Data cleaning and preprocessing using Excel and Python | Exploratory Data Analysis (EDA) techniques | Business insight generation from datasets</li>
+                        <div class="certification-issuer">E-Youth</div>
+                        <ul class="certification-details">
+                            <li>Data cleaning and preprocessing</li>
+                            <li>Exploratory Data Analysis (EDA)</li>
+                            <li>Business insight generation</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="experience-item animate fade-in delay-2">
-                    <div class="experience-header">
+                <!-- Certification 3 -->
+                <div class="certification-card animate fade-in delay-2">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificates/Database-Design-Certificate.jpg" alt="Database Design Certificate">
+                    </div>
+                    <div class="certification-content">
                         <h3>Database Design</h3>
-                        <div class="experience-date">E-Youth</div>
+                        <div class="certification-issuer">E-Youth</div>
+                        <ul class="certification-details">
+                            <li>ERD (Entity Relationship Diagram) creation</li>
+                            <li>Normalization and schema design</li>
+                            <li>SQL basics for database querying</li>
+                        </ul>
                     </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Learned principles of relational database design and normalization</li>
-                            <li>Designed and implemented ER diagrams and schema structures</li>
-                            <li>Skills: ERD (Entity Relationship Diagram) creation | Normalization and schema design | SQL basics for database querying</li>
+                </div>
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="certifications-row">
+                <!-- Certification 4 -->
+                <div class="certification-card animate fade-in delay-3">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificates/Intro-Tableau-Certificate.jpg" alt="Introduction to Tableau Certificate">
+                    </div>
+                    <div class="certification-content">
+                        <h3>Introduction to Tableau</h3>
+                        <div class="certification-issuer">DataCamp</div>
+                        <ul class="certification-details">
+                            <li>Tableau's interface and basic visualizations</li>
+                            <li>Connected data sources</li>
+                            <li>Storytelling with data</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="experience-item animate fade-in delay-3">
-                    <div class="experience-header">
-                        <h3>Introduction to Tableau</h3>
-                        <div class="experience-date">DataCamp</div>
+                <!-- Certification 5 -->
+                <div class="certification-card animate fade-in">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificates/Analyzing-Data-Tableau-Certificate.jpg" alt="Analyzing Data in Tableau Certificate">
                     </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Explored Tableau's interface and created basic visualizations</li>
-                            <li>Connected data sources and performed initial data analysis tasks</li>
-                            <li>Skills: Storytelling with data, calculated fields, parameters</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div class="experience-item animate fade-in delay-2">
-                    <div class="experience-header">
+                    <div class="certification-content">
                         <h3>Analyzing Data in Tableau</h3>
-                        <div class="experience-date">DataCamp</div>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Used advanced Tableau features to uncover insights and trends</li>
-                            <li>Built calculated fields, dashboards, and applied filtering techniques</li>
-                            <li>Skills: Building interactive dashboards and storyboards | Filtering, grouping, and trend analysis in Tableau</li>
-                            
-                                
+                        <div class="certification-issuer">DataCamp</div>
+                        <ul class="certification-details">
+                            <li>Advanced Tableau features</li>
+                            <li>Calculated fields and dashboards</li>
+                            <li>Filtering techniques</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
                   <!-- Contact Section -->
         <section class="section" id="contact">
             <div class="container">

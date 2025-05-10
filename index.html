@@ -186,16 +186,29 @@
             align-items: flex-start;
         }
         
-        .hero-text h1 {
-            font-size: 3.0rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            background: linear-gradient(90deg, var(--light), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 700;
-        }
+       .hero-text h1 {
+    font-size: 2.8rem; /* Increased from 2.5rem */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    background: linear-gradient(90deg, var(--light), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+/* Update the responsive sizes as well */
+@media (min-width: 768px) {
+    .hero-text h1 {
+        font-size: 3.2rem; /* Increased from 3rem */
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-text h1 {
+        font-size: 3.5rem; /* Increased from 3.4rem */
+    }
+}
         
         .hero-text h2 {
             font-size: 1.2rem;

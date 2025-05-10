@@ -774,27 +774,21 @@
             font-size: 1rem;
         }
 
-/* Certifications Section */
+/* Certifications Section - Updated to match Projects Section */
 .certifications-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.certifications-row {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
 .certification-card {
-    width: 100%;
     background: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: var(--transition);
     box-shadow: var(--box-shadow);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
 }
 
 .certification-card:hover {
@@ -806,7 +800,18 @@
 .certification-image {
     height: 180px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.certification-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, var(--card-bg) 100%);
+    z-index: 1;
 }
 
 .certification-image img {
@@ -825,20 +830,57 @@
 }
 
 .certification-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
     color: #ffffff;
+    font-weight: 600;
 }
 
 .certification-issuer {
-    color: var(--gray);
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
+    color: rgba(240, 240, 245, 0.7);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.certification-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.2rem 0;
+}
+
+.certification-tool {
+    background: rgba(251, 237, 82, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: var(--primary);
+    border: 1px solid rgba(251, 237, 82, 0.15);
+}
+
+.certification-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.certification-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
+.certification-links a i {
+    font-size: 1rem;
+}
+
+/* Optional: If you want to keep the details list style */
 .certification-details {
     list-style: none;
+    margin-bottom: 1rem;
 }
 
 .certification-details li {

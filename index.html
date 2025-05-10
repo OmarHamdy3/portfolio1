@@ -464,29 +464,30 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Experience Section */
+         /* Experience Section */
         .experience-container {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            width: 100%;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .experience-item {
             background: var(--card-bg);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: var(--border-radius);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            border-left: 3px solid var(--primary);
+            border-left: 4px solid var(--primary);
             box-shadow: var(--box-shadow);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .experience-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             border-color: rgba(251, 237, 82, 0.3);
         }
         
@@ -503,43 +504,42 @@
         
         .experience-header {
             display: flex;
-            flex-direction: column;
-            margin-bottom: 1rem;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
             position: relative;
             z-index: 1;
-            gap: 0.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         
         .experience-header h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--primary);
             font-weight: 600;
         }
         
         .experience-date {
             color: var(--gray);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             background: rgba(255, 255, 255, 0.05);
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
-            align-self: flex-start;
         }
         
         .experience-company {
             font-weight: 600;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 1;
             color: var(--light);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
         }
         
         .experience-company i {
             color: var(--secondary);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
         .experience-description {
@@ -552,12 +552,11 @@
         }
         
         .experience-description li {
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 1.8rem;
             color: rgba(240, 240, 245, 0.8);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.7;
         }
         
         .experience-description li::before {
@@ -565,7 +564,7 @@
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         /* Skills Section */

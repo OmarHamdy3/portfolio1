@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +26,6 @@
             --border-radius: 12px;
             --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* New unified color variables for projects and certificates */
-            --project-card-bg: #1a1a24;
-            --project-border: rgba(251, 237, 82, 0.15);
-            --project-tool-bg: rgba(251, 237, 82, 0.1);
-            --project-tool-text: var(--primary);
-            --card-hover-border: rgba(251, 237, 82, 0.3);
         }
 
         * {
@@ -287,6 +281,7 @@
             margin: 0 auto;
         }
 
+        /* Professional glowing circle effect */
         .hero-image::before {
             content: '';
             position: absolute;
@@ -306,6 +301,7 @@
             filter: blur(1px);
         }
 
+        /* Profile picture with enhanced border */
         .hero-image img {
             width: 280px;
             height: 280px;
@@ -665,18 +661,19 @@
         }
         
         .project-card {
-            background: var(--project-card-bg);
+            background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
             transition: var(--transition);
             box-shadow: var(--box-shadow);
-            border: 1px solid var(--project-border);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: var(--card-hover-border);
+             transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: rgba(251, 237, 82, 0.3);
         }
         
         .project-image {
@@ -692,7 +689,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, var(--project-card-bg) 100%);
+            background: linear-gradient(to bottom, transparent 60%, var(--card-bg) 100%);
             z-index: 1;
         }
         
@@ -733,12 +730,12 @@
         }
         
         .project-tool {
-            background: var(--project-tool-bg);
+            background: rgba(251, 237, 82, 0.15);
             padding: 0.4rem 0.9rem;
             border-radius: 50px;
             font-size: 0.8rem;
-            color: var(--project-tool-text);
-            border: 1px solid var(--project-border);
+            color: var(--primary);
+            border: 1px solid rgba(251, 237, 82, 0.15);
         }
         
         .project-links {
@@ -758,92 +755,106 @@
         .project-links a i {
             font-size: 1.1rem;
         }
-        
-        /* Certifications Section */
-        .certifications-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
 
-        .certifications-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
 
-        .certification-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 350px;
-            background: var(--project-card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-            border: 1px solid var(--project-border);
-        }
+/* Certifications Section */
+.certifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 
-        .certification-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: var(--card-hover-border);
-        }
+.certifications-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
 
-        .certification-image {
-            height: 200px;
-            overflow: hidden;
-            border-bottom: 1px solid var(--project-border);
-        }
+.certification-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-        .certification-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
+.certification-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: rgba(251, 237, 82, 0.3);
+}
 
-        .certification-card:hover .certification-image img {
-            transform: scale(1.05);
-        }
+.certification-image {
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-        .certification-content {
-            padding: 1.5rem;
-        }
+.certification-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
 
-        .certification-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
+.certification-card:hover .certification-image img {
+    transform: scale(1.05);
+}
 
-        .certification-issuer {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
+.certification-content {
+    padding: 1.5rem;
+}
 
-        .certification-details {
-            list-style: none;
-        }
+.certification-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
 
-        .certification-details li {
-            margin-bottom: 0.6rem;
-            position: relative;
-            padding-left: 1.2rem;
-            color: rgba(240, 240, 245, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
+.certification-issuer {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
 
-        .certification-details li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
+.certification-details {
+    list-style: none;
+}
+
+.certification-details li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 1.2rem;
+    color: rgba(240, 240, 245, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.certification-details li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .certifications-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .certification-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
         
         /* Contact Section */
         .contact-container {
@@ -1040,7 +1051,6 @@
             margin-top: 2rem;
         }
         
-    
         /* Animations */
         @keyframes fadeInLeft {
             from {
@@ -1075,18 +1085,28 @@
             }
         }
         
+        /* Enhanced pulse animation for profile circle */
         @keyframes pulse {
             0% {
-                transform: scale(1);
-                opacity: 0.15;
+                transform: scale(0.98);
+                opacity: 0.8;
+                box-shadow: 
+                    0 0 60px rgba(251, 237, 82, 0.4),
+                    0 0 120px rgba(251, 237, 82, 0.2);
             }
             50% {
-                transform: scale(1.05);
-                opacity: 0.2;
+                transform: scale(1.02);
+                opacity: 1;
+                box-shadow: 
+                    0 0 80px rgba(251, 237, 82, 0.6),
+                    0 0 140px rgba(251, 237, 82, 0.3);
             }
             100% {
-                transform: scale(1);
-                opacity: 0.15;
+                transform: scale(0.98);
+                opacity: 0.8;
+                box-shadow: 
+                    0 0 60px rgba(251, 237, 82, 0.4),
+                    0 0 120px rgba(251, 237, 82, 0.2);
             }
         }
         
@@ -1144,77 +1164,6 @@
             transform: scaleX(1);
             transform-origin: left;
         }
-
-/* Enhanced pulse animation for profile circle with #fbed52 color */
-@keyframes pulse {
-    0% {
-        transform: scale(0.98);
-        opacity: 0.8;
-        box-shadow: 
-            0 0 60px rgba(251, 237, 82, 0.4),
-            0 0 120px rgba(251, 237, 82, 0.2);
-    }
-    50% {
-        transform: scale(1.02);
-        opacity: 1;
-        box-shadow: 
-            0 0 80px rgba(251, 237, 82, 0.6),
-            0 0 140px rgba(251, 237, 82, 0.3);
-    }
-    100% {
-        transform: scale(0.98);
-        opacity: 0.8;
-        box-shadow: 
-            0 0 60px rgba(251, 237, 82, 0.4),
-            0 0 120px rgba(251, 237, 82, 0.2);
-    }
-}
-
-/* Update the hero-image::before to use the solid yellow color */
-.hero-image::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, 
-        rgba(251, 237, 82, 0.3) 0%, 
-        rgba(251, 237, 82, 0.2) 30%, 
-        rgba(251, 237, 82, 0.1) 60%, 
-        transparent 80%);
-    border-radius: 50%;
-    z-index: -1;
-    animation: pulse 4s infinite ease-in-out;
-    box-shadow: 
-        0 0 60px rgba(251, 237, 82, 0.4),
-        0 0 120px rgba(251, 237, 82, 0.2);
-    filter: blur(1px);
-}
-        
-        .animate {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        .delay-1 {
-            animation-delay: 0.1s;
-        }
-        
-        .delay-2 {
-            animation-delay: 0.2s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.3s;
-        }
-        
-        .delay-4 {
-            animation-delay: 0.4s;
-        }
-
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -1348,7 +1297,6 @@
                     <a href="#experience">Experience</a>
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
-                    <a href="#education">Education</a>
                     <a href="#certifications">Certifications</a>
                     <a href="#contact">Contact</a>
                 </ul>
@@ -1361,7 +1309,7 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <h1 class="animate fade-in">Hi, I'm Omar Hamdy</h1>
-                <h2 class="animate fade-in delay-1"><span class="highlight"></span>Data Analyst | BI Developer</h2>
+                <h2 class="animate fade-in delay-1"><span class="highlight"></span>Data Analyst | Business Intelligence Analyst</h2>
                 <p class="animate fade-in delay-2">Analytical and detail-oriented professional with expertise in data cleaning, transformation, and visualization. Passionate about using data to optimize business performance and drive strategic decisions.</p>
                 <div class="social-links animate fade-in delay-3">
                     <a href="mailto:Omarhamdy2035@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
@@ -1375,8 +1323,8 @@
                     <a href="https://drive.google.com/file/d/165uvPYtBZP8rab4zxM_9Ee13_2Jn_EbQ/view?usp=drive_link" class="btn btn-outline"><i class="fas fa-download"></i> View Resume</a>
                 </div>
             </div>
-            <div class="hero-image animate fade-in delay-3">
-                <img src="Profile Picture (1).jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
+             <div class="hero-image animate fade-in delay-3">
+                <img src="new-folder/Images/Profile Picture.jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
             </div>
         </div>
     </section>
@@ -1409,13 +1357,13 @@
                 <div class="experience-item animate fade-in">
                     <div class="experience-header">
                         <h3>Business Intelligence & Data Analysis Intern</h3>
-                        <div class="experience-date">Oct 2024 – Present</div>
+                        <div class="experience-date">Jan 2025 – Present</div>
                     </div>
                     <div class="experience-company"><i class="fas fa-building"></i> E-Youth (Remote)</div>
                     <div class="experience-description">
                         <ul>
                             <li>Developed data-driven decision-making skills using Excel, Power BI, and SQL to analyze business data sets.</li>
-                            <li>Enhanced soft skills, including communication, presentation, and negotiation, through collaborative projects.</li>
+                           
                             <li>Created interactive dashboards to visualize key business metrics and trends.</li>
                         </ul>
                     </div>
@@ -1439,7 +1387,7 @@
         </div>
     </section>
 
-     <!-- Skills Section -->
+      <!-- Skills Section -->
 <section class="section" id="skills">
     <div class="container">
         <div class="section-title">
@@ -1466,15 +1414,15 @@
                 </div>
             </div>
             
-            <!-- Dashboard Creation -->
-            <div class="skills-category animate fade-in delay-2">
-                <h3><i class="fas fa-chart-network"></i> Dashboard Creation</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><i class="fas fa-chart-line"></i> Interactive Reports</div>
-                    <div class="skill-item"><i class="fas fa-bullseye"></i> KPI Tracking</div>
-                    <div class="skill-item"><i class="fas fa-magic"></i> Automated Dashboards</div>
-                </div>
-            </div>
+           <!-- Dashboard Creation -->
+<div class="skills-category animate fade-in delay-2">
+    <h3><i class="fas fa-tachometer-alt"></i> Dashboard Creation</h3>
+    <div class="skills-list">
+        <div class="skill-item"><i class="fas fa-chart-line"></i> Interactive Reports</div>
+        <div class="skill-item"><i class="fas fa-bullseye"></i> KPI Tracking</div>
+        <div class="skill-item"><i class="fas fa-robot"></i> Automated Dashboards</div>
+    </div>
+</div>
             
             <!-- Data Visualization -->
             <div class="skills-category animate fade-in delay-3">
@@ -1482,7 +1430,7 @@
                 <div class="skills-list">
                     <div class="skill-item"><i class="fas fa-chart-pie"></i> Power BI</div>
                     <div class="skill-item"><i class="fas fa-chart-bar"></i> Tableau</div>
-                    <div class="skill-item"><i class="fas fa-file-excel"></i> Excel Charts</div>
+                    <div class="skill-item"><i class="fas fa-file-excel"></i> Excel</div>
                 </div>
             </div>
             
@@ -1533,7 +1481,7 @@
                     <img src="new-folder/Superstore/Customer-Dashboard-Figma.png" alt="Superstore Sales Performance Analysis">
                 </div>
                 <div class="project-content">
-                    <h3>Superstore Sales Performance Analysis</h3>
+                    <h3>Superstore Business Performance Analysis</h3>
                     <p>Analyzed sales data from 2014–2017 to identify trends, underperforming segments, and high-profit regions.</p>
                     <div class="project-tools">
                         <div class="project-tool">Python</div>
@@ -1547,22 +1495,6 @@
                         <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         <a href="#"><i class="fab fa-github"></i> View Code</a>
                       </div>
-                    </div>
-                </div>
-
-                <!-- Certification 1 -->
-                <div class="certification-card animate fade-in">
-                    <div class="certification-image">
-                        <img src="new-folder/Certificates/Power-BI-Certificate.jpg" alt="Data Analyst using Power BI Certificate">
-                    </div>
-                    <div class="certification-content">
-                        <h3>Data Analyst using Power BI</h3>
-                        <div class="certification-issuer">E-Youth</div>
-                        <ul class="certification-details">
-                            <li>Built interactive dashboards and visual reports</li>
-                            <li>Data modeling and DAX calculations</li>
-                            <li>Skills: Data Modeling | Dashboard Creation</li>
-                        </ul>
                     </div>
                 </div>
 
@@ -1596,28 +1528,8 @@
     </section>
 
   
-    
-            <!-- Education Section -->
-    <section class="section" id="education">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-            </div>
-            <div class="experience-container">
-                <div class="experience-item animate fade-in">
-                    <div class="experience-header">
-                        <h3>Bachelor of Science in Agricultural Engineering</h3>
-                        <div class="experience-date">Oct 2021 – Aug 2025</div>
-                    </div>
-                    <div class="experience-company"><i class="fas fa-university"></i> Aswan University, Egypt</div>
-                    <div class="experience-description">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
+ 
    <!-- Certifications Section -->
 <section class="section" id="certifications">
     <div class="container">
@@ -1630,15 +1542,15 @@
                 <!-- Certification 1 -->
                 <div class="certification-card animate fade-in">
                     <div class="certification-image">
-                        <img src="new-folder/Certificates/Power-BI-Certificate.jpg" alt="Data Analyst using Power BI Certificate">
+                        <img src="new-folder/Certificate/Data Analysis Using Power BI.jpg" alt="Data Analyst using Power BI Certificate">
                     </div>
                     <div class="certification-content">
-                        <h3>Data Analyst using Power BI</h3>
+                        <h3>Data Analysis Using Power BI</h3>
                         <div class="certification-issuer">E-Youth</div>
                         <ul class="certification-details">
-                            <li>Built interactive dashboards and visual reports</li>
-                            <li>Data modeling and DAX calculations</li>
-                            <li>Skills: Data Modeling | Dashboard Creation</li>
+                            <li>Created interactive dashboards and reports using Power BI</li>
+                            <li>Applied Power Query for data transformation and DAX for advanced calculations</li>
+                            <li>Built data models by connecting and integrating multiple data sources</li>
                         </ul>
                     </div>
                 </div>
@@ -1646,15 +1558,15 @@
                 <!-- Certification 2 -->
                 <div class="certification-card animate fade-in delay-1">
                     <div class="certification-image">
-                        <img src="new-folder/Certificates/Data-Analysis-Certificate.jpg" alt="Data Analysis Certificate">
+                        <img src="new-folder/Certificate/Data Analysis.jpg" alt="Data Analysis Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Data Analysis</h3>
                         <div class="certification-issuer">E-Youth</div>
                         <ul class="certification-details">
-                            <li>Data cleaning and preprocessing</li>
-                            <li>Exploratory Data Analysis (EDA)</li>
-                            <li>Business insight generation</li>
+                            <li>Gained a strong understanding of the data analysis lifecycle from data collection to insight generation</li>
+                            <li>Learned key statistical concepts such as variables, mean, and standard deviation</li>
+                            <li>Practiced basic data cleaning and analysis using Excel</li>
                         </ul>
                     </div>
                 </div>
@@ -1662,15 +1574,15 @@
                 <!-- Certification 3 -->
                 <div class="certification-card animate fade-in delay-2">
                     <div class="certification-image">
-                        <img src="new-folder/Certificates/Database-Design-Certificate.jpg" alt="Database Design Certificate">
+                        <img src="new-folder/Certificate/Database Design.jpg" alt="Database Design Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Database Design</h3>
                         <div class="certification-issuer">E-Youth</div>
                         <ul class="certification-details">
-                            <li>ERD (Entity Relationship Diagram) creation</li>
-                            <li>Normalization and schema design</li>
-                            <li>SQL basics for database querying</li>
+                            <li>Learned relational database concepts including tables, primary keys, and foreign keys</li>
+                            <li>Designed normalized database structures to reduce redundancy and ensure data integrity</li>
+                            <li>Understood ER diagrams and their role in database planning</li>
                         </ul>
                     </div>
                 </div>
@@ -1681,15 +1593,15 @@
                 <!-- Certification 4 -->
                 <div class="certification-card animate fade-in delay-3">
                     <div class="certification-image">
-                        <img src="new-folder/Certificates/Intro-Tableau-Certificate.jpg" alt="Introduction to Tableau Certificate">
+                        <img src="new-folder/Certificate/Introduction to Tableau_certificate.jpg" alt="Introduction to Tableau Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Introduction to Tableau</h3>
                         <div class="certification-issuer">DataCamp</div>
                         <ul class="certification-details">
-                            <li>Tableau's interface and basic visualizations</li>
-                            <li>Connected data sources</li>
-                            <li>Storytelling with data</li>
+                            <li>Built basic data visualizations and dashboards using Tableau’s drag-and-drop interface</li>
+                            <li>Imported and explored datasets to identify key patterns and trends</li>
+                            <li>Applied filters and created calculated fields for deeper analysis</li>
                         </ul>
                     </div>
                 </div>
@@ -1697,22 +1609,69 @@
                 <!-- Certification 5 -->
                 <div class="certification-card animate fade-in">
                     <div class="certification-image">
-                        <img src="new-folder/Certificates/Analyzing-Data-Tableau-Certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                        <img src="new-folder/Certificate/Analyzing Data In Tableau_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Analyzing Data in Tableau</h3>
                         <div class="certification-issuer">DataCamp</div>
                         <ul class="certification-details">
-                            <li>Advanced Tableau features</li>
-                            <li>Calculated fields and dashboards</li>
-                            <li>Filtering techniques</li>
+                            <li>Used advanced Tableau features such as sets, parameters, and actions</li>
+                            <li>Designed interactive dashboards for business insights</li>
+                            <li>Followed data visualization best practices for clear and effective communication</li>
                         </ul>
                     </div>
                 </div>
+
+                <div class="certification-card animate fade-in">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificate/Introduction To SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                    </div>
+                    <div class="certification-content">
+                        <h3>Introduction to SQL</h3>
+                        <div class="certification-issuer">DataCamp</div>
+                        <ul class="certification-details">
+                            <li>Wrote basic SQL queries to retrieve, filter, and sort data</li>
+                            <li>Explored different data types and table structures</li>
+                            <li>Practiced using SELECT, WHERE, and ORDER BY clauses</li>
+                        </ul>
+                    </div>
+                </div>
+
+                  <div class="certification-card animate fade-in">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificate/Intermediate_SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                    </div>
+                    <div class="certification-content">
+                        <h3>Intermediate SQL</h3>
+                        <div class="certification-issuer">DataCamp</div>
+                        <ul class="certification-details">
+                            <li>Applied aggregate functions (COUNT, AVG, SUM) with GROUP BY for summary analysis</li>
+                            <li>Used subqueries and CASE statements for conditional logic</li>
+                            <li>Optimized SQL queries for improved performance on large datasets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                  <div class="certification-card animate fade-in">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificate/Joining Data in SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                    </div>
+                    <div class="certification-content">
+                        <h3>Joining Data in SQL</h3>
+                        <div class="certification-issuer">DataCamp</div>
+                        <ul class="certification-details">
+                           <li>Mastered table joins including INNER, LEFT, RIGHT, and FULL JOINs</li>
+                            <li>Combined data from multiple sources for complex analysis</li>
+                            <li>Solved real-world problems using multi-table queries</li>
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
 </section>
+
                   <!-- Contact Section -->
         <section class="section" id="contact">
             <div class="container">
@@ -1768,9 +1727,6 @@
             </div>
         </section>
 
-       
-
-
   <!-- Footer -->
   <footer>
     <div class="container footer-content">
@@ -1781,7 +1737,6 @@
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
             <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
         </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +62,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         .section-container {
@@ -73,7 +72,7 @@
         
         /* Header */
         header {
-            padding: 1.5rem 0;
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -85,7 +84,7 @@
         }
         
         header.scrolled {
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             box-shadow: var(--box-shadow);
         }
         
@@ -96,7 +95,7 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
             display: flex;
@@ -105,7 +104,7 @@
         }
         
         .logo i {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
         
         .logo span {
@@ -114,14 +113,14 @@
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .nav-links a {
             color: var(--light);
             font-weight: 500;
             position: relative;
-            font-size: 1.05rem;
+            font-size: 1rem;
             padding: 0.5rem 0;
         }
         
@@ -160,10 +159,11 @@
         
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: auto;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            padding: 6rem 0 3rem;
             position: relative;
             overflow: hidden;
             background: radial-gradient(circle at 70% 30%, rgba(251, 237, 82, 0.08) 0%, transparent 60%);
@@ -171,18 +171,24 @@
         
         .hero-content {
             display: flex;
+            flex-direction: column-reverse;
             align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
         }
         
         .hero-text {
             flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
             background: linear-gradient(90deg, var(--light), var(--primary));
             -webkit-background-clip: text;
@@ -192,37 +198,40 @@
         }
         
         .hero-text h2 {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-size: 1.1rem;
             color: var(--gray);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 400;
-            max-width: 600px;
+            max-width: 100%;
         }
         
         .hero-text p {
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            margin-bottom: 2rem;
+            max-width: 100%;
             color: rgba(240, 240, 245, 0.8);
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.6;
+            padding: 0 1rem;
         }
         
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .social-links a {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             background: var(--darker);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--light);
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -238,7 +247,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.9rem 2rem;
+            padding: 0.8rem 1.5rem;
             background: var(--primary);
             color: var(--dark);
             border-radius: var(--border-radius);
@@ -246,8 +255,11 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             box-shadow: 0 4px 15px rgba(251, 237, 82, 0.2);
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 0.5rem;
         }
         
         .btn:hover {
@@ -261,7 +273,7 @@
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
-            margin-left: 1rem;
+            margin-left: 0;
         }
         
         .btn-outline:hover {
@@ -270,18 +282,25 @@
             border-color: var(--primary);
         }
         
-        /* Enhanced Hero Image with Professional Glow */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        /* Hero Image */
         .hero-image {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 320px;
-            height: 320px;
+            width: 250px;
+            height: 250px;
             margin: 0 auto;
         }
 
-        /* Professional glowing circle effect */
         .hero-image::before {
             content: '';
             position: absolute;
@@ -296,36 +315,35 @@
             z-index: -1;
             animation: pulse 4s infinite ease-in-out;
             box-shadow: 
-                0 0 60px rgba(251, 237, 82, 0.4),
-                0 0 120px rgba(251, 237, 82, 0.2);
+                0 0 40px rgba(251, 237, 82, 0.3),
+                0 0 80px rgba(251, 237, 82, 0.15);
             filter: blur(1px);
         }
 
-        /* Profile picture with enhanced border */
         .hero-image img {
-            width: 280px;
-            height: 280px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid rgba(251, 237, 82, 0.4);
+            border: 3px solid rgba(251, 237, 82, 0.4);
             box-shadow: 
-                0 0 30px rgba(251, 237, 82, 0.3),
-                0 0 60px rgba(251, 237, 82, 0.2),
-                inset 0 0 20px rgba(251, 237, 82, 0.2);
+                0 0 20px rgba(251, 237, 82, 0.2),
+                0 0 40px rgba(251, 237, 82, 0.15),
+                inset 0 0 15px rgba(251, 237, 82, 0.15);
             transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .hero-image img:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 
-                0 0 40px rgba(251, 237, 82, 0.4),
-                0 0 80px rgba(251, 237, 82, 0.3),
-                inset 0 0 30px rgba(251, 237, 82, 0.3);
+                0 0 30px rgba(251, 237, 82, 0.3),
+                0 0 60px rgba(251, 237, 82, 0.2),
+                inset 0 0 20px rgba(251, 237, 82, 0.2);
         }
         
         /* Sections */
         .section {
-            padding: 6rem 0;
+            padding: 4rem 0;
             position: relative;
         }
         
@@ -342,12 +360,12 @@
         
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: 1.8rem;
             display: inline-block;
             position: relative;
             color: var(--light);
@@ -357,10 +375,10 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-            bottom: -15px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
@@ -369,8 +387,8 @@
         /* About Section */
         .about-content {
             display: flex;
-            align-items: center;
-            gap: 4rem;
+            flex-direction: column;
+            gap: 2rem;
         }
         
         .about-text {
@@ -378,34 +396,37 @@
         }
         
         .about-text h3 {
-            font-size: clamp(1.5rem, 2vw, 2rem);
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--light);
             font-weight: 600;
+            text-align: center;
         }
         
         .about-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: rgba(240, 240, 245, 0.8);
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: center;
         }
         
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 2rem;
+            gap: 0.7rem;
+            margin-top: 1.5rem;
+            justify-content: center;
         }
         
         .skill {
             background: var(--card-bg);
-            padding: 0.7rem 1.2rem;
+            padding: 0.6rem 1rem;
             border-radius: var(--border-radius);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
         }
@@ -418,7 +439,7 @@
         
         .skill i {
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .about-image {
@@ -431,10 +452,10 @@
         .about-image::before {
             content: '';
             position: absolute;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-            filter: blur(80px);
+            filter: blur(60px);
             opacity: 0.1;
             z-index: -1;
             animation: pulse 8s infinite alternate-reverse;
@@ -451,26 +472,25 @@
         .experience-container {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 1.5rem;
+            width: 100%;
         }
         
         .experience-item {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: var(--border-radius);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            border-left: 4px solid var(--primary);
+            border-left: 3px solid var(--primary);
             box-shadow: var(--box-shadow);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .experience-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border-color: rgba(251, 237, 82, 0.3);
         }
         
@@ -487,42 +507,43 @@
         
         .experience-header {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.2rem;
+            flex-direction: column;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 1;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.5rem;
         }
         
         .experience-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--primary);
             font-weight: 600;
         }
         
         .experience-date {
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: rgba(255, 255, 255, 0.05);
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
+            align-self: flex-start;
         }
         
         .experience-company {
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             position: relative;
             z-index: 1;
             color: var(--light);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.95rem;
         }
         
         .experience-company i {
             color: var(--secondary);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .experience-description {
@@ -535,11 +556,12 @@
         }
         
         .experience-description li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             position: relative;
-            padding-left: 1.8rem;
+            padding-left: 1.5rem;
             color: rgba(240, 240, 245, 0.8);
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
         
         .experience-description li::before {
@@ -547,7 +569,7 @@
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         /* Skills Section */
@@ -569,26 +591,26 @@
 
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
             position: relative;
         }
 
         .skills-category {
             background: var(--card-bg);
-            padding: 1.8rem;
+            padding: 1.5rem;
             border-radius: var(--border-radius);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            border-left: 4px solid var(--primary);
+            border-left: 3px solid var(--primary);
             box-shadow: var(--box-shadow);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .skills-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border-color: rgba(251, 237, 82, 0.3);
         }
 
@@ -605,11 +627,11 @@
 
         .skills-category h3 {
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.7rem;
             position: relative;
             z-index: 1;
             font-weight: 600;
@@ -618,7 +640,7 @@
         .skills-list {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.7rem;
             position: relative;
             z-index: 1;
         }
@@ -626,38 +648,39 @@
         .skill-item {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem 1rem;
+            gap: 0.7rem;
+            padding: 0.7rem 0.9rem;
             background: rgba(10, 10, 18, 0.5);
             border-radius: 8px;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
         }
 
         .skill-item:hover {
             background: rgba(251, 237, 82, 0.1);
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(251, 237, 82, 0.1);
+            transform: translateX(3px);
+            box-shadow: 0 3px 10px rgba(251, 237, 82, 0.1);
         }
 
         .skill-item i {
             color: var(--primary);
-            font-size: 1.1rem;
-            width: 25px;
+            font-size: 1rem;
+            width: 22px;
             text-align: center;
             transition: var(--transition);
         }
 
         .skill-item:hover i {
-            transform: scale(1.2);
+            transform: scale(1.1);
             color: var(--secondary);
         }
         
         /* Projects Section */
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
         
         .project-card {
@@ -671,13 +694,13 @@
         }
         
         .project-card:hover {
-             transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-color: rgba(251, 237, 82, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: rgba(251, 237, 82, 0.3);
         }
         
         .project-image {
-            height: 220px;
+            height: 180px;
             overflow: hidden;
             position: relative;
         }
@@ -701,80 +724,76 @@
         }
         
         .project-card:hover .project-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .project-content {
-            padding: 1.8rem;
+            padding: 1.5rem;
         }
         
         .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
             color: #ffffff;
             font-weight: 600;
         }
         
         .project-content p {
             color: rgba(240, 240, 245, 0.7);
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
             line-height: 1.6;
         }
         
         .project-tools {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
-            margin: 1.5rem 0;
+            gap: 0.5rem;
+            margin: 1.2rem 0;
         }
         
         .project-tool {
             background: rgba(251, 237, 82, 0.15);
-            padding: 0.4rem 0.9rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--primary);
             border: 1px solid rgba(251, 237, 82, 0.15);
         }
         
         .project-links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
         }
         
         .project-links a {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
         
         .project-links a i {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
-
 
 /* Certifications Section */
 .certifications-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .certifications-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .certification-card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 350px;
+    width: 100%;
     background: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -784,13 +803,13 @@
 }
 
 .certification-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border-color: rgba(251, 237, 82, 0.3);
 }
 
 .certification-image {
-    height: 200px;
+    height: 180px;
     overflow: hidden;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -811,15 +830,15 @@
 }
 
 .certification-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .certification-issuer {
     color: var(--gray);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
     font-weight: 500;
 }
 
@@ -828,11 +847,11 @@
 }
 
 .certification-details li {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
     position: relative;
     padding-left: 1.2rem;
     color: rgba(240, 240, 245, 0.8);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.5;
 }
 
@@ -841,25 +860,14 @@
     position: absolute;
     left: 0;
     color: var(--primary);
+    font-size: 0.9rem;
 }
-
-@media (max-width: 768px) {
-    .certifications-row {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .certification-card {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
         
         /* Contact Section */
         .contact-container {
             display: flex;
-            gap: 3rem;
+            flex-direction: column;
+            gap: 2rem;
         }
         
         .contact-info {
@@ -867,41 +875,43 @@
         }
         
         .contact-info h3 {
-            font-size: clamp(1.5rem, 2vw, 2rem);
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--light);
             font-weight: 600;
+            text-align: center;
         }
         
         .contact-info p {
             color: rgba(240, 240, 245, 0.8);
-            margin-bottom: 2.5rem;
-            font-size: 1.05rem;
-            max-width: 500px;
-            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            max-width: 100%;
+            line-height: 1.6;
+            text-align: center;
         }
         
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
         
         .contact-icon {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--primary);
             flex-shrink: 0;
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -911,13 +921,13 @@
         .contact-item:hover .contact-icon {
             background: var(--primary);
             color: var(--dark);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(251, 237, 82, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(251, 237, 82, 0.2);
         }
         
         .contact-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
             color: var(--light);
             font-weight: 600;
         }
@@ -926,7 +936,7 @@
         .contact-text a {
             margin: 0;
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         .contact-text a:hover {
@@ -936,19 +946,19 @@
         .contact-form {
             flex: 1;
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             font-weight: 500;
             color: var(--light);
         }
@@ -956,12 +966,12 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem 1.2rem;
+            padding: 0.9rem 1rem;
             background: var(--darker);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 8px;
             color: var(--light);
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
         
@@ -973,14 +983,14 @@
         }
         
         .form-group textarea {
-            min-height: 160px;
+            min-height: 140px;
             resize: vertical;
         }
         
         /* Footer */
         footer {
             background: var(--darker);
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 1.5rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -989,11 +999,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .footer-logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
             display: flex;
@@ -1003,8 +1013,8 @@
         
         .footer-links {
             display: flex;
-            gap: 2rem;
             flex-wrap: wrap;
+            gap: 1.2rem;
             justify-content: center;
         }
         
@@ -1012,6 +1022,7 @@
             color: var(--light);
             font-weight: 500;
             transition: var(--transition);
+            font-size: 0.95rem;
         }
         
         .footer-links a:hover {
@@ -1021,19 +1032,19 @@
         
         .social-links-footer {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
         }
         
         .social-links-footer a {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             background: var(--card-bg);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--light);
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -1041,14 +1052,14 @@
         .social-links-footer a:hover {
             background: var(--primary);
             color: var(--dark);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(251, 237, 82, 0.2);
         }
         
         .copyright {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-top: 2rem;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
         }
         
         /* Animations */
@@ -1091,28 +1102,28 @@
                 transform: scale(0.98);
                 opacity: 0.8;
                 box-shadow: 
-                    0 0 60px rgba(251, 237, 82, 0.4),
-                    0 0 120px rgba(251, 237, 82, 0.2);
+                    0 0 40px rgba(251, 237, 82, 0.3),
+                    0 0 80px rgba(251, 237, 82, 0.15);
             }
             50% {
                 transform: scale(1.02);
                 opacity: 1;
                 box-shadow: 
-                    0 0 80px rgba(251, 237, 82, 0.6),
-                    0 0 140px rgba(251, 237, 82, 0.3);
+                    0 0 60px rgba(251, 237, 82, 0.4),
+                    0 0 100px rgba(251, 237, 82, 0.2);
             }
             100% {
                 transform: scale(0.98);
                 opacity: 0.8;
                 box-shadow: 
-                    0 0 60px rgba(251, 237, 82, 0.4),
-                    0 0 120px rgba(251, 237, 82, 0.2);
+                    0 0 40px rgba(251, 237, 82, 0.3),
+                    0 0 80px rgba(251, 237, 82, 0.15);
             }
         }
         
         .animate {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
         
         .fade-in {
@@ -1166,33 +1177,134 @@
         }
 
         /* Responsive */
-        @media (max-width: 992px) {
+        @media (min-width: 576px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.2rem;
+            }
+            
+            .btn-group {
+                flex-direction: row;
+                max-width: 100%;
+            }
+            
+            .btn-outline {
+                margin-left: 1rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .certifications-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .certification-card {
+                min-width: 300px;
+                flex: 1;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding-top: 80px;
+                height: 100vh;
+            }
+            
             .hero-content {
-                flex-direction: column-reverse;
-                text-align: center;
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
                 gap: 3rem;
             }
             
             .hero-text {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                text-align: left;
+                align-items: flex-start;
+            }
+            
+            .hero-text p {
+                padding: 0;
+                text-align: left;
+            }
+            
+            .social-links {
+                justify-content: flex-start;
+            }
+            
+            .btn-group {
+                flex-direction: row;
+                justify-content: flex-start;
+                max-width: 100%;
             }
             
             .about-content {
-                flex-direction: column;
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+            
+            .about-text h3,
+            .about-text p {
+                text-align: left;
+            }
+            
+            .skills {
+                justify-content: flex-start;
             }
             
             .contact-container {
-                flex-direction: column;
+                flex-direction: row;
+                gap: 3rem;
+            }
+            
+            .contact-info h3,
+            .contact-info p {
+                text-align: left;
             }
             
             .section {
                 padding: 5rem 0;
             }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
         }
-        
-        @media (max-width: 768px) {
+
+        @media (min-width: 992px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section {
+                padding: 6rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 767px) {
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -1204,7 +1316,7 @@
                 align-items: flex-start;
                 justify-content: center;
                 padding: 2rem;
-                gap: 2rem;
+                gap: 1.5rem;
                 transition: all 0.4s ease;
                 z-index: 1000;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
@@ -1218,65 +1330,9 @@
                 display: block;
             }
             
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .experience-item {
-                padding: 1.8rem;
-            }
-            
-            .contact-form {
-                padding: 1.8rem;
-            }
-
-            .footer-links {
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-text h2 {
+            .nav-links a {
                 font-size: 1.1rem;
-            }
-            
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-            
-            .experience-date {
-                align-self: flex-start;
-            }
-            
-            .footer-links {
-                gap: 1.2rem;
-                flex-direction: column;
+                padding: 0.5rem 0;
             }
         }
     </style>
@@ -1307,6 +1363,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
+            <div class="hero-image animate fade-in delay-3">
+                <img src="new-folder/Images/Profile Picture.jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
+            </div>
             <div class="hero-text">
                 <h1 class="animate fade-in">Hi, I'm Omar Hamdy</h1>
                 <h2 class="animate fade-in delay-1"><span class="highlight"></span>Data Analyst | Business Intelligence Analyst</h2>
@@ -1323,9 +1382,6 @@
                     <a href="https://drive.google.com/file/d/165uvPYtBZP8rab4zxM_9Ee13_2Jn_EbQ/view?usp=drive_link" class="btn btn-outline"><i class="fas fa-download"></i> View Resume</a>
                 </div>
             </div>
-             <div class="hero-image animate fade-in delay-3">
-                <img src="new-folder/Images/Profile Picture.jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
-            </div>
         </div>
     </section>
 
@@ -1340,9 +1396,15 @@
                        <h3>Transforming Data into Actionable Insights</h3>
                     <p>I'm a passionate data professional with expertise in transforming raw data into meaningful insights. My journey in data analysis has equipped me with the skills to clean, analyze, and visualize data effectively to support business decisions.</p>
                     <p>Proficient in Excel, SQL, Python, Power BI, and Tableau, I have a strong ability to extract insights and present data through interactive dashboards. I'm constantly learning and adapting to new technologies in the data field.</p>
-                  
+                    <div class="skills">
+                        <div class="skill"><i class="fas fa-chart-line"></i> Data Analysis</div>
+                        <div class="skill"><i class="fas fa-database"></i> SQL</div>
+                        <div class="skill"><i class="fab fa-python"></i> Python</div>
+                        <div class="skill"><i class="fas fa-chart-pie"></i> Power BI</div>
+                        <div class="skill"><i class="fas fa-chart-bar"></i> Tableau</div>
+                        <div class="skill"><i class="fas fa-file-excel"></i> Excel</div>
+                    </div>
                 </div>
-               
             </div>
         </div>
     </section>
@@ -1363,7 +1425,6 @@
                     <div class="experience-description">
                         <ul>
                             <li>Developed data-driven decision-making skills using Excel, Power BI, and SQL to analyze business data sets.</li>
-                           
                             <li>Created interactive dashboards to visualize key business metrics and trends.</li>
                         </ul>
                     </div>
@@ -1440,7 +1501,6 @@
                 <div class="skills-list">
                     <div class="skill-item"><i class="fas fa-calculator"></i> DAX</div>
                     <div class="skill-item"><i class="fas fa-chart-bar"></i> Statistical Analysis</div>
-
                     <div class="skill-item"><i class="fas fa-chart-line"></i> Forecasting</div>
                 </div>
             </div>
@@ -1476,9 +1536,6 @@
             <div class="project-card animate fade-in">
                 <div class="project-image">
                     <img src="new-folder/Superstore/Overview-Dashboard-Figma.png" alt="Superstore Sales Performance Analysis">
-                    <img src="new-folder/Superstore/OrderDetails-Dashboard.png" alt="Superstore Sales Performance Analysis">
-                    <img src="new-folder/Superstore/Product-Dashboard-Figma.png" alt="Superstore Sales Performance Analysis">
-                    <img src="new-folder/Superstore/Customer-Dashboard-Figma.png" alt="Superstore Sales Performance Analysis">
                 </div>
                 <div class="project-content">
                     <h3>Superstore Business Performance Analysis</h3>
@@ -1501,12 +1558,6 @@
                 <div class="project-card animate fade-in delay-1">
                     <div class="project-image">
                         <img src="new-folder/Road Accident/Main Sheet.png" alt="Road Accident Dashboard 1">
-                        <img src="new-folder/Road Accident/Accident Analysis.png" alt="Road Accident Dashboard 2">
-                        <img src="new-folder/Road Accident/Driver Analysis.png" alt="Road Accident Dashboard 3">
-                        <img src="new-folder/Road Accident/Location Analysis.png" alt="Road Accident Dashboard 4">
-                        <img src="new-folder/Road Accident/Road Analysis.png" alt="Road Accident Dashboard 4">
-                        <img src="new-folder/Road Accident/Time Analysis.png" alt="Road Accident Dashboard 4">
-                        <img src="new-folder/Road Accident/Weather Analysis.png" alt="Road Accident Dashboard 4">
                     </div>
                     <div class="project-content">
                         <h3>Road Accident Analysis</h3>
@@ -1527,9 +1578,6 @@
         </div>
     </section>
 
-  
-
- 
    <!-- Certifications Section -->
 <section class="section" id="certifications">
     <div class="container">
@@ -1570,7 +1618,10 @@
                         </ul>
                     </div>
                 </div>
-                
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="certifications-row">
                 <!-- Certification 3 -->
                 <div class="certification-card animate fade-in delay-2">
                     <div class="certification-image">
@@ -1586,10 +1637,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Row 2 -->
-            <div class="certifications-row">
+                
                 <!-- Certification 4 -->
                 <div class="certification-card animate fade-in delay-3">
                     <div class="certification-image">
@@ -1599,13 +1647,16 @@
                         <h3>Introduction to Tableau</h3>
                         <div class="certification-issuer">DataCamp</div>
                         <ul class="certification-details">
-                            <li>Built basic data visualizations and dashboards using Tableau’s drag-and-drop interface</li>
+                            <li>Built basic data visualizations and dashboards using Tableau's drag-and-drop interface</li>
                             <li>Imported and explored datasets to identify key patterns and trends</li>
                             <li>Applied filters and created calculated fields for deeper analysis</li>
                         </ul>
                     </div>
                 </div>
-                
+            </div>
+            
+            <!-- Row 3 -->
+            <div class="certifications-row">
                 <!-- Certification 5 -->
                 <div class="certification-card animate fade-in">
                     <div class="certification-image">
@@ -1622,9 +1673,9 @@
                     </div>
                 </div>
 
-                <div class="certification-card animate fade-in">
+                <div class="certification-card animate fade-in delay-1">
                     <div class="certification-image">
-                        <img src="new-folder/Certificate/Introduction To SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                        <img src="new-folder/Certificate/Introduction To SQL_certificate.jpg" alt="Introduction to SQL Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Introduction to SQL</h3>
@@ -1636,10 +1687,13 @@
                         </ul>
                     </div>
                 </div>
-
-                  <div class="certification-card animate fade-in">
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="certifications-row">
+                <div class="certification-card animate fade-in delay-2">
                     <div class="certification-image">
-                        <img src="new-folder/Certificate/Intermediate_SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                        <img src="new-folder/Certificate/Intermediate_SQL_certificate.jpg" alt="Intermediate SQL Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Intermediate SQL</h3>
@@ -1652,9 +1706,9 @@
                     </div>
                 </div>
 
-                  <div class="certification-card animate fade-in">
+                <div class="certification-card animate fade-in delay-3">
                     <div class="certification-image">
-                        <img src="new-folder/Certificate/Joining Data in SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                        <img src="new-folder/Certificate/Joining Data in SQL_certificate.jpg" alt="Joining Data in SQL Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Joining Data in SQL</h3>
@@ -1666,7 +1720,6 @@
                         </ul>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -1751,27 +1804,30 @@
 </footer>
 
 <script>
-    // Animate on scroll
-    const animateElements = document.querySelectorAll('.animate');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    animateElements.forEach(el => observer.observe(el));
-
-    // Hamburger toggle
+    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
 
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        if (navLinks.classList.contains('active')) {
+            menuIcon.style.display = 'none';
+            closeIcon.style.display = 'block';
+        } else {
+            menuIcon.style.display = 'block';
+            closeIcon.style.display = 'none';
+        }
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuIcon.style.display = 'block';
+            closeIcon.style.display = 'none';
+        });
     });
 
     // Header scroll effect
@@ -1783,6 +1839,40 @@
             header.classList.remove('scrolled');
         }
     });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Animate on scroll
+    const animateElements = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    animateElements.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>

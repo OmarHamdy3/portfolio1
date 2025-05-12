@@ -186,29 +186,16 @@
             align-items: flex-start;
         }
         
-       .hero-text h1 {
-    font-size: 4.0rem; /* Increased from 2.5rem */
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    background: linear-gradient(90deg, var(--light), var(--primary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
-}
-
-/* Update the responsive sizes as well */
-@media (min-width: 768px) {
-    .hero-text h1 {
-        font-size: 3.2rem; /* Increased from 3rem */
-    }
-}
-
-@media (min-width: 992px) {
-    .hero-text h1 {
-        font-size: 3.5rem; /* Increased from 3.4rem */
-    }
-}
+        .hero-text h1 {
+            font-size: 3rem; /* Increased from 2.5rem */
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
         
         .hero-text h2 {
             font-size: 1.2rem;
@@ -787,21 +774,27 @@
             font-size: 1rem;
         }
 
-/* Certifications Section - Updated to match Projects Section */
+/* Certifications Section */
 .certifications-container {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.certifications-row {
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
 .certification-card {
+    width: 100%;
     background: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: var(--transition);
     box-shadow: var(--box-shadow);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    position: relative;
 }
 
 .certification-card:hover {
@@ -813,18 +806,7 @@
 .certification-image {
     height: 180px;
     overflow: hidden;
-    position: relative;
-}
-
-.certification-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 60%, var(--card-bg) 100%);
-    z-index: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .certification-image img {
@@ -843,57 +825,20 @@
 }
 
 .certification-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     color: #ffffff;
-    font-weight: 600;
 }
 
 .certification-issuer {
-    color: rgba(240, 240, 245, 0.7);
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.certification-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1.2rem 0;
-}
-
-.certification-tool {
-    background: rgba(251, 237, 82, 0.15);
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    color: var(--primary);
-    border: 1px solid rgba(251, 237, 82, 0.15);
-}
-
-.certification-links {
-    display: flex;
-    gap: 1.2rem;
-    margin-top: 1.2rem;
-}
-
-.certification-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
     font-weight: 500;
 }
 
-.certification-links a i {
-    font-size: 1rem;
-}
-
-/* Optional: If you want to keep the details list style */
 .certification-details {
     list-style: none;
-    margin-bottom: 1rem;
 }
 
 .certification-details li {
@@ -1226,6 +1171,43 @@
             transform-origin: left;
         }
 
+        /* Typewriter Effect */
+        .typewriter-name {
+            position: relative;
+        }
+
+        .typewriter-name::after {
+            content: '|';
+            position: absolute;
+            right: -8px;
+            animation: blink 1s step-end infinite;
+            color: var(--primary);
+        }
+
+        /* Typewriter Effect */
+.typewriter-name {
+    position: relative;
+}
+
+.typewriter-name.typing::after,
+.typewriter-title.typing::after {
+    content: '|';
+    position: relative;
+    left: 2px;
+    animation: blink 1s step-end infinite;
+    color: var(--primary);
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         /* Responsive */
         @media (min-width: 576px) {
             .container {
@@ -1233,7 +1215,7 @@
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero-text h2 {
@@ -1344,7 +1326,7 @@
 
         @media (min-width: 992px) {
             .hero-text h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .hero-text h2 {
@@ -1456,8 +1438,8 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1 class="animate fade-in">Hi, I'm Omar Hamdy</h1>
-                <h2 class="animate fade-in delay-1"><span class="highlight"></span>Data Analyst | Business Intelligence Analyst</h2>
+                <h1 class="animate fade-in">Hi, I'm <span class="typewriter-name">Omar Hamdy</span></h1>
+                <h2 class="animate fade-in delay-1">Data Analyst | Business Intelligence Analyst</h2>
                 <div class="social-links animate fade-in delay-3">
                     <a href="mailto:Omarhamdy2035@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
                     <a href="tel:+201118938276" target="_blank" title="Call"><i class="fas fa-phone"></i></a>
@@ -1471,7 +1453,7 @@
                 </div>
             </div>
             <div class="hero-image animate fade-in delay-3">
-                <img src="Profile Picture (1).jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
+                <img src="new-folder/Images/Profile Picture.jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
             </div>
         </div>
     </section>
@@ -1681,7 +1663,7 @@
                 <!-- Certification 1 -->
                 <div class="certification-card animate fade-in">
                     <div class="certification-image">
-                        <img src="Intermediate_SQL_certificate.jpg" alt="Data Analyst using Power BI Certificate">
+                        <img src="new-folder/Certificate/Data Analysis Using Power BI.jpg" alt="Data Analyst using Power BI Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Data Analysis Using Power BI</h3>
@@ -1697,7 +1679,7 @@
                 <!-- Certification 2 -->
                 <div class="certification-card animate fade-in delay-1">
                     <div class="certification-image">
-                        <img src="Intermediate_SQL_certificate.jpg" alt="Data Analysis Certificate">
+                        <img src="new-folder/Certificate/Data Analysis.jpg" alt="Data Analysis Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Data Analysis</h3>
@@ -1713,7 +1695,7 @@
                 <!-- Certification 3 -->
                 <div class="certification-card animate fade-in delay-2">
                     <div class="certification-image">
-                        <img src="Intermediate_SQL_certificate.jpg" alt="Database Design Certificate">
+                        <img src="new-folder/Certificate/Database Design.jpg" alt="Database Design Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Database Design</h3>
@@ -1748,7 +1730,7 @@
                 <!-- Certification 5 -->
                 <div class="certification-card animate fade-in">
                     <div class="certification-image">
-                        <img src="Intermediate_SQL_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
+                        <img src="new-folder/Certificate/Analyzing Data In Tableau_certificate.jpg" alt="Analyzing Data in Tableau Certificate">
                     </div>
                     <div class="certification-content">
                         <h3>Analyzing Data in Tableau</h3>
@@ -1811,6 +1793,23 @@
                         </ul>
                     </div>
                 </div>
+
+
+                 <div class="certification-card animate fade-in delay-3">
+                    <div class="certification-image">
+                        <img src="new-folder/Certificate/certificate-of-completion-for-15-database-level-1-sql-concepts-and-practice.jpg" alt="Joining Data in SQL Certificate">
+                    </div>
+                    <div class="certification-content">
+                        <h3>Database Level 1 - SQL (Concepts and Practice)</h3>
+                        <div class="certification-issuer">Programming Advices</div>
+                        <ul class="certification-details">
+                           <li>Learn essential SQL concepts for querying and managing relational databases</li>
+                            <li>Practice hands-on SQL with real-world examples and exercises</li>
+                            <li>Build a strong foundation for data analysis and backend development careers</li>
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -1888,7 +1887,7 @@
             <a href="mailto:omarhamdy2035@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="tel:+201118938276"><i class="fas fa-phone"></i></a>
             <a href="https://linkedin.com/in/omarhamdy3"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/OmarHamdy3"><i class="fab fa-github"></i></a>
         </div>
         <p class="copyright">© 2025 Omar Hamdy. All rights reserved.</p>
     </div>
@@ -1964,6 +1963,61 @@
     });
 
     animateElements.forEach(el => observer.observe(el));
+
+
+
+    
+
+
+
+    // Typewriter effect for your name
+    document.addEventListener('DOMContentLoaded', function() {
+        const nameElement = document.querySelector('.hero-text h1 .typewriter-name');
+        const titleElement = document.querySelector('.hero-text h2');
+        
+        const nameText = "Omar Hamdy";
+        const titleText = "Data Analyst | Business Intelligence Analyst";
+        
+        let i = 0;
+        const nameSpeed = 100;
+        const titleSpeed = 50;
+        const lineDelay = 1000; // delay between lines
+        
+        // Clear the text initially
+        nameElement.textContent = "";
+        titleElement.textContent = "";
+        
+        function typeName() {
+            if (i < nameText.length) {
+                nameElement.textContent += nameText.charAt(i);
+                i++;
+                setTimeout(typeName, nameSpeed);
+            } else {
+                // Name typing complete, start title after delay
+                setTimeout(typeTitle, lineDelay);
+            }
+        }
+        
+        let j = 0;
+        function typeTitle() {
+            if (j < titleText.length) {
+                titleElement.textContent += titleText.charAt(j);
+                j++;
+                setTimeout(typeTitle, titleSpeed);
+            } else {
+                // Remove cursor when done
+                nameElement.classList.remove('typing');
+                titleElement.classList.remove('typing');
+            }
+        }
+        
+        // Add typing class to show cursor
+        nameElement.classList.add('typing');
+        titleElement.classList.add('typing');
+        
+        // Start the effect after a small delay
+        setTimeout(typeName, 500);
+    });
 </script>
 </body>
 </html>

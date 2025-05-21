@@ -758,8 +758,9 @@
         
         .project-links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             margin-top: 1.2rem;
+            flex-wrap: wrap;
         }
         
         .project-links a {
@@ -768,10 +769,27 @@
             gap: 0.5rem;
             font-size: 0.9rem;
             font-weight: 500;
+            padding: 0.6rem 1rem;
+            background: var(--darker);
+            border-radius: 6px;
+            transition: var(--transition);
         }
         
-        .project-links a i {
-            font-size: 1rem;
+        .project-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        .project-details-btn {
+            background: rgba(251, 237, 82, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(251, 237, 82, 0.2);
+        }
+        
+        .project-details-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            border-color: var(--primary);
         }
 
 /* Certifications Section */
@@ -857,7 +875,42 @@
     color: var(--primary);
     font-size: 0.9rem;
 }
+
+
         
+.project-details-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Add this line to center content horizontally */
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    background: var(--darker);
+    border-radius: 6px;
+    transition: var(--transition);
+    color: var(--primary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    min-width: 315px;
+}
+
+.project-details-btn:hover {
+    background: var(--primary);
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(251, 237, 82, 0.2);
+}
+
+.project-details-btn i {
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.project-details-btn:hover i {
+    transform: scale(1.1);
+}
+
+
         /* Contact Section */
         .contact-container {
             display: flex;
@@ -913,6 +966,8 @@
             transition: var(--transition);
         }
         
+
+
         .contact-item:hover .contact-icon {
             background: var(--primary);
             color: var(--dark);
@@ -1171,41 +1226,145 @@
             transform-origin: left;
         }
 
-        /* Typewriter Effect */
-        .typewriter-name {
+        /* Project Modals */
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background-color: rgba(5, 5, 10, 0.95);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(251, 237, 82, 0.2);
+            position: relative;
+            animation: modalFadeIn 0.4s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .modal-content h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .modal-section h3 {
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .modal-section p, 
+        .modal-section ul {
+            color: rgba(240, 240, 245, 0.8);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-section li {
+            margin-bottom: 0.7rem;
             position: relative;
         }
 
-        .typewriter-name::after {
-            content: '|';
-            position: absolute;
-            right: -8px;
-            animation: blink 1s step-end infinite;
-            color: var(--primary);
+        .modal-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
         }
 
-        /* Typewriter Effect */
-.typewriter-name {
-    position: relative;
-}
+        .modal-tool {
+            background: rgba(251, 237, 82, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            border: 1px solid rgba(251, 237, 82, 0.15);
+        }
 
-.typewriter-name.typing::after,
-.typewriter-title.typing::after {
-    content: '|';
-    position: relative;
-    left: 2px;
-    animation: blink 1s step-end infinite;
-    color: var(--primary);
-}
+        .modal-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
 
-@keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
-}
+        .modal-images img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
 
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
+        .modal-images img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-to-portfolio {
+            margin-top: 2rem;
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-to-portfolio i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-portfolio:hover i {
+            transform: translateX(-3px);
         }
 
         /* Responsive */
@@ -1321,6 +1480,14 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem;
+            }
+
+            .modal-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                padding: 3rem;
             }
         }
 
@@ -1438,8 +1605,8 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1 class="animate fade-in">Hi, I'm <span class="typewriter-name">Omar Hamdy</span></h1>
-                <h2 class="animate fade-in delay-1">Data Analyst | Business Intelligence Analyst</h2>
+                <h1 class="animate fade-in">Hi, I'm Omar Hamdy</h1>
+                <h2 class="animate fade-in delay-1"><span class="highlight"></span>Data Analyst | Business Intelligence Analyst</h2>
                 <div class="social-links animate fade-in delay-3">
                     <a href="mailto:Omarhamdy2035@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
                     <a href="tel:+201118938276" target="_blank" title="Call"><i class="fas fa-phone"></i></a>
@@ -1622,29 +1789,32 @@
                         <div class="project-tool">Pandas</div>
                     </div>
                     <div class="project-links">
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="#"><i class="fab fa-github"></i> View Code</a>
-                      </div>
+                        <a href="#" class="project-details-btn" data-modal="superstore-modal">
+                            <i class="fas fa-search-plus"></i> Project Details
+                        </a>
+                      
                     </div>
                 </div>
+            </div>
 
-                <div class="project-card animate fade-in delay-1">
-                    <div class="project-image">
-                        <img src="new-folder/Road Accident/Main Sheet.png" alt="Road Accident Dashboard 1">
+            <div class="project-card animate fade-in delay-1">
+                <div class="project-image">
+                    <img src="new-folder/Road Accident/Main Sheet.png" alt="Road Accident Dashboard 1">
+                </div>
+                <div class="project-content">
+                    <h3>Road Accident Analysis</h3>
+                    <p>Built Excel dashboards to explore accident data trends across locations, time, and causes for safety planning.</p>
+                    <div class="project-tools">
+                        <div class="project-tool">Excel</div>
+                        <div class="project-tool">Power Query</div>
+                        <div class="project-tool">Power Pivot</div>
+                        <div class="project-tool">Pivot Tables</div>
                     </div>
-                    <div class="project-content">
-                        <h3>Road Accident Analysis</h3>
-                        <p>Built Excel dashboards to explore accident data trends across locations, time, and causes for safety planning.</p>
-                        <div class="project-tools">
-                            <div class="project-tool">Excel</div>
-                            <div class="project-tool">Power Query</div>
-                            <div class="project-tool">Power Pivot</div>
-                            <div class="project-tool">Pivot Tables</div>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                        </div>
+                    <div class="project-links">
+                        <a href="#" class="project-details-btn" data-modal="road-accident-modal">
+                            <i class="fas fa-search-plus"></i> Project Details
+                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -1893,6 +2063,93 @@
     </div>
 </footer>
 
+<!-- Project Details Modals -->
+<div id="superstore-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Superstore Business Performance Analysis</h2>
+        
+        <div class="modal-section">
+            <h3>Project Overview</h3>
+            <p>This comprehensive analysis of Superstore sales data from 2014-2017 identified key trends, underperforming segments, and high-profit regions to drive business strategy.</p>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Key Insights</h3>
+            <ul>
+                <li>Identified a 15% quarter-over-quarter growth in the Technology category</li>
+                <li>Discovered West region consistently outperformed others with 23% higher profit margins</li>
+                <li>Found Furniture category had lowest profit margins at just 8%</li>
+            </ul>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Technologies Used</h3>
+            <div class="modal-tools">
+                <div class="modal-tool">Python</div>
+                <div class="modal-tool">Tableau</div>
+                <div class="modal-tool">SQL</div>
+                <div class="modal-tool">Draw.io</div>
+                <div class="modal-tool">Figma</div>
+                <div class="modal-tool">Pandas</div>
+            </div>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Visualizations</h3>
+            <div class="modal-images">
+                <img src="new-folder/Superstore/Overview-Dashboard-Figma.png" alt="Superstore Overview Dashboard">
+                <img src="new-folder/Superstore/Regional-Analysis.png" alt="Regional Analysis">
+            </div>
+        </div>
+        
+        <button class="btn back-to-portfolio"><i class="fas fa-arrow-left"></i> Back To Portfolio</button>
+    </div>
+</div>
+
+<div id="road-accident-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Road Accident Analysis</h2>
+
+         <div class="modal-section">
+            <h3>Dashboard Views</h3>
+            <div class="modal-images">
+                <img src="new-folder/Road Accident/Main Sheet.png" alt="Main Dashboard">
+                <img src="new-folder/Road Accident/Time Analysis.png" alt="Time Analysis">
+            </div>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Project Overview</h3>
+            <p>Developed interactive Excel dashboards to analyze road accident patterns, helping transportation authorities identify high-risk areas and times for targeted safety interventions.</p>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Key Insights</h3>
+            <ul>
+                <li>Friday evenings between 6-9pm showed 28% higher accident rates than other times</li>
+                <li>Urban areas accounted for 65% of all accidents despite having better road infrastructure</li>
+                <li>Weather-related accidents peaked during winter months (November-February)</li>
+            </ul>
+        </div>
+        
+        <div class="modal-section">
+            <h3>Technologies Used</h3>
+            <div class="modal-tools">
+                <div class="modal-tool">Excel</div>
+                <div class="modal-tool">Power Query</div>
+                <div class="modal-tool">Power Pivot</div>
+                <div class="modal-tool">Pivot Tables</div>
+            </div>
+        </div>
+        
+       
+        
+        <button class="btn back-to-portfolio"><i class="fas fa-arrow-left"></i> Back To Portfolio</button>
+    </div>
+</div>
+
 <script>
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
@@ -1964,59 +2221,53 @@
 
     animateElements.forEach(el => observer.observe(el));
 
+    // Project Modals functionality
+    const projectDetailBtns = document.querySelectorAll('.project-details-btn');
+    const modals = document.querySelectorAll('.project-modal');
+    const closeModalBtns = document.querySelectorAll('.close-modal, .back-to-portfolio');
 
-
-    
-
-
-
-    // Typewriter effect for your name
-    document.addEventListener('DOMContentLoaded', function() {
-        const nameElement = document.querySelector('.hero-text h1 .typewriter-name');
-        const titleElement = document.querySelector('.hero-text h2');
-        
-        const nameText = "Omar Hamdy";
-        const titleText = "Data Analyst | Business Intelligence Analyst";
-        
-        let i = 0;
-        const nameSpeed = 100;
-        const titleSpeed = 50;
-        const lineDelay = 1000; // delay between lines
-        
-        // Clear the text initially
-        nameElement.textContent = "";
-        titleElement.textContent = "";
-        
-        function typeName() {
-            if (i < nameText.length) {
-                nameElement.textContent += nameText.charAt(i);
-                i++;
-                setTimeout(typeName, nameSpeed);
-            } else {
-                // Name typing complete, start title after delay
-                setTimeout(typeTitle, lineDelay);
+    // Open modal when clicking project details button
+    projectDetailBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalId = btn.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
             }
+        });
+    });
+
+    // Close modal when clicking X or back button
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+    });
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('project-modal')) {
+            e.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
-        
-        let j = 0;
-        function typeTitle() {
-            if (j < titleText.length) {
-                titleElement.textContent += titleText.charAt(j);
-                j++;
-                setTimeout(typeTitle, titleSpeed);
-            } else {
-                // Remove cursor when done
-                nameElement.classList.remove('typing');
-                titleElement.classList.remove('typing');
-            }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
         }
-        
-        // Add typing class to show cursor
-        nameElement.classList.add('typing');
-        titleElement.classList.add('typing');
-        
-        // Start the effect after a small delay
-        setTimeout(typeName, 500);
     });
 </script>
 </body>

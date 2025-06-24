@@ -12,6 +12,8 @@
     <link rel="apple-touch-icon" href="new-folder/Images/analyst (3).png">
     <!-- Fallback for older browsers -->
     <link rel="shortcut icon" href="new-folder/Images/analyst (3).png">
+
+
     <style>
         :root {
             --primary: #fbed52;
@@ -156,6 +158,9 @@
             left: 0;
             transition: var(--transition);
         }
+
+
+        
         
         /* Hero Section */
         .hero {
@@ -341,6 +346,7 @@
         .section {
             padding: 4rem 0;
             position: relative;
+            overflow: hidden;
         }
         
         .section::before {
@@ -858,6 +864,121 @@
             font-size: 0.9rem;
         }
 
+
+        /* Achievements Section */
+.achievements-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.achievements-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.achievement-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    transition: var(--transition);
+    border-left: 3px solid var(--primary);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(251, 237, 82, 0.3);
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(251, 237, 82, 0.1);
+    color: var(--primary);
+}
+
+.achievement-icon.gold {
+    background: rgba(255, 215, 0, 0.1);
+    color: gold;
+}
+
+.achievement-icon.blue {
+    background: rgba(30, 144, 255, 0.1);
+    color: dodgerblue;
+}
+
+.achievement-icon.purple {
+    background: rgba(147, 112, 219, 0.1);
+    color: mediumpurple;
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.achievement-issuer {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.achievement-details {
+    list-style: none;
+}
+
+.achievement-details li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+    color: rgba(240, 240, 245, 0.8);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.achievement-details li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .achievements-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .achievements-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
         /* Contact Section */
         .contact-container {
             display: flex;
@@ -1141,11 +1262,31 @@
             animation-delay: 0.4s;
         }
 
+        
+
         /* Data Analysis Elements */
         .data-visual {
             position: absolute;
             opacity: 0.03;
             z-index: -1;
+            font-size: 3rem;
+            color: var(--primary);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, 50px) rotate(5deg);
+            }
+            50% {
+                transform: translate(0, 100px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-50px, 50px) rotate(-5deg);
+            }
         }
 
         .chart-icon {
@@ -1621,6 +1762,19 @@
     </style>
 </head>
 <body>
+    <!-- Floating Home Section Icons -->
+<i class="fas fa-home data-visual" style="top: 10%; left: 25%; animation-delay: 0s;"></i>             <!-- Home Icon -->
+<i class="fas fa-user data-visual" style="top: 20%; right: 30%; animation-delay: 1s;"></i>             <!-- Personal Intro -->
+<i class="fas fa-id-badge data-visual" style="top: 30%; left: 45%; animation-delay: 2s;"></i>          <!-- Profile / Title -->
+<i class="fas fa-quote-left data-visual" style="top: 40%; right: 40%; animation-delay: 3s;"></i>       <!-- Personal Motto -->
+<i class="fas fa-bullseye data-visual" style="top: 50%; left: 30%; animation-delay: 4s;"></i>          <!-- Career Goal -->
+<i class="fas fa-mouse-pointer data-visual" style="top: 60%; right: 20%; animation-delay: 1s;"></i>    <!-- Scroll Prompt -->
+<i class="fas fa-hand-peace data-visual" style="top: 70%; left: 60%; animation-delay: 2s;"></i>        <!-- Friendly Greeting -->
+<i class="fas fa-terminal data-visual" style="top: 80%; right: 10%; animation-delay: 3s;"></i>         <!-- Developer/Analyst Role -->
+<i class="fas fa-user-graduate data-visual" style="top: 90%; left: 40%; animation-delay: 4s;"></i>     <!-- Education/Background -->
+<i class="fas fa-sun data-visual" style="top: 25%; left: 65%; animation-delay: 5s;"></i>               <!-- Positive Vibes -->
+
+
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
@@ -1631,14 +1785,15 @@
                     <i class="fas fa-times" id="close-icon" style="display: none;"></i>
                 </div>
                 <ul class="nav-links" id="navLinks">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#certifications">Certifications</a>
-                    <a href="#contact">Contact</a>
-                </ul>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+</ul>
             </nav>
         </div>
     </header>
@@ -1667,6 +1822,9 @@
         </div>
     </section>
 
+
+     
+
     <!-- About Section -->
     <section class="section" id="about">
         <div class="section-container">
@@ -1685,18 +1843,48 @@
                         <div class="skill"><i class="fas fa-chart-pie"></i> Power BI</div>
                         <div class="skill"><i class="fas fa-chart-bar"></i> Tableau</div>
                         <div class="skill"><i class="fas fa-file-excel"></i> Excel</div>
+
+                   <!-- Additional Floating Data Analysis Icons -->
+<i class="fas fa-code data-visual" style="top: 10%; left: 30%; animation-delay: 2s;"></i>         <!-- Coding/Automation -->
+<i class="fas fa-laptop-code data-visual" style="top: 25%; right: 15%; animation-delay: 3s;"></i> <!-- Data tools/platforms -->
+<i class="fas fa-cogs data-visual" style="top: 45%; left: 70%; animation-delay: 1s;"></i>          <!-- Data processing -->
+<i class="fas fa-project-diagram data-visual" style="top: 60%; right: 25%; animation-delay: 4s;"></i> <!-- Data modeling -->
+<i class="fas fa-layer-group data-visual" style="top: 35%; left: 20%; animation-delay: 2s;"></i>    <!-- Data structuring -->
+<i class="fas fa-network-wired data-visual" style="top: 50%; right: 10%; animation-delay: 5s;"></i> <!-- Data pipelines -->
+<i class="fas fa-search data-visual" style="top: 15%; right: 30%; animation-delay: 0s;"></i>        <!-- Data exploration -->
+<i class="fas fa-clipboard-list data-visual" style="top: 75%; left: 35%; animation-delay: 1s;"></i>  <!-- KPIs / Reports -->
+<i class="fas fa-brain data-visual" style="top: 85%; right: 20%; animation-delay: 2s;"></i>          <!-- Insights / ML -->
+<i class="fas fa-bug data-visual" style="top: 65%; left: 75%; animation-delay: 3s;"></i>             <!-- Data quality/testing -->
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+
+   
     <!-- Experience Section -->
     <section class="section" id="experience">
         <div class="container">
             <div class="section-title">
                 <h2>My Experience</h2>
             </div>
+
+           <!-- Floating Experience Icons -->
+<i class="fas fa-briefcase data-visual" style="top: 15%; left: 20%; animation-delay: 0s;"></i>         <!-- Work Experience -->
+<i class="fas fa-user-tie data-visual" style="top: 25%; right: 30%; animation-delay: 1s;"></i>        <!-- Professional Role -->
+<i class="fas fa-tools data-visual" style="top: 35%; left: 50%; animation-delay: 2s;"></i>            <!-- Skills/Tools -->
+<i class="fas fa-trophy data-visual" style="top: 45%; right: 20%; animation-delay: 3s;"></i>          <!-- Achievements -->
+<i class="fas fa-tasks data-visual" style="top: 55%; left: 30%; animation-delay: 4s;"></i>            <!-- Responsibilities -->
+<i class="fas fa-people-carry data-visual" style="top: 65%; right: 40%; animation-delay: 5s;"></i>    <!-- Team Collaboration -->
+<i class="fas fa-lightbulb data-visual" style="top: 75%; left: 60%; animation-delay: 2s;"></i>        <!-- Problem Solving -->
+<i class="fas fa-chart-line data-visual" style="top: 85%; right: 10%; animation-delay: 3s;"></i>      <!-- Performance Impact -->
+<i class="fas fa-calendar-check data-visual" style="top: 25%; left: 70%; animation-delay: 1s;"></i>   <!-- Project Duration -->
+<i class="fas fa-clipboard-list data-visual" style="top: 40%; right: 50%; animation-delay: 4s;"></i>  <!-- Tasks/Projects -->
+
+
             <div class="experience-container">
                 <div class="experience-item animate fade-in">
                     <div class="experience-header">
@@ -1736,6 +1924,10 @@
         <div class="section-title">
             <h2>My Skills</h2>
         </div>
+
+
+        
+
         <div class="skills-container">
             <!-- Programming & Querying -->
             <div class="skills-category animate fade-in">
@@ -1745,6 +1937,20 @@
                     <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
                 </div>
             </div>
+
+
+             <!-- Floating Skills Icons -->
+<i class="fas fa-laptop-code data-visual" style="top: 15%; left: 25%; animation-delay: 1s;"></i>      <!-- Programming Skills -->
+<i class="fas fa-file-excel data-visual" style="top: 25%; right: 20%; animation-delay: 2s;"></i>      <!-- Excel Skills -->
+<i class="fab fa-python data-visual" style="top: 35%; left: 40%; animation-delay: 3s;"></i>           <!-- Python -->
+<i class="fas fa-database data-visual" style="top: 45%; right: 35%; animation-delay: 4s;"></i>        <!-- SQL / Databases -->
+<i class="fas fa-chart-pie data-visual" style="top: 55%; left: 60%; animation-delay: 1s;"></i>        <!-- Data Visualization -->
+<i class="fas fa-brain data-visual" style="top: 65%; right: 10%; animation-delay: 2s;"></i>           <!-- Analytical Thinking -->
+<i class="fas fa-cogs data-visual" style="top: 75%; left: 15%; animation-delay: 3s;"></i>             <!-- Problem Solving / Technical Skills -->
+<i class="fab fa-tableau data-visual" style="top: 30%; left: 70%; animation-delay: 4s;"></i>          <!-- Tableau -->
+<i class="fas fa-chart-line data-visual" style="top: 50%; right: 25%; animation-delay: 5s;"></i>      <!-- KPI Analysis -->
+<i class="fas fa-layer-group data-visual" style="top: 70%; right: 45%; animation-delay: 0s;"></i>     <!-- Data Modeling -->
+
             
             <!-- Spreadsheet Skills -->
             <div class="skills-category animate fade-in delay-1">
@@ -1804,6 +2010,8 @@
                     <div class="skill-item"><i class="fas fa-check-double"></i> Data Validation</div>
                 </div>
             </div>
+
+            
         </div>
     </div>
 </section>
@@ -1836,6 +2044,21 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Floating Projects Icons -->
+<i class="fas fa-project-diagram data-visual" style="top: 10%; left: 20%; animation-delay: 1s;"></i>       <!-- Project Workflow -->
+<i class="fas fa-lightbulb data-visual" style="top: 20%; right: 15%; animation-delay: 2s;"></i>            <!-- Project Idea -->
+<i class="fas fa-code-branch data-visual" style="top: 30%; left: 50%; animation-delay: 3s;"></i>           <!-- GitHub / Versions -->
+<i class="fas fa-clipboard-check data-visual" style="top: 40%; right: 35%; animation-delay: 4s;"></i>      <!-- Completed Project -->
+<i class="fas fa-bullseye data-visual" style="top: 50%; left: 30%; animation-delay: 1s;"></i>              <!-- Project Goals -->
+<i class="fas fa-chart-area data-visual" style="top: 60%; right: 15%; animation-delay: 2s;"></i>           <!-- Data Insights -->
+<i class="fas fa-rocket data-visual" style="top: 70%; left: 60%; animation-delay: 3s;"></i>                <!-- Project Launch -->
+<i class="fas fa-globe data-visual" style="top: 80%; right: 10%; animation-delay: 4s;"></i>                <!-- Real-World Impact -->
+<i class="fas fa-book-open data-visual" style="top: 90%; left: 35%; animation-delay: 5s;"></i>             <!-- Documentation -->
+<i class="fas fa-vial data-visual" style="top: 25%; left: 70%; animation-delay: 2s;"></i>                  <!-- Testing / Prototyping -->
+
+
 
             <div class="project-card animate fade-in delay-1">
                 <div class="project-image">
@@ -1883,6 +2106,19 @@
                         </ul>
                     </div>
                 </div>
+
+
+                  <!-- Floating Data Analysis Icons -->
+    <i class="fas fa-chart-line data-visual" style="top: 20%; left: 5%; animation-delay: 0s;"></i>
+    <i class="fas fa-chart-pie data-visual" style="top: 30%; right: 10%; animation-delay: 2s;"></i>
+    <i class="fas fa-database data-visual" style="top: 50%; left: 15%; animation-delay: 4s;"></i>
+    <i class="fas fa-file-excel data-visual" style="top: 70%; right: 5%; animation-delay: 1s;"></i>
+    <i class="fab fa-python data-visual" style="top: 80%; left: 10%; animation-delay: 3s;"></i>
+    <i class="fas fa-table data-visual" style="top: 40%; right: 15%; animation-delay: 5s;"></i>
+    <i class="fas fa-chart-bar data-visual" style="top: 60%; left: 5%; animation-delay: 2s;"></i>
+    <i class="fas fa-chart-area data-visual" style="top: 30%; right: 5%; animation-delay: 4s;"></i>
+    <i class="fas fa-filter data-visual" style="top: 70%; right: 20%; animation-delay: 1s;"></i>
+    <i class="fas fa-server data-visual" style="top: 20%; right: 10%; animation-delay: 3s;"></i>
                 
                 <!-- Certification 2 -->
                 <div class="certification-card animate fade-in delay-1">
@@ -2023,6 +2259,83 @@
     </div>
 </section>
 
+<!-- Achievements Section -->
+<section class="section" id="achievements">
+    <div class="container">
+        <div class="section-title">
+            <h2>Achievements</h2>
+        </div>
+        <div class="achievements-container">
+            <!-- Row 1 - 3 achievements -->
+            <div class="achievements-row">
+                <!-- Achievement 1 -->
+                <div class="achievement-card animate fade-in">
+                    <div class="achievement-icon gold">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>3rd Place Winner in the Best Graduation Project competition</h3>
+                        <div class="achievement-issuer">DEPI & E-Youth</div>
+                        <ul class="achievement-details">
+                            <li>Selected among top finalists under the Ministry of Communications DEPI program.</li>
+                            <li>Delivered a data analysis project with measurable real-world impact.</li>
+                            <li>Recognized for excellence in advanced dashboard development and actionable insights.</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Floating Achievements Icons -->
+<i class="fas fa-trophy data-visual" style="top: 10%; left: 30%; animation-delay: 0s;"></i>             <!-- Award / Ranking -->
+<i class="fas fa-medal data-visual" style="top: 20%; right: 20%; animation-delay: 1s;"></i>              <!-- Medal / Honor -->
+<i class="fas fa-award data-visual" style="top: 30%; left: 45%; animation-delay: 2s;"></i>               <!-- Recognition -->
+<i class="fas fa-certificate data-visual" style="top: 40%; right: 35%; animation-delay: 3s;"></i>        <!-- Certification -->
+<i class="fas fa-star data-visual" style="top: 50%; left: 25%; animation-delay: 4s;"></i>                <!-- Excellence / Highlight -->
+<i class="fas fa-check-circle data-visual" style="top: 60%; right: 45%; animation-delay: 1s;"></i>       <!-- Accomplished Goal -->
+<i class="fas fa-crown data-visual" style="top: 70%; left: 60%; animation-delay: 2s;"></i>               <!-- Top Performer -->
+<i class="fas fa-handshake data-visual" style="top: 80%; right: 15%; animation-delay: 3s;"></i>          <!-- Recognition by Organization -->
+<i class="fas fa-lightbulb data-visual" style="top: 25%; left: 70%; animation-delay: 4s;"></i>           <!-- Innovative Idea -->
+<i class="fas fa-flag-checkered data-visual" style="top: 85%; left: 40%; animation-delay: 5s;"></i>      <!-- Finalist / Completion -->
+
+
+
+                <!-- Achievement 2 -->
+                <div class="achievement-card animate fade-in delay-1">
+                    <div class="achievement-icon blue">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Top Performer in Data Analysis Training</h3>
+                        <div class="achievement-issuer">E-Youth</div>
+                        <ul class="achievement-details">
+                            <li>Achieved top scores in all assessments during intensive data analysis training.</li>
+                            <li>Recognized for exceptional problem-solving skills in data challenges.</li>
+                            <li>Completed certification with distinction.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="achievement-card animate fade-in delay-2">
+                    <div class="achievement-icon purple">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Academic Excellence Scholarship</h3>
+                        <div class="achievement-issuer">University of Alexandria</div>
+                        <ul class="achievement-details">
+                            <li>Awarded for maintaining top 5% academic standing throughout studies.</li>
+                            <li>Recognized for research contributions in data science applications.</li>
+                            <li>Selected as student representative for academic affairs.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
                   <!-- Contact Section -->
         <section class="section" id="contact">
             <div class="container">
@@ -2074,6 +2387,21 @@
                             <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
                         </form>
                     </div>
+
+
+                <!-- Floating Contact Me Icons -->
+<i class="fas fa-envelope data-visual" style="top: 10%; left: 20%; animation-delay: 0s;"></i>         <!-- Email -->
+<i class="fas fa-phone-alt data-visual" style="top: 20%; right: 25%; animation-delay: 1s;"></i>       <!-- Phone -->
+<i class="fab fa-linkedin data-visual" style="top: 30%; left: 50%; animation-delay: 2s;"></i>         <!-- LinkedIn -->
+<i class="fab fa-github data-visual" style="top: 40%; right: 35%; animation-delay: 3s;"></i>          <!-- GitHub -->
+<i class="fas fa-globe data-visual" style="top: 50%; left: 30%; animation-delay: 4s;"></i>            <!-- Portfolio/Website -->
+<i class="fas fa-map-marker-alt data-visual" style="top: 60%; right: 40%; animation-delay: 1s;"></i>  <!-- Location -->
+<i class="fas fa-comment-dots data-visual" style="top: 70%; left: 60%; animation-delay: 2s;"></i>     <!-- Chat / Message -->
+<i class="fab fa-whatsapp data-visual" style="top: 80%; right: 15%; animation-delay: 3s;"></i>        <!-- WhatsApp -->
+<i class="fas fa-calendar-alt data-visual" style="top: 25%; left: 70%; animation-delay: 4s;"></i>     <!-- Schedule a Call -->
+<i class="fas fa-user-circle data-visual" style="top: 85%; left: 40%; animation-delay: 5s;"></i>      <!-- Personal Contact -->
+
+
                 </div>
             </div>
         </section>
@@ -2083,14 +2411,15 @@
     <div class="container footer-content">
         <div class="footer-logo"><i class="fas fa-chart-line"></i>Omar<span>Hamdy</span></div>
         <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </div>
         <div class="social-links-footer">
             <a href="mailto:omarhamdy2035@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="tel:+201118938276"><i class="fas fa-phone"></i></a>
@@ -2117,7 +2446,7 @@
             <h3>Project Demonstration</h3>
             <div class="video-container">
                 <!-- Replace with your actual video embed code -->
-                <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="km_20250424-1_1080p_30f_20250429_163107.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <p>This video walkthrough demonstrates the interactive features of the Superstore dashboard and key findings from the analysis.</p>
         </div>
@@ -2130,13 +2459,13 @@
                     <img src="new-folder/Superstore/Overview-Dashboard-Figma.png" alt="Superstore Overview Dashboard">
                 </div>
                 <div class="dashboard-image">
-                    <img src="new-folder/Superstore/Regional-Analysis.png" alt="Regional Analysis Dashboard">
+                    <img src="new-folder/Superstore/OrderDetails-Dashboard.png" alt="Order Details Dashboard">
                 </div>
                 <div class="dashboard-image">
-                    <img src="new-folder/Superstore/Product-Performance.png" alt="Product Performance Dashboard">
+                    <img src="new-folder/Superstore/Product-Dashboard-Figma.png" alt="Product Performance Dashboard">
                 </div>
                 <div class="dashboard-image">
-                    <img src="new-folder/Superstore/Customer-Segmentation.png" alt="Customer Segmentation Dashboard">
+                    <img src="new-folder/Superstore/Customer-Dashboard-Figma.png" alt="Customer Segmentation Dashboard">
                 </div>
             </div>
         </div>
@@ -2213,7 +2542,7 @@
             <h3>Project Demonstration</h3>
             <div class="video-container">
                 <!-- Replace with your actual video embed code -->
-                <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="new-folder/Road Accident/Road_Accident_Analysis.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <p>This video demonstrates the interactive features of the Road Accident dashboard and how to navigate between different views.</p>
         </div>
@@ -2226,14 +2555,24 @@
                     <img src="new-folder/Road Accident/Main Sheet.png" alt="Main Dashboard">
                 </div>
                 <div class="dashboard-image">
-                    <img src="new-folder/Road Accident/Time Analysis.png" alt="Time Analysis Dashboard">
+                    <img src="new-folder/Road Accident/Accident Analysis.png" alt="Accident Analysis Dashboard">
+                </div>
+                <div class="dashboard-image">
+                    <img src="new-folder/Road Accident/Driver Analysis.png" alt="Driver Analysis Dashboard">
                 </div>
                 <div class="dashboard-image">
                     <img src="new-folder/Road Accident/Location Analysis.png" alt="Location Analysis Dashboard">
                 </div>
-                <div class="dashboard-image">
-                    <img src="new-folder/Road Accident/Vehicle Analysis.png" alt="Vehicle Analysis Dashboard">
+                 <div class="dashboard-image">
+                    <img src="new-folder/Road Accident/Road Analysis.png" alt="Road Analysis Dashboard">
                 </div>
+                <div class="dashboard-image">
+                    <img src="new-folder/Road Accident/Time Analysis.png" alt="Time Analysis Dashboard">
+                </div>
+                <div class="dashboard-image">
+                    <img src="new-folder/Road Accident/Weather Analysis.png" alt="Weather Analysis Dashboard">
+                </div>
+            
             </div>
         </div>
         

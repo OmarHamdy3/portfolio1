@@ -1,100 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Omar Hamdy | Data Analyst Portfolio</title>
-    <meta name="description" content="Omar Hamdy — Data Analyst Portfolio showcasing projects, skills and contact." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Hamdy - Data Analyst Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&family=Satisfy&display=swap');
-        
         :root {
             --bg: #0b0b0b;
             --muted: #9ca3af;
-            --card: #0f1720;
             --accent: #fbed52;
-        }
-        
-        html, body {
-            height: 100%;
+            --hover-bg: rgba(251, 237, 82, 0.08);
+            --hover-bg-dark: rgba(251, 237, 82, 0.12);
+            --hover-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         body {
-            font-family: 'Rubik', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
             background: linear-gradient(180deg, var(--bg), #070707);
             color: #e6e6e6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Rubik', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
         }
         
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.06);
-            border-radius: 999px;
-            border: 2px solid transparent;
-        }
-        
-        /* Utility Classes */
         .glass {
             background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
             backdrop-filter: blur(6px);
+            transition: var(--hover-transition);
         }
+        
         .accent {
             color: var(--accent);
         }
+        
         .accent-bg {
             background: linear-gradient(90deg, rgba(251,237,82,0.12), rgba(251,237,82,0.06));
             border: 1px solid rgba(251,237,82,0.12);
         }
-        .btn-primary {
-            background: linear-gradient(90deg, var(--accent), #ffd84d);
-            color: #0b0b0b;
-            font-weight: 600;
+        
+        .project-card {
+            transition: var(--hover-transition);
         }
+        
         .avatar-ring {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 3px;
             border-radius: 9999px;
             background: linear-gradient(90deg, var(--accent), #ffd84d);
+            margin: 0 auto;
         }
         
-        /* Layout */
-        .layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            min-height: 100vh;
-        }
-        @media (min-width: 1024px) {
-            .layout {
-                grid-template-columns: 260px 1fr;
-            }
-        }
-        
-        /* Sections */
-        section {
-            margin-bottom: 5rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        section:last-child {
-            border-bottom: none;
-        }
-        section h3 {
+        section h2 {
             position: relative;
             padding-bottom: 0.75rem;
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
         }
-        section h3::after {
+        
+        section h2::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -104,1583 +67,916 @@
             background: linear-gradient(90deg, var(--accent), rgba(251,237,82,0.5));
             border-radius: 3px;
         }
-        main section {
-            display: none;
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent), #ffd84d);
+            color: #0b0b0b;
+            font-weight: 600;
+            transition: var(--hover-transition);
         }
-        main section.active {
+
+        /* Section transitions */
+        .section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .section.active {
             display: block;
+            opacity: 1;
         }
-        
-        /* Skills */
-        .skill-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            font-size: 24px;
-            color: var(--accent);
-            transition: all 0.3s ease;
+
+        /* Navigation hover effects */
+        aside nav a:hover,
+        .mobile-nav a:hover {
+            background: var(--hover-bg) !important;
+            color: var(--accent) !important;
+            transform: translateY(-1px);
         }
-        .skill-icon:hover {
+
+        /* Glass element hover */
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.05) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Project cards hover 
+        .project-card:hover {
+            background: var(--hover-bg) !important;
             transform: translateY(-5px);
-            background: rgba(251,237,82,0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
-        
-        /* Cards */
-        .feature-card {
-            transition: all 0.3s ease;
+*/
+
+
+        /* Skill cards hover 
+        #skills .glass:hover {
+            background: var(--hover-bg) !important;
+            box-shadow: 0 4px 12px rgba(251, 237, 82, 0.1);
         }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(251,237,82,0.1);
+*/
+
+        /* Certificate cards hover 
+        #certificates .glass:hover {
+            background: var(--hover-bg-dark) !important;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px) scale(1.01);
         }
-        
-        /* Project Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 100;
-            overflow-y: auto;
-            padding: 2rem;
+*/
+
+        /* Social media icons hover 
+        .social-links a:hover {
+            background: var(--hover-bg) !important;
+            color: var(--accent) !important;
+            transform: scale(1.1);
         }
-        
-        .modal-content {
-            background: linear-gradient(180deg, var(--bg), #070707);
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+*/
+
+
+        /* Contact form inputs hover/focus */
+        #contact input:hover,
+        #contact textarea:hover,
+        #contact input:focus,
+        #contact textarea:focus {
+            border-color: rgba(251, 237, 82, 0.3) !important;
+            background: rgba(251, 237, 82, 0.03) !important;
         }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        /* Active nav link styling */
+        .nav-link.active {
+            background: var(--hover-bg) !important;
+            color: var(--accent) !important;
         }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            color: var(--muted);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s;
+
+        /* Primary button hover */
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #f8e34d, #ffd84d) !important;
+            box-shadow: 0 4px 12px rgba(251, 237, 82, 0.3);
+            transform: translateY(-1px);
         }
-        
-        .close-modal:hover {
-            color: var(--accent);
+
+        /* Secondary button hover 
+        .glass:hover:not(.project-card):not(.nav-link) {
+            background: var(--hover-bg) !important;
         }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            background: #000;
+*/
+
+        /* Achievement cards hover 
+        #achievements .glass:hover {
+            background: var(--hover-bg) !important;
+            transform: translateY(-2px);
         }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        
-        .gallery img:hover {
-            transform: scale(1.03);
-        }
-        
-        /* Tailwind-like Utilities */
-        .min-h-screen { min-height: 100vh; }
-        .grid { display: grid; }
-        .flex { display: flex; }
-        .hidden { display: none; }
-        .block { display: block; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .gap-2 { gap: 0.5rem; }
-        .gap-3 { gap: 0.75rem; }
-        .gap-4 { gap: 1rem; }
-        .gap-6 { gap: 1.5rem; }
-        .p-2 { padding: 0.5rem; }
-        .p-3 { padding: 0.75rem; }
-        .p-4 { padding: 1rem; }
-        .p-5 { padding: 1.25rem; }
-        .p-6 { padding: 1.5rem; }
-        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
-        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
-        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
-        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-        .rounded { border-radius: 0.25rem; }
-        .rounded-md { border-radius: 0.375rem; }
-        .rounded-lg { border-radius: 0.5rem; }
-        .rounded-full { border-radius: 9999px; }
-        .border { border-width: 1px; }
-        .border-b { border-bottom-width: 1px; }
-        .border-b-0 { border-bottom-width: 0; }
-        .border-gray-800 { border-color: rgba(31, 41, 55, 1); }
-        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-        .text-xs { font-size: 0.75rem; line-height: 1rem; }
-        .font-semibold { font-weight: 600; }
-        .font-medium { font-weight: 500; }
-        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
-        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-        .leading-relaxed { line-height: 1.625; }
-        .mt-1 { margin-top: 0.25rem; }
-        .mt-2 { margin-top: 0.5rem; }
-        .mt-3 { margin-top: 0.75rem; }
-        .mt-4 { margin-top: 1rem; }
-        .mt-6 { margin-top: 1.5rem; }
-        .mt-8 { margin-top: 2rem; }
-        .mb-2 { margin-bottom: 0.5rem; }
-        .mb-3 { margin-bottom: 0.75rem; }
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-10 { margin-bottom: 2.5rem; }
-        .ml-auto { margin-left: auto; }
-        .w-full { width: 100%; }
-        .h-screen { height: 100vh; }
-        .max-w-6xl { max-width: 72rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .transition-all { transition: all 0.3s ease; }
-        .transition-colors { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
-        .transition-transform { transition: transform 0.3s ease; }
-        .z-40 { z-index: 40; }
-        .fixed { position: fixed; }
-        .sticky { position: sticky; }
-        .top-0 { top: 0; }
-        .right-5 { right: 1.25rem; }
-        .bottom-5 { bottom: 1.25rem; }
-        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        .object-cover { object-fit: cover; }
-        
-        /* Hover States */
-        .hover\:bg-gray-800:hover { background-color: rgba(31, 41, 55, 1); }
-        .hover\:bg-gray-900:hover { background-color: rgba(17, 24, 39, 1); }
-        .hover\:scale-\[1\.01\]:hover { transform: scale(1.01); }
-        .hover\:underline:hover { text-decoration: underline; }
-        .group:hover .group-hover\:text-\[\#fbed52\] { color: #fbed52; }
-        
-        /* Responsive Grids */
-        @media (min-width: 640px) {
-            .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .sm\:inline-block { display: inline-block; }
-        }
-        @media (min-width: 768px) {
-            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        }
-        @media (min-width: 1024px) {
-            .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .lg\:col-span-1 { grid-column: span 1 / span 1; }
-            .lg\:col-span-2 { grid-column: span 2 / span 2; }
-            .lg\:block { display: block; }
-            .lg\:flex-col { flex-direction: column; }
-            .lg\:items-start { align-items: flex-start; }
-        }
+*/
+
     </style>
 </head>
-<body>
-  <div class="min-h-screen layout grid grid-cols-1 lg:grid-cols-[260px_1fr]">
-    <!-- Sidebar / Mobile topbar -->
-    <aside id="sidebar" class="glass lg:sticky lg:top-0 z-40 w-full lg:h-screen lg:overflow-y-auto p-4 lg:p-6 border-b lg:border-b-0 border-gray-800">
-      <div class="flex items-center justify-between lg:flex-col lg:items-start">
-        <div class="flex items-center gap-3">
-          <div class="avatar-ring inline-block rounded-full">
-            <img src="new-folder/Images/Profile Picture.jpg" alt="Profile" class="w-14 h-14 rounded-full block object-cover" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'" />
-          </div>
-          <div class="hidden lg:block">
-            <h1 class="text-lg font-semibold">Omar Hamdy <span class="text-xs ml-2 inline-block bg-[rgba(251,237,82,0.1)] px-2 py-0.5 rounded text-[var(--accent)]">Verified</span></h1>
-            <p class="text-sm text-[var(--muted)]">Data Analyst — Egypt</p>
-          </div>
-        </div>
-
-        <!-- Updated Mobile Controls - More Professional -->
-        <div class="lg:hidden flex items-center gap-3">
-          <button 
-            id="mobile-menu-toggle" 
-            aria-expanded="false" 
-            aria-controls="mobile-nav"
-            class="p-2 rounded-md glass hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
-            aria-label="Toggle navigation menu"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 12h18M3 6h18M3 18h18"/>
-            </svg>
-          </button>
-          <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-sm rounded-md btn-primary hover:shadow-lg transition-all">
-            <i class="fas fa-envelope mr-2"></i> Contact me
-          </a>
-        </div>
-
-        <!-- nav for large screens -->
-        <nav id="nav" class="mt-6 lg:mt-8 lg:block w-full hidden">
-          <ul class="space-y-1">
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#home">Home</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#about">About</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#experience">Experience</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#projects">Projects</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#skills">Skills</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#certificates">Certificates</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#achievements">Achievements</a></li>
-            <li><a class="nav-link flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-900 text-sm" href="#contact">Contact</a></li>
-          </ul>
-
-          <div class="mt-6 pt-4 border-t border-gray-800 hidden lg:block">
-            <p class="text-xs text-[var(--muted)]">Quick links</p>
-            <div class="mt-3 flex gap-2 flex-wrap">
-              <a href="#projects" class="px-2 py-1 text-xs rounded bg-[rgba(255,255,255,0.03)]">Selected work</a>
-              <a href="#contact" class="px-2 py-1 text-xs rounded accent-bg">Contact</a>
-              <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view?usp=sharing" class="px-2 py-1 text-xs rounded bg-[rgba(255,255,255,0.03)]">Resume</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <div id="mobile-nav" class="mt-4 lg:hidden hidden">
-        <ul class="space-y-2">
-          <li><a class="block py-2 px-3 rounded hover:bg-gray-800 transition-colors" href="#home">Home</a></li>
-          <li><a class="block py-2 px-3 rounded hover:bg-gray-800 transition-colors" href="#about">About</a></li>
-          <li><a class="block py-2 px-3 rounded hover:bg-gray-800 transition-colors" href="#projects">Projects</a></li>
-          <li><a class="block py-2 px-3 rounded hover:bg-gray-800 transition-colors" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="mt-6 lg:mt-auto text-sm text-[var(--muted)]">
-        <p class="mb-2">COPYRIGHT © <span id="year"></span> Omar Hamdy</p>
-        <div class="flex items-center gap-2 mt-2">
-          <a href="https://github.com/OmarHamdy3" target="_blank" rel="noopener" aria-label="Github" class="p-2 rounded-full glass hover:bg-gray-800 transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.61.07-.61 1 .07 1.52 1.03 1.52 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.115 2.52.338 1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .26.18.58.69.48A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
-          <a href="https://linkedin.com/in/omarhamdy3" class="p-2 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-6a2 2 0 0 0-4 0v6h-4v-12h4v2"/></svg></a>
-          <a href="#contact" class="ml-auto text-xs px-3 py-1 rounded glass hover:bg-gray-800 transition-colors">Contact</a>
-        </div>
-      </div>
-    </aside>
-
-    <!-- Main content -->
-    <main class="p-6 lg:p-10 max-w-6xl mx-auto">
-      <!-- Hero / Home -->
-      <section id="home" class="mb-10">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-          <div class="lg:col-span-2">
-            <h2 class="text-3xl lg:text-4xl font-bold leading-tight">Hi, I'm <span class="accent">Omar Hamdy</span></h2>
-            <p class="mt-3 text-[var(--muted)] max-w-2xl">Data Analyst transforming raw data into meaningful insights. Proficient in Excel, SQL, Python, Power BI, and Tableau with a strong ability to extract insights and present data through interactive dashboards.</p>
-
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a href="#projects" class="px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors">See my work</a>
-              <a href="#contact" class="px-4 py-2 rounded-md btn-primary hover:shadow-lg transition-all">Let's collaborate</a>
-              <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view?usp=sharing" download="OmarHamdy_Resume.pdf" class="px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors">Download resume</a>
-            </div>
-
-            <div class="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div class="p-3 rounded-lg accent-bg">
-                <h4 class="text-sm font-semibold">5+ Years</h4>
-                <p class="text-xs text-[var(--muted)]">Data Analysis Experience</p>
-              </div>
-              <div class="p-3 rounded-lg accent-bg">
-                <h4 class="text-sm font-semibold">50+ Projects</h4>
-                <p class="text-xs text-[var(--muted)]">Completed Successfully</p>
-              </div>
-              <div class="p-3 rounded-lg accent-bg">
-                <h4 class="text-sm font-semibold">12+ Certificates</h4>
-                <p class="text-xs text-[var(--muted)]">In Data Analytics</p>
-              </div>
-            </div>
-          </div>
-
-          <aside class="lg:col-span-1 p-4 rounded-lg glass">
-            <h3 class="text-sm text-[var(--muted)]">Contact Information</h3>
-            <p class="mt-2 text-sm">omarhamdi328@gmail.com<br/>+20 111 893 8276</p>
-            <p class="mt-2 text-sm">Cairo, Egypt</p>
-            <div class="mt-4 flex gap-2">
-              <a href="#contact" class="flex-1 py-2 text-center rounded btn-primary hover:shadow-lg transition-all">Message</a>
-              <a href="#projects" class="py-2 px-3 rounded glass hover:bg-gray-800 transition-colors">Portfolio</a>
-            </div>
-
-            <div class="mt-6">
-              <h4 class="text-sm text-[var(--muted)]">Technical Skills</h4>
-              <div class="mt-3 flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Excel</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">ETL</span>
-                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Data Modeling</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        <!-- New Skills Section -->
-        <div class="mt-16">
-          <h3 class="text-2xl font-bold mb-2">Skills</h3>
-          <p class="text-[var(--muted)] mb-6">My professional skills.</p>
-          
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-file-excel"></i>
-              </div>
-              <span class="text-sm">Excel</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-database"></i>
-              </div>
-              <span class="text-sm">SQL</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fab fa-python"></i>
-              </div>
-              <span class="text-sm">Python</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <span class="text-sm">Power BI</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-chart-bar"></i>
-              </div>
-              <span class="text-sm">Tableau</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-code"></i>
-              </div>
-              <span class="text-sm">C++</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fab fa-python"></i>
-              </div>
-              <span class="text-sm">NumPy</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fab fa-python"></i>
-              </div>
-              <span class="text-sm">Pandas</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-chart-pie"></i>
-              </div>
-              <span class="text-sm">Matplotlib</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-broom"></i>
-              </div>
-              <span class="text-sm">Data Cleansing</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-project-diagram"></i>
-              </div>
-              <span class="text-sm">Data Modeling</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-chart-area"></i>
-              </div>
-              <span class="text-sm">Data Visualization</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-file-alt"></i>
-              </div>
-              <span class="text-sm">Reporting</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-filter"></i>
-              </div>
-              <span class="text-sm">Data Preprocessing</span>
-            </div>
-            <div class="flex flex-col items-center p-4 glass rounded-lg hover:bg-gray-800 transition-colors">
-              <div class="skill-icon mb-2">
-                <i class="fas fa-table"></i>
-              </div>
-              <span class="text-sm">Data Preparation</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- New Featured Solutions Section -->
-        <div class="mt-16">
-          <h3 class="text-2xl font-bold mb-2">Featured Solutions</h3>
-          <p class="text-[var(--muted)] mb-6">Explore everything I've crafted, contributed, and accomplished.</p>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="#projects" class="feature-card p-6 rounded-lg glass hover:bg-gray-800 transition-all">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="skill-icon">
-                  <i class="fas fa-project-diagram"></i>
+<body class="min-h-screen">
+    <!-- [Rest of your HTML content remains exactly the same] -->
+    <div class="flex">
+        <!-- Navigation Sidebar -->
+        <aside class="flex w-76 min-h-screen p-6 hidden md:block sticky top-0">
+           <div class="flex flex-col items-center text-center">
+                <!-- Profile Picture -->
+                <div class="relative mb-7">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--accent)] to-yellow-300 blur-md opacity-60"></div>
+                    <img src="Files/Projects/omar-photo.png" alt="Profile" class="w-32 h-32 rounded-full object-cover relative z-10 border-2 border-[var(--accent)]">
                 </div>
-                <h4 class="font-semibold text-lg">Projects</h4>
-              </div>
-              <p class="text-sm text-[var(--muted)]">View my portfolio of data analysis projects showcasing various skills and tools.</p>
-            </a>
+                
+                <!-- Name and Title -->
+                <h1 class="text-xl font-bold">Omar Hamdy <span class="text-xs ml-2 inline-block bg-[rgba(251,237,82,0.1)] px-2 py-0.5 rounded text-[var(--accent)]">Verified</span></h1>
+                <p class="text-sm text-[var(--muted)] mt-3">Data Analyst — Egypt</p>
+                
+                <!-- Navigation Links -->
+                <nav class="mt-8 w-full">
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#home" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="home">
+                                <i class="fas fa-home w-5 text-center"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="about">
+                                <i class="fas fa-user w-5 text-center"></i>
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#experience" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="experience">
+                                <i class="fas fa-briefcase w-5 text-center"></i>
+                                <span>Experience</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#skills" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="skills">
+                                <i class="fas fa-code w-5 text-center"></i>
+                                <span>Skills</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#projects" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="projects">
+                                <i class="fas fa-folder w-5 text-center"></i>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#certificates" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="certificates">
+                                <i class="fas fa-certificate w-5 text-center"></i>
+                                <span>Certificates</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#achievements" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="achievements">
+                                <i class="fas fa-trophy w-5 text-center"></i>
+                                <span>Achievements</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors" data-section="contact">
+                                <i class="fas fa-envelope w-5 text-center"></i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Social Links -->
+                <div class="mt-auto pt-14 flex gap-6">
+                    <a href="https://linkedin.com/in/omarhamdy3" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/OmarHamdy3" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/omarhamdy3" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                
+                <div class="mt-4 text-sm text-[var(--muted)]">
+                    <p>COPYRIGHT © <span id="year"></span> Omar Hamdy</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10">
+            <!-- [Keep all your existing section content] -->
+            <!-- Home Section -->
+            <section id="home" class="section active mb-16">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                    <div class="lg:col-span-2">
+                        <h2 class="text-3xl lg:text-4xl font-bold leading-tight">Hi, I'm <span class="accent">Omar Hamdy</span></h2>
+                        <p class="mt-3 text-[var(--muted)] max-w-2xl">Data Analyst transforming raw data into meaningful insights. Proficient in Excel, SQL, Python, Power BI, and Tableau with a strong ability to extract insights and present data through interactive dashboards.</p>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="#projects" class="nav-link px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors" data-section="projects">See my work</a>
+                            <a href="#contact" class="nav-link px-4 py-2 rounded-md btn-primary hover:shadow-lg transition-all" data-section="contact">Let's collaborate</a>
+                            <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view?usp=sharing" download="OmarHamdy_Resume.pdf" class="px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors">Download resume</a>
+                        </div>
+
+                        <div class="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="p-3 rounded-lg accent-bg">
+                                <h4 class="text-sm font-semibold">5+ Years</h4>
+                                <p class="text-xs text-[var(--muted)]">Data Analysis Experience</p>
+                            </div>
+                            <div class="p-3 rounded-lg accent-bg">
+                                <h4 class="text-sm font-semibold">50+ Projects</h4>
+                                <p class="text-xs text-[var(--muted)]">Completed Successfully</p>
+                            </div>
+                            <div class="p-3 rounded-lg accent-bg">
+                                <h4 class="text-sm font-semibold">12+ Certificates</h4>
+                                <p class="text-xs text-[var(--muted)]">In Data Analytics</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="lg:col-span-1 p-4 rounded-lg glass">
+                        <h3 class="text-sm text-[var(--muted)]">Contact Information</h3>
+                        <p class="mt-2 text-sm">omarhamdi328@gmail.com<br/>+20 111 893 8276</p>
+                        <p class="mt-2 text-sm">Cairo, Egypt</p>
+                        <div class="mt-4 flex gap-2">
+                            <a href="#contact" class="nav-link flex-1 py-2 text-center rounded btn-primary hover:shadow-lg transition-all" data-section="contact">Message</a>
+                            <a href="#projects" class="nav-link py-2 px-3 rounded glass hover:bg-gray-800 transition-colors" data-section="projects">Portfolio</a>
+                        </div>
+
+                        <div class="mt-6">
+                            <h4 class="text-sm text-[var(--muted)]">Technical Skills</h4>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Excel</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">ETL</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Data Modeling</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
             
-            <a href="#experience" class="feature-card p-6 rounded-lg glass hover:bg-gray-800 transition-all">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="skill-icon">
-                  <i class="fas fa-briefcase"></i>
+            <!-- About Section -->
+            <section id="about" class="section mb-16">
+                <h2 class="text-3xl font-bold mb-2">About Me</h2>
+                <p class="text-[var(--muted)] mb-8">Get to know me better</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <p class="text-[var(--muted)] leading-relaxed">
+                            I'm a passionate data professional with 5+ years of experience in transforming raw data into actionable business insights. My expertise spans across data cleaning, analysis, visualization, and dashboard creation to support data-driven decision making.
+                        </p>
+                        <p class="mt-4 text-[var(--muted)] leading-relaxed">
+                            My journey in data analytics began during my university studies where I discovered my passion for uncovering patterns in data. Since then, I've worked with numerous organizations across different industries, helping them leverage their data assets to gain competitive advantage.
+                        </p>
+                        <p class="mt-4 text-[var(--muted)] leading-relaxed">
+                            What sets me apart is my ability to not only analyze data but to communicate insights effectively to stakeholders at all levels. I believe data should tell a story that drives action.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-lg glass">
+                            <h4 class="font-semibold">Education</h4>
+                            <div class="mt-2">
+                                <p class="text-sm font-medium">Bachelor's in Computer Science</p>
+                                <p class="text-xs text-[var(--muted)]">Cairo University | 2018-2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-lg glass">
+                            <h4 class="font-semibold">Languages</h4>
+                            <div class="mt-2 space-y-2">
+                                <div>
+                                    <p class="text-sm">Arabic <span class="text-[var(--muted)]">(Native)</span></p>
+                                    <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
+                                        <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm">English <span class="text-[var(--muted)]">(Professional)</span></p>
+                                    <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
+                                        <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-semibold text-lg">Experience</h4>
-              </div>
-              <p class="text-sm text-[var(--muted)]">See my professional journey and the companies I've worked with.</p>
-            </a>
+            </section>
             
-            <a href="#certificates" class="feature-card p-6 rounded-lg glass hover:bg-gray-800 transition-all">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="skill-icon">
-                  <i class="fas fa-certificate"></i>
+            <!-- Experience Section -->
+            <section id="experience" class="section mb-16">
+                <h2 class="text-3xl font-bold mb-2">Professional Experience</h2>
+                <p class="text-[var(--muted)] mb-8">My career journey and professional achievements</p>
+                
+                <div class="space-y-6">
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h4 class="font-semibold text-lg">Senior Data Analyst</h4>
+                                <p class="text-sm text-[var(--muted)]">Data Insights Corp, Cairo</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Mar 2023 – Present</span>
+                        </div>
+                        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Lead a team of 5 junior analysts to deliver data solutions for enterprise clients, improving reporting efficiency by 40%</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Developed automated ETL pipelines using Python and SQL that reduced manual data processing time by 65%</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Created interactive Power BI dashboards for executive leadership that provided real-time KPIs across 12 business units</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Implemented data quality standards that improved reporting accuracy by 28% across all departments</span>
+                            </li>
+                        </ul>
+                         </div>
+                    
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h4 class="font-semibold text-lg">Business Intelligence Analyst</h4>
+                                <p class="text-sm text-[var(--muted)]">TechSolutions Ltd, Cairo</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Jul 2021 – Feb 2023</span>
+                        </div>
+                        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Designed and implemented a company-wide BI strategy that standardized reporting across 8 departments</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Built predictive models using Python that forecasted sales with 92% accuracy, enabling better inventory planning</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Reduced monthly financial closing time from 7 days to 3 days through automation of key reports</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h4 class="font-semibold text-lg">Data Analyst Intern</h4>
+                                <p class="text-sm text-[var(--muted)]">Digital Egypt Pioneers Initiative - DEPI (Remote)</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Oct 2024 – May 2025</span>
+                        </div>
+                        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Conducted data cleaning, analysis, and visualization using Power BI, Tableau, and Python</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Applied data governance principles and prompt engineering techniques</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Developed automated reports and dashboards to track performance metrics</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <h4 class="font-semibold text-lg">Certificates</h4>
-              </div>
-              <p class="text-sm text-[var(--muted)]">Browse my professional certifications in data analytics and related fields.</p>
-            </a>
-            
-            <a href="#achievements" class="feature-card p-6 rounded-lg glass hover:bg-gray-800 transition-all">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="skill-icon">
-                  <i class="fas fa-trophy"></i>
-                </div>
-                <h4 class="font-semibold text-lg">Achievements</h4>
-              </div>
-              <p class="text-sm text-[var(--muted)]">Discover my awards and recognitions in the field of data analytics.</p>
-            </a>
-            
-            <a href="#skills" class="feature-card p-6 rounded-lg glass hover:bg-gray-800 transition-all">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="skill-icon">
-                  <i class="fas fa-code"></i>
-                </div>
-                <h4 class="font-semibold text-lg">Technical Skills</h4>
-              </div>
-              <p class="text-sm text-[var(--muted)]">Explore my technical proficiency across various tools and technologies.</p>
-            </a>
-            
-            <a href="#contact" class="feature-card p-6 rounded-lg glass hover:bg-gray-800 transition-all">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="skill-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <h4 class="font-semibold text-lg">Contact</h4>
-              </div>
-              <p class="text-sm text-[var(--muted)]">Get in touch for collaborations, opportunities, or just to say hello!</p>
-            </a>
-          </div>
-        </div>
-      </section>
+            </section>
 
-      <!-- About -->
-      <section id="about">
-        <h3>About Me</h3>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2">
-            <p class="text-[var(--muted)] leading-relaxed">
-              I'm a passionate data professional with 5+ years of experience in transforming raw data into actionable business insights. My expertise spans across data cleaning, analysis, visualization, and dashboard creation to support data-driven decision making.
-            </p>
-            <p class="mt-4 text-[var(--muted)] leading-relaxed">
-              My journey in data analytics began during my university studies where I discovered my passion for uncovering patterns in data. Since then, I've worked with numerous organizations across different industries, helping them leverage their data assets to gain competitive advantage.
-            </p>
-            <p class="mt-4 text-[var(--muted)] leading-relaxed">
-              What sets me apart is my ability to not only analyze data but to communicate insights effectively to stakeholders at all levels. I believe data should tell a story that drives action.
-            </p>
-          </div>
-          
-          <div class="space-y-4">
-            <div class="p-4 rounded-lg glass">
-              <h4 class="font-semibold">Education</h4>
-              <div class="mt-2">
-                <p class="text-sm font-medium">Bachelor's in Computer Science</p>
-                <p class="text-xs text-[var(--muted)]">Cairo University | 2018-2022</p>
-              </div>
-            </div>
+            <!-- Skills Section -->
+            <section id="skills" class="section mb-16">
+                <h2 class="text-3xl font-bold mb-2">Skills</h2>
+                <p class="text-[var(--muted)] mb-8">My technical skills and tools I work with</p>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <span>Excel</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <span>Power BI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <span>Tableau</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <span>C++</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <span>Data Modeling</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-broom"></i>
+                            </div>
+                            <span>Data Cleaning</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <span>Data Visualization</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <span>ETL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold mb-4">Additional Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">NumPy</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Pandas</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Matplotlib</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Seaborn</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Data Storytelling</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Business Intelligence</span>
+                    </div>
+                </div>
+            </section>
             
-            <div class="p-4 rounded-lg glass">
-              <h4 class="font-semibold">Languages</h4>
-              <div class="mt-2 space-y-2">
-                <div>
-                  <p class="text-sm">Arabic <span class="text-[var(--muted)]">(Native)</span></p>
-                  <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                    <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 100%"></div>
-                  </div>
+            <!-- Projects Section -->
+            <section id="projects" class="section mb-16">
+                <h2 class="text-3xl font-bold mb-2">Projects</h2>
+                <p class="text-[var(--muted)] mb-8">A selection of my recent data analysis projects</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="project-card glass rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-4xl text-[var(--accent)]"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Superstore Performance Analysis</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Comprehensive analysis of sales performance across regions and product categories.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card glass rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-car-crash text-4xl text-[var(--accent)]"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Road Accident Analysis</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Interactive dashboard analyzing accident patterns and high-risk locations.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Excel</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Pivot</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">VBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card glass rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-users text-4xl text-[var(--accent)]"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Customer Segmentation</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">RFM analysis and clustering of e-commerce customers for targeted marketing.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Scikit-learn</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card glass rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-hospital text-4xl text-[var(--accent)]"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Hospital Resource Optimization</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Analysis of patient flow and resource allocation for improved efficiency.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card glass rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-4xl text-[var(--accent)]"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Retail Sales Forecasting</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Predictive model for sales forecasting with 92% accuracy.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Prophet</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card glass rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-4xl text-[var(--accent)]"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2">Financial Dashboard</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Interactive financial reporting dashboard for executive leadership.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <p class="text-sm">English <span class="text-[var(--muted)]">(Professional)</span></p>
-                  <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                    <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 90%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </section>
+            
+            <!-- Certificates Section -->
+            <section id="certificates" class="section mb-16">
+                <h2 class="text-3xl font-bold mb-2">Certifications</h2>
+                <p class="text-[var(--muted)] mb-8">Continuous learning is key in the fast-evolving field of data analytics.</p>
 
-        <!-- New Career Section -->
-        <div class="mt-12">
-          <h3 class="text-2xl font-bold mb-4">Career</h3>
-          
-          <div class="space-y-6">
-            <div class="p-5 rounded-lg glass">
-              <div class="flex items-center gap-4">
-                <div class="p-3 rounded-md accent-bg">
-                  <i class="fas fa-building"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h4 class="font-semibold">Google Data Analytics Professional</h4>
+                                <p class="text-xs text-[var(--muted)] mt-1">Google | 2024</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: XYZ12345</span>
+                        </div>
+                        
+                        <!-- Certificate Image -->
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
+                            <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Google+Certificate" alt="Google Data Analytics Certificate" class="w-full h-auto object-cover cursor-pointer">
+                        </div>
+                        
+                        <p class="mt-3 text-sm text-[var(--muted)]">Comprehensive program covering data cleaning, analysis, visualization, and tools like SQL, R, and Tableau.</p>
+                        <div class="mt-3 flex gap-2">
+                            <button class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
+                                <i class="fas fa-expand"></i> View Certificate
+                            </button>
+                            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/your-certificate-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h4 class="font-semibold">Microsoft Certified: Data Analyst Associate</h4>
+                                <p class="text-xs text-[var(--muted)] mt-1">Microsoft | 2023</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: MS78910</span>
+                        </div>
+                        
+                        <!-- Certificate Image -->
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
+                            <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Microsoft+Certificate" alt="Microsoft Data Analyst Certificate" class="w-full h-auto object-cover cursor-pointer">
+                        </div>
+                        
+                        <p class="mt-3 text-sm text-[var(--muted)]">Demonstrated expertise in Power BI, data modeling, and implementing advanced analytics solutions.</p>
+                        <div class="mt-3 flex gap-2">
+                            <button class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
+                                <i class="fas fa-expand"></i> View Certificate
+                            </button>
+                            <a href="https://learn.microsoft.com/en-us/users/omarhamdy3/certifications" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h4 class="font-semibold">Tableau Desktop Specialist</h4>
+                                <p class="text-xs text-[var(--muted)] mt-1">Tableau | 2023</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: TB45678</span>
+                        </div>
+                        
+                        <!-- Certificate Image -->
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
+                            <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Tableau+Certificate" alt="Tableau Desktop Specialist Certificate" class="w-full h-auto object-cover cursor-pointer">
+                        </div>
+                        
+                        <p class="mt-3 text-sm text-[var(--muted)]">Validated skills in creating visualizations, dashboards, and telling stories with data using Tableau.</p>
+                        <div class="mt-3 flex gap-2">
+                            <button class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
+                                <i class="fas fa-expand"></i> View Certificate
+                            </button>
+                            <a href="https://www.credly.com/badges/your-badge-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <h4 class="font-semibold text-lg">Data Insights Corp</h4>
-                  <p class="text-sm text-[var(--muted)]">Senior Data Analyst | Mar 2023 – Present</p>
+                
+                <div class="mt-8 text-center">
+                    <a href="https://drive.google.com/drive/folders/1kaEkd6VMlei5J9nx1C3BprAGJ8yYnH3F?usp=drive_link" target="_blank" class="inline-flex items-center px-4 py-2 rounded-md glass text-sm hover:bg-gray-800 transition-colors">
+                        View All Certificates (12)
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
-              </div>
-              <ul class="mt-4 space-y-2 text-sm text-[var(--muted)] list-disc list-inside pl-4">
-                <li>Lead a team of 5 junior analysts to deliver data solutions for enterprise clients</li>
-                <li>Developed automated ETL pipelines using Python and SQL</li>
-                <li>Created interactive Power BI dashboards for executive leadership</li>
-                <li>Implemented data quality standards across all departments</li>
-              </ul>
-            </div>
+            </section>
             
-            <div class="p-5 rounded-lg glass">
-              <div class="flex items-center gap-4">
-                <div class="p-3 rounded-md accent-bg">
-                  <i class="fas fa-laptop-code"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-lg">TechSolutions Ltd</h4>
-                  <p class="text-sm text-[var(--muted)]">Business Intelligence Analyst | Jul 2021 – Feb 2023</p>
-                </div>
-              </div>
-              <ul class="mt-4 space-y-2 text-sm text-[var(--muted)] list-disc list-inside pl-4">
-                <li>Designed and implemented a company-wide BI strategy</li>
-                <li>Built predictive models using Python that forecasted sales with 92% accuracy</li>
-                <li>Reduced monthly financial closing time from 7 days to 3 days</li>
-              </ul>
-            </div>
-            
-            <div class="p-5 rounded-lg glass">
-              <div class="flex items-center gap-4">
-                <div class="p-3 rounded-md accent-bg">
-                  <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-lg">Digital Egypt Pioneers Initiative</h4>
-                  <p class="text-sm text-[var(--muted)]">Data Analyst Intern | Oct 2024 – May 2025</p>
-                </div>
-              </div>
-              <ul class="mt-4 space-y-2 text-sm text-[var(--muted)] list-disc list-inside pl-4">
-                <li>Conducted data cleaning, analysis, and visualization using Power BI, Tableau, and Python</li>
-                <li>Applied data governance principles and prompt engineering techniques</li>
-                <li>Developed automated reports and dashboards to track performance metrics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+            <!-- Achievements Section -->
+            <section id="achievements" class="section mb-16">
+                <h2 class="text-3xl font-bold mb-2">Achievements & Awards</h2>
+                <p class="text-[var(--muted)] mb-8">Recognition for excellence in data analytics and business intelligence.</p>
 
-        <!-- New Education Section -->
-        <div class="mt-12">
-          <h3 class="text-2xl font-bold mb-2">Education</h3>
-          <p class="text-[var(--muted)] mb-6">My educational journey.</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="p-5 rounded-lg glass">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="p-3 rounded-md accent-bg">
-                  <i class="fas fa-university"></i>
+                <div class="space-y-4">
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-md accent-bg flex-shrink-0">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">3rd Place Winner in Best Graduation Project</h4>
+                                <p class="text-sm text-[var(--muted)] mt-1">DEPI & E-Youth | 2025</p>
+                                <p class="mt-2 text-sm text-[var(--muted)]">Delivered a data analysis project with measurable real-world impact. Recognized for excellence in advanced dashboard development and actionable insights that improved operational efficiency by 27% for the case study organization.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-md accent-bg flex-shrink-0">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Data Visualization Excellence Award</h4>
+                                <p class="text-sm text-[var(--muted)] mt-1">TechSolutions Ltd | 2023</p>
+                                <p class="mt-2 text-sm text-[var(--muted)]">Recognized for creating the most impactful dashboard of the year that transformed company-wide reporting and was adopted by all departments for monthly performance reviews.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-md accent-bg flex-shrink-0">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Innovation in Analytics Award</h4>
+                                <p class="text-sm text-[var(--muted)] mt-1">Data Insights Corp | 2024</p>
+                                <p class="mt-2 text-sm text-[var(--muted)]">Awarded for developing an innovative predictive maintenance model that reduced equipment downtime by 42% and saved the company $1.8M annually in maintenance costs.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <h4 class="font-semibold text-lg">Cairo University</h4>
-                  <p class="text-sm text-[var(--muted)]">Bachelor's in Computer Science</p>
-                  <p class="text-xs text-[var(--muted)]">2018 - 2022</p>
-                </div>
-              </div>
-              <p class="text-sm text-[var(--muted)]">Specialized in data structures, algorithms, and database management systems. Graduated with honors.</p>
-            </div>
+            </section>
             
-            <div class="p-5 rounded-lg glass">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="p-3 rounded-md accent-bg">
-                  <i class="fas fa-certificate"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-lg">Google Data Analytics</h4>
-                  <p class="text-sm text-[var(--muted)]">Professional Certificate</p>
-                  <p class="text-xs text-[var(--muted)]">2024</p>
-                </div>
-              </div>
-              <p class="text-sm text-[var(--muted)]">Completed comprehensive training in data cleaning, analysis, visualization, and tools like SQL, R, and Tableau.</p>
-            </div>
-          </div>
-          
-          <div class="mt-6 flex gap-4">
-            <a href="#" class="px-4 py-2 rounded-md btn-primary flex items-center gap-2 hover:shadow-lg transition-all">
-              <i class="fas fa-download"></i>
-              Download Portfolio
-            </a>
-            <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view?usp=sharing" class="px-4 py-2 rounded-md glass flex items-center gap-2 hover:bg-gray-800 transition-colors">
-              <i class="fas fa-file-pdf"></i>
-              Download CV
-            </a>
-          </div>
-        </div>
-      </section>
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2 class="text-3xl font-bold mb-2">Get In Touch</h2>
+                <p class="text-[var(--muted)] mb-8">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.</p>
 
-      <!-- Experience -->
-      <section id="experience">
-        <h3>Professional Experience</h3>
-        
-        <div class="space-y-6">
-          <div class="p-5 rounded-lg glass">
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-              <div>
-                <h4 class="font-semibold text-lg">Senior Data Analyst</h4>
-                <p class="text-sm text-[var(--muted)]">Data Insights Corp, Cairo</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Mar 2023 – Present</span>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Lead a team of 5 junior analysts to deliver data solutions for enterprise clients, improving reporting efficiency by 40%</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Developed automated ETL pipelines using Python and SQL that reduced manual data processing time by 65%</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Created interactive Power BI dashboards for executive leadership that provided real-time KPIs across 12 business units</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Implemented data quality standards that improved reporting accuracy by 28% across all departments</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="p-5 rounded-lg glass">
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-              <div>
-                <h4 class="font-semibold text-lg">Business Intelligence Analyst</h4>
-                <p class="text-sm text-[var(--muted)]">TechSolutions Ltd, Cairo</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Jul 2021 – Feb 2023</span>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Designed and implemented a company-wide BI strategy that standardized reporting across 8 departments</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Built predictive models using Python that forecasted sales with 92% accuracy, enabling better inventory planning</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Reduced monthly financial closing time from 7 days to 3 days through automation of key reports</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="p-5 rounded-lg glass">
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-              <div>
-                <h4 class="font-semibold text-lg">Data Analyst Intern</h4>
-                <p class="text-sm text-[var(--muted)]">Digital Egypt Pioneers Initiative - DEPI (Remote)</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Oct 2024 – May 2025</span>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Conducted data cleaning, analysis, and visualization using Power BI, Tableau, and Python</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Applied data governance principles and prompt engineering techniques</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                <span>Developed automated reports and dashboards to track performance metrics</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                                    <input required id="name" name="name" placeholder="Your name" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                    <input required id="email" name="email" type="email" placeholder="Your email" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
+                                </div>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                                <input id="subject" name="subject" placeholder="Subject" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                <textarea required id="message" name="message" placeholder="Your message" rows="5" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]"></textarea>
+                            </div>
+                            <div class="flex gap-3">
+                                <button type="submit" class="px-6 py-3 rounded btn-primary font-medium hover:shadow-lg transition-all">Send Message</button>
+                                <button type="reset" class="px-6 py-3 rounded glass hover:bg-gray-800 transition-colors">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-medium mb-3">Contact Information</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-envelope mt-0.5 flex-shrink-0"></i>
+                                    <span>omarhamdi328@gmail.com</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-phone mt-0.5 flex-shrink-0"></i>
+                                    <span>+20 111 893 8276</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-map-marker-alt mt-0.5 flex-shrink-0"></i>
+                                    <span>Cairo, Egypt</span>
+                                </div>
+                            </div>
+                        </div>
 
-      <!-- Projects -->
-      <section id="projects">
-        <h3>Featured Projects</h3>
-        <p class="text-[var(--muted)] text-sm mt-2 mb-6">A selection of my most impactful data analysis projects demonstrating various skills and tools.</p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <!-- Project 1 -->
-          <article class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform group relative">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold text-lg group-hover:text-[var(--accent)] transition-colors">Superstore Business Performance Analysis</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">Power BI, DAX, Power Query | 2024</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Enterprise</span>
-            </div>
-            
-            <!-- Project Image -->
-            <div class="mt-3 rounded-lg overflow-hidden">
-              <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Superstore+Dashboard" alt="Superstore Dashboard" class="w-full h-auto object-cover">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">Comprehensive analysis of a multinational retail chain's performance across 3 years of sales data, identifying key trends, underperforming segments, and high-profit regions.</p>
-            <div class="mt-4">
-              <h5 class="text-xs font-medium text-[var(--muted)]">Key Achievements:</h5>
-              <ul class="mt-1 space-y-1 text-xs text-[var(--muted)] list-disc list-inside pl-2">
-                <li>Identified 12 underperforming products leading to $2.4M annual cost savings</li>
-                <li>Created dynamic regional performance dashboards adopted company-wide</li>
-                <li>Reduced reporting time from 3 days to real-time analytics</li>
-              </ul>
-            </div>
-            <div class="mt-4 flex gap-2">
-              <button onclick="openProjectModal('project1')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-info-circle"></i> Project Details
-              </button>
-              <a href="https://app.powerbi.com/view?r=your-demo-link" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Interactive Demo</a>
-            </div>
-          </article>
-          
-          <!-- Project 2 -->
-          <article class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform group relative">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold text-lg group-hover:text-[var(--accent)] transition-colors">Road Accident Analysis Dashboard</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">Excel, Power Pivot, VBA | 2023</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Government</span>
-            </div>
-            
-            <!-- Project Image -->
-            <div class="mt-3 rounded-lg overflow-hidden">
-              <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Accident+Analysis" alt="Accident Analysis Dashboard" class="w-full h-auto object-cover">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">Interactive dashboard analyzing 5 years of national road accident data to identify high-risk locations, times, and contributing factors for safety planning.</p>
-            <div class="mt-4">
-              <h5 class="text-xs font-medium text-[var(--muted)]">Key Achievements:</h5>
-              <ul class="mt-1 space-y-1 text-xs text-[var(--muted)] list-disc list-inside pl-2">
-                <li>Enabled targeted interventions reducing accidents by 18% in high-risk areas</li>
-                <li>Automated monthly reporting saving 120+ hours annually</li>
-                <li>Adopted by national transportation authority for policy decisions</li>
-              </ul>
-            </div>
-            <div class="mt-4 flex gap-2">
-              <button onclick="openProjectModal('project2')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-info-circle"></i> Project Details
-              </button>
-              <a href="https://drive.google.com/file/d/your-dashboard-file-id/view" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">View Dashboard</a>
-            </div>
-          </article>
-          
-          <!-- Project 3 -->
-          <article class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform group relative">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold text-lg group-hover:text-[var(--accent)] transition-colors">E-Commerce Customer Segmentation</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">Python, Scikit-learn, Tableau | 2023</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Retail</span>
-            </div>
-            
-            <!-- Project Image -->
-            <div class="mt-3 rounded-lg overflow-hidden">
-              <img src="Files/Projects/Main Sheet.png" alt="Customer Segmentation" class="w-full h-auto object-cover">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">RFM analysis and clustering of 250,000+ e-commerce customers to identify high-value segments and personalize marketing campaigns.</p>
-            <div class="mt-4">
-              <h5 class="text-xs font-medium text-[var(--muted)]">Key Achievements:</h5>
-              <ul class="mt-1 space-y-1 text-xs text-[var(--muted)] list-disc list-inside pl-2">
-                <li>Increased conversion rates by 22% through targeted campaigns</li>
-                <li>Identified $1.2M revenue opportunity from dormant high-value customers</li>
-                <li>Reduced customer acquisition costs by 15% through better targeting</li>
-              </ul>
-            </div>
-            <div class="mt-4 flex gap-2">
-              <button onclick="openProjectModal('project3')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-info-circle"></i> Project Details
-              </button>
-              <a href="https://github.com/OmarHamdy3/ecommerce-segmentation" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">GitHub Repo</a>
-            </div>
-          </article>
-          
-          <!-- Project 4 -->
-          <article class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform group relative">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold text-lg group-hover:text-[var(--accent)] transition-colors">Hospital Resource Optimization</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">SQL, Python, Power BI | 2022</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Healthcare</span>
-            </div>
-            
-            <!-- Project Image -->
-            <div class="mt-3 rounded-lg overflow-hidden">
-              <img src="Files/Projects/Accident Analysis.png" alt="Hospital Resource Optimization" class="w-full h-auto object-cover">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">Analysis of patient flow and resource utilization patterns across a 500-bed hospital to optimize staff scheduling and reduce wait times.</p>
-            <div class="mt-4">
-              <h5 class="text-xs font-medium text-[var(--muted)]">Key Achievements:</h5>
-              <ul class="mt-1 space-y-1 text-xs text-[var(--muted)] list-disc list-inside pl-2">
-                <li>Reduced emergency department wait times by 35%</li>
-                <li>Optimized staff scheduling saving $480K annually</li>
-                <li>Improved bed utilization rate from 78% to 89%</li>
-              </ul>
-            </div>
-            <div class="mt-4 flex gap-2">
-              <button onclick="openProjectModal('project4')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-info-circle"></i> Project Details
-              </button>
-              <a href="https://drive.google.com/file/d/your-case-study-file-id/view" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Case Study</a>
-            </div>
-          </article>
-        </div>
-        
-        <div class="mt-8 text-center">
-          <a href="https://github.com/OmarHamdy3?tab=repositories" target="_blank" class="inline-flex items-center px-4 py-2 rounded-md glass text-sm hover:bg-gray-800 transition-colors">
-            View All Projects (32)
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills">
-        <h3>Technical Skills</h3>
-        <p class="text-[var(--muted)] text-sm mt-2 mb-6">My expertise spans across multiple data analysis tools and technologies.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Data Analysis -->
-          <div class="p-5 rounded-lg glass">
-            <div class="flex items-center gap-3">
-              <div class="p-2 rounded-md accent-bg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <h4 class="font-semibold">Data Analysis</h4>
-            </div>
-            <div class="mt-4 space-y-3">
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Microsoft Excel</span>
-                  <span>Expert</span>
+                        <div>
+                            <h4 class="font-medium mb-3">Connect With Me</h4>
+                            <div class="flex gap-3">
+                                <a href="https://linkedin.com/in/omarhamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/OmarHamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://wa.me/201118938276" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://twitter.com/omarhamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-lg accent-bg">
+                            <h4 class="font-medium">Availability for Work</h4>
+                            <p class="mt-2 text-sm text-[var(--muted)]">I'm currently available for full-time, part-time, and freelance opportunities. My typical response time is within 24 hours.</p>
+                            <div class="mt-3 flex items-center gap-2">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]"></span>
+                                </span>
+                                <span class="text-xs">Available for new projects</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Power Query</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Power Pivot</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Statistical Analysis</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 88%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Data Visualization -->
-          <div class="p-5 rounded-lg glass">
-            <div class="flex items-center gap-3">
-              <div class="p-2 rounded-md accent-bg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-              </div>
-              <h4 class="font-semibold">Data Visualization</h4>
-            </div>
-            <div class="mt-4 space-y-3">
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Power BI</span>
-                  <span>Expert</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 96%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Tableau</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 88%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>DAX</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 92%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Dashboard Design</span>
-                  <span>Expert</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 94%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Programming -->
-          <div class="p-5 rounded-lg glass">
-            <div class="flex items-center gap-3">
-              <div class="p-2 rounded-md accent-bg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </div>
-              <h4 class="font-semibold">Programming</h4>
-            </div>
-            <div class="mt-4 space-y-3">
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Python</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>SQL</span>
-                  <span>Expert</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 93%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>Data Cleaning</span>
-                  <span>Expert</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs text-[var(--muted)] mb-1">
-                  <span>ETL Processes</span>
-                  <span>Advanced</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-1.5">
-                  <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 87%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-8">
-          <h4 class="font-medium mb-3">Additional Skills</h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Data Modeling</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Predictive Analytics</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Machine Learning</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Data Governance</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Business Intelligence</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Data Storytelling</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Requirements Gathering</span>
-            <span class="text-xs px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Stakeholder Management</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certificates -->
-      <section id="certificates">
-        <h3>Certifications</h3>
-        <p class="text-[var(--muted)] text-sm mt-2 mb-6">Continuous learning is key in the fast-evolving field of data analytics.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold">Google Data Analytics Professional</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">Google | 2024</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: XYZ12345</span>
-            </div>
-            
-            <!-- Certificate Image -->
-            <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
-              <img src="Files/Certificates/Data Analysis.jpg" alt="Google Data Analytics Certificate" class="w-full h-auto object-cover cursor-pointer" onclick="openCertificateModal('cert1')">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">Comprehensive program covering data cleaning, analysis, visualization, and tools like SQL, R, and Tableau.</p>
-            <div class="mt-3 flex gap-2">
-              <button onclick="openCertificateModal('cert1')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-expand"></i> View Certificate
-              </button>
-              <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/your-certificate-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
-            </div>
-          </div>
-          
-          <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold">Microsoft Certified: Data Analyst Associate</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">Microsoft | 2023</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: MS78910</span>
-            </div>
-            
-            <!-- Certificate Image -->
-            <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
-              <img src="Files/Certificates/Introduction To SQL_certificate.jpg" alt="Microsoft Data Analyst Certificate" class="w-full h-auto object-cover cursor-pointer" onclick="openCertificateModal('cert2')">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">Demonstrated expertise in Power BI, data modeling, and implementing advanced analytics solutions.</p>
-            <div class="mt-3 flex gap-2">
-              <button onclick="openCertificateModal('cert2')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-expand"></i> View Certificate
-              </button>
-              <a href="https://learn.microsoft.com/en-us/users/omarhamdy3/certifications" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
-            </div>
-          </div>
-          
-          <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h4 class="font-semibold">Tableau Desktop Specialist</h4>
-                <p class="text-xs text-[var(--muted)] mt-1">Tableau | 2023</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: TB45678</span>
-            </div>
-            
-            <!-- Certificate Image -->
-            <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
-              <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Tableau+Certificate" alt="Tableau Desktop Specialist Certificate" class="w-full h-auto object-cover cursor-pointer" onclick="openCertificateModal('cert3')">
-            </div>
-            
-            <p class="mt-3 text-sm text-[var(--muted)]">Validated skills in creating visualizations, dashboards, and telling stories with data using Tableau.</p>
-            <div class="mt-3 flex gap-2">
-              <button onclick="openCertificateModal('cert3')" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
-                <i class="fas fa-expand"></i> View Certificate
-              </button>
-              <a href="https://www.credly.com/badges/your-badge-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-8 text-center">
-          <a href="https://drive.google.com/drive/folders/1kaEkd6VMlei5J9nx1C3BprAGJ8yYnH3F?usp=drive_link" target="_blank" class="inline-flex items-center px-4 py-2 rounded-md glass text-sm hover:bg-gray-800 transition-colors">
-            View All Certificates (12)
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </section>
-
-      <!-- Achievements -->
-      <section id="achievements">
-        <h3>Achievements & Awards</h3>
-        <p class="text-[var(--muted)] text-sm mt-2 mb-6">Recognition for excellence in data analytics and business intelligence.</p>
-
-        <div class="space-y-4">
-          <div class="p-5 rounded-lg glass">
-            <div class="flex items-start gap-4">
-              <div class="p-2 rounded-md accent-bg flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-              </div>
-              <div>
-                <h4 class="font-semibold">3rd Place Winner in Best Graduation Project</h4>
-                <p class="text-sm text-[var(--muted)] mt-1">DEPI & E-Youth | 2025</p>
-                <p class="mt-2 text-sm text-[var(--muted)]">Delivered a data analysis project with measurable real-world impact. Recognized for excellence in advanced dashboard development and actionable insights that improved operational efficiency by 27% for the case study organization.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="p-5 rounded-lg glass">
-            <div class="flex items-start gap-4">
-              <div class="p-2 rounded-md accent-bg flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              </div>
-              <div>
-                <h4 class="font-semibold">Data Visualization Excellence Award</h4>
-                <p class="text-sm text-[var(--muted)] mt-1">TechSolutions Ltd | 2023</p>
-                <p class="mt-2 text-sm text-[var(--muted)]">Recognized for creating the most impactful dashboard of the year that transformed company-wide reporting and was adopted by all departments for monthly performance reviews.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="p-5 rounded-lg glass">
-            <div class="flex items-start gap-4">
-              <div class="p-2 rounded-md accent-bg flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-              <div>
-                <h4 class="font-semibold">Innovation in Analytics Award</h4>
-                <p class="text-sm text-[var(--muted)] mt-1">Data Insights Corp | 2024</p>
-                <p class="mt-2 text-sm text-[var(--muted)]">Awarded for developing an innovative predictive maintenance model that reduced equipment downtime by 42% and saved the company $1.8M annually in maintenance costs.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <h3>Get In Touch</h3>
-        <p class="text-[var(--muted)] text-sm mt-2 mb-6">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.</p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <form id="contact-form" class="space-y-4">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label for="name" class="block text-sm font-medium mb-1">Name</label>
-                  <input required id="name" name="name" placeholder="Your name" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium mb-1">Email</label>
-                  <input required id="email" name="email" type="email" placeholder="Your email" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
-                </div>
-              </div>
-              <div>
-                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
-                <input id="subject" name="subject" placeholder="Subject" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium mb-1">Message</label>
-                <textarea required id="message" name="message" placeholder="Your message" rows="5" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]"></textarea>
-              </div>
-              <div class="flex gap-3">
-                <button type="submit" class="px-6 py-3 rounded btn-primary font-medium hover:shadow-lg transition-all">Send Message</button>
-                <button type="reset" class="px-6 py-3 rounded glass hover:bg-gray-800 transition-colors">Reset</button>
-              </div>
-            </form>
-          </div>
-          
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-medium mb-3">Contact Information</h4>
-              <div class="space-y-3">
-                <div class="flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  <span>omarhamdi328@gmail.com</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  <span>+20 111 893 8276</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>Cairo, Egypt</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="font-medium mb-3">Connect With Me</h4>
-              <div class="flex gap-3">
-                <a href="https://linkedin.com/in/omarhamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <a href="https://github.com/OmarHamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-                <a href="https://wa.me/201118938276" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="WhatsApp">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                </a>
-                <a href="https://twitter.com/omarhamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="Twitter">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                </a>
-              </div>
-            </div>
-            
-            <div class="p-4 rounded-lg accent-bg">
-              <h4 class="font-medium">Availability for Work</h4>
-              <p class="mt-2 text-sm text-[var(--muted)]">I'm currently available for full-time, part-time, and freelance opportunities. My typical response time is within 24 hours.</p>
-              <div class="mt-3 flex items-center gap-2">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]"></span>
-                </span>
-                <span class="text-xs">Available for new projects</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- Project Details Modals -->
-  <div id="project1-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="text-2xl font-bold">Superstore Business Performance Analysis</h3>
-        <button class="close-modal" onclick="closeModal('project1-modal')">&times;</button>
-      </div>
-      
-      <div class="project-details">
-        <h4 class="text-xl font-semibold mb-3">Project Description</h4>
-        <p class="text-[var(--muted)] mb-4">
-          This comprehensive analysis of a multinational retail chain's performance was conducted over 3 years of sales data. 
-          The project aimed to identify key trends, underperforming segments, and high-profit regions to drive strategic business decisions.
-        </p>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Project Video</h4>
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Dashboard Views</h4>
-        <div class="gallery">
-          <img src="Files/Projects/Overview Dashboard.png" alt="Dashboard View 1">
-          <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Dashboard+2" alt="Dashboard View 2">
-          <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Dashboard+3" alt="Dashboard View 3">
-          <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Dashboard+4" alt="Dashboard View 4">
-        </div>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Key Findings</h4>
-        <ul class="list-disc pl-5 space-y-2 text-[var(--muted)]">
-          <li>Identified 12 underperforming products that were costing the company $2.4M annually</li>
-          <li>Discovered regional performance disparities with the Southwest region underperforming by 23%</li>
-          <li>Seasonal trends analysis revealed Q4 accounted for 42% of annual profits</li>
-          <li>Corporate segment showed 18% higher profitability compared to consumer segment</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Recommendations</h4>
-        <ul class="list-disc pl-5 space-y-2 text-[var(--muted)]">
-          <li>Discontinue or rebrand the 12 underperforming products</li>
-          <li>Implement targeted marketing campaigns in the Southwest region</li>
-          <li>Adjust inventory levels based on seasonal demand patterns</li>
-          <li>Expand corporate segment sales team by 15% to capitalize on higher profitability</li>
-        </ul>
-        
-        <div class="mt-8 text-center">
-          <button onclick="closeModal('project1-modal')" class="px-6 py-3 rounded btn-primary hover:shadow-lg transition-all">
-            Back to Portfolio
-          </button>
-        </div>
-      </div>
+            </section>
+        </main>
     </div>
-  </div>
-  
-  <div id="project2-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="text-2xl font-bold">Road Accident Analysis Dashboard</h3>
-        <button class="close-modal" onclick="closeModal('project2-modal')">&times;</button>
-      </div>
-      
-      <div class="project-details">
-        <h4 class="text-xl font-semibold mb-3">Project Description</h4>
-        <p class="text-[var(--muted)] mb-4">
-          This interactive dashboard analyzes 5 years of national road accident data to identify high-risk locations, times, 
-          and contributing factors for safety planning. The project was commissioned by the national transportation authority.
-        </p>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Project Video</h4>
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Dashboard Views</h4>
-        <div class="gallery">
-             <img src="Files/Projects/Main Sheet.png" alt="Accident Analysis View 1">
-          <img src="Files/Projects/Accident Analysis.png" alt="Accident Analysis View 1">
-          <img src="Files/Projects/Driver Analysis.png" alt="Accident Analysis View 2">
-          <img src="Files/Projects/Location Analysis.png" alt="Accident Analysis View 3">
-            <img src="Files/Projects/Road Analysis.png" alt="Accident Analysis View 1">
-          <img src="Files/Projects/Time Analysis.png" alt="Accident Analysis View 2">
-          <img src="Files/Projects/Weather Analysis.png" alt="Accident Analysis View 3">
-           
-        </div>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Key Findings</h4>
-        <ul class="list-disc pl-5 space-y-2 text-[var(--muted)]">
-          <li>Friday evenings between 6-9pm accounted for 28% of all accidents</li>
-          <li>3 specific highway intersections were responsible for 15% of fatal accidents</li>
-          <li>Rainy conditions increased accident severity by 42%</li>
-          <li>Young drivers (18-25) were involved in 38% of accidents despite being 15% of drivers</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold mb-3 mt-6">Recommendations</h4>
-        <ul class="list-disc pl-5 space-y-2 text-[var(--muted)]">
-          <li>Increase police patrols during high-risk times</li>
-          <li>Redesign the 3 dangerous intersections</li>
-          <li>Implement weather-based speed limit adjustments</li>
-          <li>Develop targeted driver education programs for young drivers</li>
-        </ul>
-        
-        <div class="mt-8 text-center">
-          <button onclick="closeModal('project2-modal')" class="px-6 py-3 rounded btn-primary hover:shadow-lg transition-all">
-            Back to Portfolio
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Certificate Modals -->
-  <div id="cert1-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="text-2xl font-bold">Google Data Analytics Professional Certificate</h3>
-        <button class="close-modal" onclick="closeModal('cert1-modal')">&times;</button>
-      </div>
-      
-      <div class="mt-4">
-        <img src="Files/Certificates/Database Design.jpg" alt="Google Data Analytics Certificate" class="w-full h-auto rounded-lg">
-        
-        <div class="mt-6">
-          <h4 class="text-lg font-semibold">Certificate Details</h4>
-          <ul class="mt-2 space-y-2 text-[var(--muted)]">
-            <li><strong>Issued:</strong> March 2024</li>
-            <li><strong>Organization:</strong> Google</li>
-            <li><strong>Credential ID:</strong> XYZ12345</li>
-            <li><strong>Skills:</strong> Data cleaning, analysis, visualization, SQL, R, Tableau</li>
-          </ul>
-          
-          <div class="mt-6 text-center">
-            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/your-certificate-id" target="_blank" class="inline-block px-6 py-3 rounded btn-primary hover:shadow-lg transition-all">
-              Verify Certificate Online
+
+    <!-- Mobile Navigation -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 glass p-4 border-t border-gray-800">
+        <div class="flex justify-around">
+            <a href="#home" class="nav-link p-2 rounded-full" data-section="home">
+                <i class="fas fa-home text-xl"></i>
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="cert2-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="text-2xl font-bold">Microsoft Certified: Data Analyst Associate</h3>
-        <button class="close-modal" onclick="closeModal('cert2-modal')">&times;</button>
-      </div>
-      
-      <div class="mt-4">
-        <img src="Files/Certificates/Data Analysis.jpg" alt="Microsoft Data Analyst Certificate" class="w-full h-auto rounded-lg">
-        
-        <div class="mt-6">
-          <h4 class="text-lg font-semibold">Certificate Details</h4>
-          <ul class="mt-2 space-y-2 text-[var(--muted)]">
-            <li><strong>Issued:</strong> November 2023</li>
-            <li><strong>Organization:</strong> Microsoft</li>
-            <li><strong>Credential ID:</strong> MS78910</li>
-            <li><strong>Skills:</strong> Power BI, data modeling, DAX, advanced analytics</li>
-          </ul>
-          
-          <div class="mt-6 text-center">
-            <a href="https://learn.microsoft.com/en-us/users/omarhamdy3/certifications" target="_blank" class="inline-block px-6 py-3 rounded btn-primary hover:shadow-lg transition-all">
-              Verify Certificate Online
+            <a href="#about" class="nav-link p-2 rounded-full" data-section="about">
+                <i class="fas fa-user text-xl"></i>
             </a>
-          </div>
+            <a href="#experience" class="nav-link p-2 rounded-full" data-section="experience">
+                <i class="fas fa-briefcase text-xl"></i>
+            </a>
+            <a href="#skills" class="nav-link p-2 rounded-full" data-section="skills">
+                <i class="fas fa-code text-xl"></i>
+            </a>
+            <a href="#projects" class="nav-link p-2 rounded-full" data-section="projects">
+                <i class="fas fa-folder text-xl"></i>
+            </a>
+            <a href="#contact" class="nav-link p-2 rounded-full" data-section="contact">
+                <i class="fas fa-envelope text-xl"></i>
+            </a>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- floating action (whatsapp) -->
-  <a aria-label="Contact on WhatsApp" href="https://wa.me/201118938276" target="_blank" class="fixed right-5 bottom-5 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" style="background:linear-gradient(90deg,var(--accent),#ffd84d);color:#0b0b0b">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-  </a>
-
-  <script>
-    // small interactivity: menu toggle and smooth active link highlighting
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
-    const nav = document.getElementById('nav');
-    menuToggle?.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!expanded));
-      mobileNav.classList.toggle('hidden');
-      nav.classList.toggle('hidden');
-    });
-
-    // set copyright year
+    <script>
+    // Set copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // smooth scroll & active link
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target){ 
-          e.preventDefault(); 
-          document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
-          target.classList.add('active');
-          target.scrollIntoView({behavior:'smooth', block:'start'}); 
+    // Section switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all sections and nav links
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Function to show a specific section
+        function showSection(sectionId) {
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+                
+                // Scroll to top of the section
+                setTimeout(() => {
+                    activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+            
+            // Update active nav link - CHANGED THIS PART
+            navLinks.forEach(link => {
+                link.classList.remove('active'); // Remove active class
+                if (link.getAttribute('data-section') === sectionId) {
+                    link.classList.add('active'); // Add active class
+                }
+            });
         }
-      });
-    });
-
-    // mark active nav item on scroll
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const link = document.querySelector('.nav-link[href="#'+id+'"]');
-        if(entry.isIntersecting){
-          navLinks.forEach(l=>l.classList.remove('text-[var(--accent)]','font-semibold'));
-          link?.classList.add('text-[var(--accent)]','font-semibold');
+        
+        // Add click event listeners to nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                showSection(sectionId);
+                
+                // Update URL hash without triggering scroll
+                history.pushState(null, null, `#${sectionId}`);
+            });
+        });
+        
+        // Check URL hash on page load
+        const initialHash = window.location.hash.substring(1);
+        if (initialHash && document.getElementById(initialHash)) {
+            showSection(initialHash);
+        } else {
+            // Default to showing home section
+            showSection('home');
         }
-      });
-    },{rootMargin:'-40% 0px -40% 0px', threshold:0});
-    sections.forEach(s => observer.observe(s));
-  
-    // Show only the selected section when nav link is clicked
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.classList.add('active');
-          targetSection.scrollIntoView({behavior: 'smooth'});
-        }
-      });
+        
+        // Handle browser back/forward navigation
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            } else {
+                showSection('home');
+            }
+        });
     });
-    
-    // Show home by default
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
-      const homeSection = document.getElementById('home');
-      if (homeSection) homeSection.classList.add('active');
-    });
-
-    // Contact form submission
-    document.getElementById('contact-form')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Here you would typically send the data to a server
-      // For demonstration, we'll just open the mail client
-      const subject = data.subject || 'Contact from Portfolio';
-      const body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0A%0D%0A${data.message}`;
-      window.location.href = `mailto:omarhamdi328@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-      
-      // Show success message
-      alert('Thank you for your message! Your email client will open to send the message.');
-      this.reset();
-    });
-
-    // Make all feature cards in home section clickable and navigate to corresponding sections
-    document.querySelectorAll('.feature-card').forEach(card => {
-      card.addEventListener('click', function(e) {
-        if (e.target.tagName !== 'A') { // Don't interfere with nested links
-          const link = this.querySelector('a');
-          if (link) {
-            link.click();
-          }
-        }
-      });
-    });
-    
-    // Project Modal Functions
-    function openProjectModal(projectId) {
-      const modal = document.getElementById(`${projectId}-modal`);
-      if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      }
-    }
-    
-    function openCertificateModal(certId) {
-      const modal = document.getElementById(`${certId}-modal`);
-      if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      }
-    }
-    
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    }
-    
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
-      if (event.target.className === 'modal') {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    }
-  </script>
+</script>
 </body>
 </html>

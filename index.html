@@ -11,12 +11,13 @@
         :root {
             --bg: #0b0b0b;
             --muted: #9ca3af;
-            --accent: #3b82f6; /* Changed from yellow to blue */
+            --accent: #3b82f6;
             --accent-light: #60a5fa;
             --accent-dark: #1d4ed8;
-            --hover-bg: rgba(59, 130, 246, 0.08);
-            --hover-bg-dark: rgba(59, 130, 246, 0.12);
-            --hover-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --accent-hover: rgba(59, 130, 246, 0.15);
+            --hover-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.08);
         }
         
         body {
@@ -29,6 +30,7 @@
             background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
             backdrop-filter: blur(6px);
             transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
         }
         
         .accent {
@@ -38,22 +40,6 @@
         .accent-bg {
             background: linear-gradient(90deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.06));
             border: 1px solid rgba(59, 130, 246, 0.12);
-        }
-        
-        .project-card {
-            transition: var(--hover-transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .avatar-ring {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 3px;
-            border-radius: 9999px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            margin: 0 auto;
         }
         
         section h2 {
@@ -128,49 +114,131 @@
             opacity: 1;
         }
 
-        /* Navigation hover effects */
-        aside nav a,
-        .mobile-nav a {
-            transition: all 0.3s ease;
+        /* =============================== */
+        /* UPDATED HOVER BEHAVIOR FOR CARDS */
+        /* =============================== */
+        
+        /* General card hover behavior - Applied to all cards */
+        .hover-card {
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
         }
-        aside nav a:hover,
-        .mobile-nav a:hover {
+        
+        .hover-card:hover {
             background: rgba(59, 130, 246, 0.08) !important;
-            color: var(--accent) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Specific card types with consistent hover */
+        
+        /* About Section - Education & Languages Cards */
+        #about .glass {
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
+        }
+        
+        #about .glass:hover {
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Experience Section Cards */
+        #experience .glass {
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
+        }
+        
+        #experience .glass:hover {
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Skills Section Cards */
+        #skills .glass {
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
+        }
+        
+        #skills .glass:hover {
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Certificates Section Cards */
+        #certificates .glass {
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
+        }
+        
+        #certificates .glass:hover {
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Achievements Section Cards */
+        #achievements .glass {
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
+        }
+        
+        #achievements .glass:hover {
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Home Section Stats Cards */
+        #home .accent-bg {
+            transition: var(--hover-transition);
+        }
+        
+        #home .accent-bg:hover {
+            background: rgba(59, 130, 246, 0.15) !important;
+            border-color: rgba(59, 130, 246, 0.3) !important;
             transform: translateY(-2px);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
-        /* Glass element hover */
-        .glass {
-            transition: all 0.35s ease;
+        
+        /* Home Section Contact Card */
+        #home aside.glass {
+            transition: var(--hover-transition);
         }
-        .glass:hover {
-            background: rgba(255, 255, 255, 0.07) !important;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-            transform: translateY(-3px) scale(1.01);
-            border: 1px solid rgba(59, 130, 246, 0.15);
+        
+        #home aside.glass:hover {
+            background: rgba(59, 130, 246, 0.05) !important;
+            border-color: rgba(59, 130, 246, 0.2) !important;
+            transform: translateY(-4px);
         }
-
-        /* PROJECT CARDS - Updated for ML content and UX */
+        
+        /* =============================== */
+        /* PROJECT CARDS - Special Behavior */
+        /* =============================== */
+        
         .project-card {
-            transition: all 0.35s ease;
+            transition: var(--hover-transition);
             border-radius: 16px;
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
-            cursor: default; /* Card itself not clickable */
+            cursor: default;
+            border: 1px solid var(--card-border);
         }
 
         .project-card:hover {
-            background: linear-gradient(
-                145deg,
-                rgba(75, 85, 99, 0.25),
-                rgba(31, 41, 55, 0.35)
-            ) !important;
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(59, 130, 246, 0.1) !important;
+            border-color: rgba(59, 130, 246, 0.35) !important;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
         }
 
         /* Project overlay with smooth fade-in animation */
@@ -224,73 +292,35 @@
             background: linear-gradient(135deg, var(--accent-dark), var(--accent));
         }
 
-        .view-project-btn:active {
-            transform: translateY(-2px) scale(0.98);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
-        }
-
-        /* Skills cards hover */
-        #skills .glass {
-            transition: all 0.35s ease;
-            border-radius: 16px;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        #skills .glass:hover {
-            background: linear-gradient(
-                145deg,
-                rgba(75, 85, 99, 0.25),
-                rgba(31, 41, 55, 0.35)
-            ) !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-            transform: translateY(-6px) scale(1.04);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        /* Certificate cards hover */
-        #certificates .glass {
-            transition: all 0.35s ease;
-            border-radius: 16px;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-        }
-
-        #certificates .glass:hover {
-            background: linear-gradient(
-                145deg,
-                rgba(75, 85, 99, 0.25),
-                rgba(31, 41, 55, 0.35)
-            ) !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-            transform: translateY(-6px) scale(1.03);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
+        /* =============================== */
+        /* ADDITIONAL CARD HOVER EFFECTS */
+        /* =============================== */
+        
         /* Social media icons hover */
         .social-links a {
-            transition: all 0.3s ease;
+            transition: var(--hover-transition);
             border-radius: 50%;
             padding: 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid var(--card-border);
         }
 
         .social-links a:hover {
-            background: var(--hover-bg) !important;
+            background: rgba(59, 130, 246, 0.15) !important;
             color: var(--accent) !important;
-            transform: scale(1.12);
+            transform: scale(1.12) translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.3) !important;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 
                         0 0 12px rgba(59, 130, 246, 0.3);
         }
 
-        /* Contact form inputs */
+        /* Contact form inputs hover/focus */
         #contact input,
         #contact textarea {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--hover-transition);
+            border: 1px solid var(--card-border);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.05);
             padding: 12px 16px;
@@ -303,65 +333,92 @@
         #contact textarea:hover,
         #contact input:focus,
         #contact textarea:focus {
-            border-color: var(--accent) !important;
-            background: rgba(59, 130, 246, 0.06) !important;
+            border-color: rgba(59, 130, 246, 0.4) !important;
+            background: rgba(59, 130, 246, 0.08) !important;
             box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
             transform: translateY(-2px);
         }
 
+        /* Navigation hover effects */
+        aside nav a,
+        .mobile-nav a {
+            transition: var(--hover-transition);
+            border: 1px solid transparent;
+        }
+        
+        aside nav a:hover,
+        .mobile-nav a:hover {
+            background: rgba(59, 130, 246, 0.1) !important;
+            color: var(--accent) !important;
+            transform: translateY(-2px);
+            border-radius: 8px;
+            border-color: rgba(59, 130, 246, 0.2) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         /* Active nav link styling */
         .nav-link {
-            transition: all 0.3s ease;
+            transition: var(--hover-transition);
             padding: 8px 16px;
             border-radius: 8px;
+            border: 1px solid transparent;
         }
 
         .nav-link.active {
-            background: rgba(59, 130, 246, 0.1) !important;
+            background: rgba(59, 130, 246, 0.15) !important;
             color: var(--accent) !important;
             font-weight: 600;
+            border-color: rgba(59, 130, 246, 0.3) !important;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Achievement cards hover */
-        #achievements .glass {
-            transition: all 0.35s ease;
-            border-radius: 16px;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+        /* Project Detail Sections - Tool Items */
+        .tool-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--hover-transition);
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--card-border);
         }
 
-        #achievements .glass:hover {
-            background: linear-gradient(
-                145deg,
-                rgba(75, 85, 99, 0.25),
-                rgba(31, 41, 55, 0.35)
-            ) !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-            transform: translateY(-6px) scale(1.03);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        
-        /* Project Detail Sections */
-        .project-detail-section {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            transform: translateY(10px);
+        .tool-item:hover {
+            background: rgba(59, 130, 246, 0.15) !important;
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.3) !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
-        .project-detail-section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
+        /* Dashboard items in project details */
+        .dashboard-item {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--hover-transition);
+            cursor: pointer;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--card-border);
         }
 
-        /* Back button */
+        .dashboard-item:hover {
+            transform: scale(1.04);
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Back button refinement */
         .back-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(59, 130, 246, 0.2);
             color: var(--accent);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--hover-transition);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -373,58 +430,9 @@
         }
 
         .back-btn:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(59, 130, 246, 0.15) !important;
             transform: translateX(-4px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
-        }
-
-        /* Dashboard gallery */
-        .dashboard-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .dashboard-item {
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-        }
-
-        .dashboard-item:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Tools grid */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .tool-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .tool-item:hover {
-            background: rgba(59, 130, 246, 0.1);
-            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.3) !important;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
@@ -456,10 +464,152 @@
                 padding: 12px 24px;
                 font-size: 0.9rem;
             }
+            
+            /* Reduce hover lift on mobile for better UX */
+            .hover-card:hover,
+            #about .glass:hover,
+            #experience .glass:hover,
+            #skills .glass:hover,
+            #certificates .glass:hover,
+            #achievements .glass:hover {
+                transform: translateY(-2px);
+            }
+            
+            .project-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+            
+            /* Mobile menu styles */
+            #mobile-menu.active {
+                transform: translateY(0);
+            }
+            
+            /* Adjust main content padding for mobile */
+            main {
+                padding-top: 80px !important;
+            }
+            
+            .verified-badge {
+                width: 20px;
+                height: 20px;
+                font-size: 11px;
+                top: 1px;
+            }
+        }
+        
+        /* Ensure text contrast on hover */
+        .hover-card:hover *,
+        #about .glass:hover *,
+        #experience .glass:hover *,
+        #skills .glass:hover *,
+        #certificates .glass:hover *,
+        #achievements .glass:hover *,
+        .project-card:hover * {
+            color: inherit !important;
+        }
+        
+        /* Icon color enhancement on hover */
+        .hover-card:hover i,
+        #about .glass:hover i,
+        #experience .glass:hover i,
+        #skills .glass:hover i,
+        #certificates .glass:hover i,
+        #achievements .glass:hover i {
+            color: var(--accent) !important;
+        }
+        
+        /* Mobile menu button hover effect */
+        #mobile-menu-button:hover {
+            background: rgba(59, 130, 246, 0.15) !important;
+            border-color: rgba(59, 130, 246, 0.3) !important;
+            transform: scale(1.05);
+        }
+        
+        /* Mobile menu styles */
+        #mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        #mobile-menu.active {
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="min-h-screen">
+    <!-- Mobile Navigation - Updated to top position -->
+    <div class="md:hidden fixed top-0 left-0 right-0 glass p-3 z-50 border-b border-gray-800 flex items-center justify-between">
+        <!-- Profile Name -->
+        <div class="flex items-center gap-3">
+            <img src="Files/Projects/ahmed-photo.png" alt="Profile" class="w-10 h-10 rounded-full border-2 border-[var(--accent)]">
+            <div>
+                <h1 class="text-lg font-bold flex items-center">
+                    Ahmed Hamdy 
+                    <span class="verified-badge ml-2" title="Verified">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </h1>
+                <p class="text-xs text-[var(--muted)]">ML Engineer</p>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="p-2 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu" class="md:hidden fixed top-16 left-0 right-0 glass border-b border-gray-800 z-40 p-4">
+        <div class="flex flex-col space-y-1">
+            <a href="#home" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="home">
+                <i class="fas fa-home w-5 text-center"></i>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="about">
+                <i class="fas fa-user w-5 text-center"></i>
+                <span>About</span>
+            </a>
+            <a href="#experience" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="experience">
+                <i class="fas fa-briefcase w-5 text-center"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#skills" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="skills">
+                <i class="fas fa-code w-5 text-center"></i>
+                <span>Skills</span>
+            </a>
+            <a href="#projects" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="projects">
+                <i class="fas fa-folder w-5 text-center"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#certificates" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="certificates">
+                <i class="fas fa-certificate w-5 text-center"></i>
+                <span>Certificates</span>
+            </a>
+            <a href="#achievements" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="achievements">
+                <i class="fas fa-trophy w-5 text-center"></i>
+                <span>Achievements</span>
+            </a>
+            <a href="#contact" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[rgba(59,130,246,0.1)] transition-colors" data-section="contact">
+                <i class="fas fa-envelope w-5 text-center"></i>
+                <span>Contact</span>
+            </a>
+            
+            <!-- Social Links in Mobile Menu -->
+            <div class="mt-4 pt-4 border-t border-gray-800 flex justify-center gap-4">
+                <a href="https://linkedin.com/in/ahmedhamdy" target="_blank" class="p-3 rounded-full glass hover:bg-[rgba(59,130,246,0.1)] transition-colors">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/AhmedHamdy" target="_blank" class="p-3 rounded-full glass hover:bg-[rgba(59,130,246,0.1)] transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/ahmedhamdy" target="_blank" class="p-3 rounded-full glass hover:bg-[rgba(59,130,246,0.1)] transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="flex">
         <!-- Navigation Sidebar -->
         <aside class="flex w-76 min-h-screen p-6 hidden md:block sticky top-0">
@@ -869,12 +1019,9 @@
                 
                 <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Project 1 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="autonomous-driving">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center relative">
+                    <div class="project-card glass rounded-lg overflow-hidden relative" data-project="autonomous-driving">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
                             <i class="fas fa-car text-4xl text-[var(--accent)]"></i>
-                            <div class="project-overlay">
-                                <button class="view-project-btn" data-project="autonomous-driving">View Project</button>
-                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-semibold mb-2">Autonomous Driving Perception</h3>
@@ -885,15 +1032,19 @@
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">ROS2</span>
                             </div>
                         </div>
+                        
+                        <!-- Hover-only button -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 rounded-lg">
+                            <button class="view-project-btn px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-[var(--accent-dark)] transition-colors" data-project="autonomous-driving">
+                                View Project
+                            </button>
+                        </div>
                     </div>
                     
                     <!-- Project 2 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="medical-diagnosis">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center relative">
+                    <div class="project-card glass rounded-lg overflow-hidden relative" data-project="medical-diagnosis">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
                             <i class="fas fa-heartbeat text-4xl text-[var(--accent)]"></i>
-                            <div class="project-overlay">
-                                <button class="view-project-btn" data-project="medical-diagnosis">View Project</button>
-                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-semibold mb-2">Medical Image Diagnosis AI</h3>
@@ -904,15 +1055,19 @@
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DICOM</span>
                             </div>
                         </div>
+                        
+                        <!-- Hover-only button -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 rounded-lg">
+                            <button class="view-project-btn px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-[var(--accent-dark)] transition-colors" data-project="medical-diagnosis">
+                                View Project
+                            </button>
+                        </div>
                     </div>
                     
                     <!-- Project 3 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="llm-finetuning">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center relative">
+                    <div class="project-card glass rounded-lg overflow-hidden relative" data-project="llm-finetuning">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
                             <i class="fas fa-comment-dots text-4xl text-[var(--accent)]"></i>
-                            <div class="project-overlay">
-                                <button class="view-project-btn" data-project="llm-finetuning">View Project</button>
-                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-semibold mb-2">Arabic LLM Fine-tuning</h3>
@@ -923,15 +1078,19 @@
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">PyTorch</span>
                             </div>
                         </div>
+                        
+                        <!-- Hover-only button -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 rounded-lg">
+                            <button class="view-project-btn px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-[var(--accent-dark)] transition-colors" data-project="llm-finetuning">
+                                View Project
+                            </button>
+                        </div>
                     </div>
                     
                     <!-- Project 4 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="anomaly-detection">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center relative">
+                    <div class="project-card glass rounded-lg overflow-hidden relative" data-project="anomaly-detection">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
                             <i class="fas fa-exclamation-triangle text-4xl text-[var(--accent)]"></i>
-                            <div class="project-overlay">
-                                <button class="view-project-btn" data-project="anomaly-detection">View Project</button>
-                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-semibold mb-2">Industrial Anomaly Detection</h3>
@@ -942,15 +1101,19 @@
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Flask</span>
                             </div>
                         </div>
+                        
+                        <!-- Hover-only button -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 rounded-lg">
+                            <button class="view-project-btn px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-[var(--accent-dark)] transition-colors" data-project="anomaly-detection">
+                                View Project
+                            </button>
+                        </div>
                     </div>
                     
                     <!-- Project 5 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="recommendation-system">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center relative">
+                    <div class="project-card glass rounded-lg overflow-hidden relative" data-project="recommendation-system">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
                             <i class="fas fa-shopping-cart text-4xl text-[var(--accent)]"></i>
-                            <div class="project-overlay">
-                                <button class="view-project-btn" data-project="recommendation-system">View Project</button>
-                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-semibold mb-2">Neural Recommendation Engine</h3>
@@ -961,15 +1124,19 @@
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">FastAPI</span>
                             </div>
                         </div>
+                        
+                        <!-- Hover-only button -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 rounded-lg">
+                            <button class="view-project-btn px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-[var(--accent-dark)] transition-colors" data-project="recommendation-system">
+                                View Project
+                            </button>
+                        </div>
                     </div>
                     
                     <!-- Project 6 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="mlops-pipeline">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center relative">
+                    <div class="project-card glass rounded-lg overflow-hidden relative" data-project="mlops-pipeline">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
                             <i class="fas fa-project-diagram text-4xl text-[var(--accent)]"></i>
-                            <div class="project-overlay">
-                                <button class="view-project-btn" data-project="mlops-pipeline">View Project</button>
-                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-xl font-semibold mb-2">Enterprise MLOps Pipeline</h3>
@@ -980,200 +1147,209 @@
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Airflow</span>
                             </div>
                         </div>
+                        
+                        <!-- Hover-only button -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 rounded-lg">
+                            <button class="view-project-btn px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-[var(--accent-dark)] transition-colors" data-project="mlops-pipeline">
+                                View Project
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Project Detail Sections -->
-                <!-- Autonomous Driving Project Detail -->
-                <div id="autonomous-driving-detail" class="project-detail-section">
-                    <button class="back-btn flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to Projects
-                    </button>
-                    
-                    <div class="glass rounded-lg p-6 mb-6">
-                        <h2 class="text-3xl font-bold mb-4">Autonomous Driving Perception System</h2>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Project Description</h3>
-                                <p class="text-[var(--muted)] leading-relaxed">
-                                    This project developed a real-time perception system for autonomous vehicles using state-of-the-art deep learning models. The system processes camera, LiDAR, and radar data to detect, classify, and track objects in complex urban environments.
-                                </p>
-                                <p class="mt-4 text-[var(--muted)] leading-relaxed">
-                                    The architecture combines YOLOv8 for object detection with DeepLabV3+ for semantic segmentation, achieving real-time performance (30 FPS) on embedded NVIDIA hardware. The system was validated on 50+ hours of driving data across diverse weather conditions.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Project Demo</h3>
-                                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
-                                    <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
+                <!-- Project Detail Sections - Hidden by default -->
+                <div id="project-details-container" style="display: none;">
+                    <!-- Autonomous Driving Project Detail -->
+                    <div id="autonomous-driving-detail" class="project-detail-section">
+                        <button class="back-btn flex items-center gap-2">
+                            <i class="fas fa-arrow-left"></i> Back to Projects
+                        </button>
+                        
+                        <div class="glass rounded-lg p-6 mb-6">
+                            <h2 class="text-3xl font-bold mb-4">Autonomous Driving Perception System</h2>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-3">Project Description</h3>
+                                    <p class="text-[var(--muted)] leading-relaxed">
+                                        This project developed a real-time perception system for autonomous vehicles using state-of-the-art deep learning models. The system processes camera, LiDAR, and radar data to detect, classify, and track objects in complex urban environments.
+                                    </p>
+                                    <p class="mt-4 text-[var(--muted)] leading-relaxed">
+                                        The architecture combines YOLOv8 for object detection with DeepLabV3+ for semantic segmentation, achieving real-time performance (30 FPS) on embedded NVIDIA hardware. The system was validated on 50+ hours of driving data across diverse weather conditions.
+                                    </p>
                                 </div>
-                                <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to view system demonstration</p>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-3">Project Demo</h3>
+                                    <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
+                                        <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
+                                    </div>
+                                    <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to view system demonstration</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="glass rounded-lg p-6 mb-6">
-                        <h3 class="text-xl font-semibold mb-4">System Architecture & Results</h3>
-                        <div class="dashboard-gallery">
-                            <div class="dashboard-item">
-                                <i class="fas fa-robot text-3xl text-[var(--muted)]"></i>
-                            </div>
-                            <div class="dashboard-item">
-                                <i class="fas fa-chart-line text-3xl text-[var(--muted)]"></i>
-                            </div>
-                            <div class="dashboard-item">
-                                <i class="fas fa-map-marked-alt text-3xl text-[var(--muted)]"></i>
+                        
+                        <div class="glass rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-semibold mb-4">System Architecture & Results</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="dashboard-item">
+                                    <i class="fas fa-robot text-3xl text-[var(--muted)]"></i>
+                                </div>
+                                <div class="dashboard-item">
+                                    <i class="fas fa-chart-line text-3xl text-[var(--muted)]"></i>
+                                </div>
+                                <div class="dashboard-item">
+                                    <i class="fas fa-map-marked-alt text-3xl text-[var(--muted)]"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                        <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Key Achievements</h3>
-                            <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>99.2% detection accuracy for vehicles and pedestrians in daytime conditions</li>
-                                <li>Real-time inference at 30 FPS on NVIDIA Jetson AGX Xavier</li>
-                                <li>Robust performance across diverse weather conditions (rain, fog, night)</li>
-                                <li>Multi-sensor fusion improved detection range by 40% compared to camera-only</li>
-                                <li>Model optimized to 15MB for edge deployment without accuracy loss</li>
-                            </ul>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                            <div class="glass rounded-lg p-6">
+                                <h3 class="text-xl font-semibold mb-3">Key Achievements</h3>
+                                <ul class="key-findings space-y-2 text-[var(--muted)]">
+                                    <li>99.2% detection accuracy for vehicles and pedestrians in daytime conditions</li>
+                                    <li>Real-time inference at 30 FPS on NVIDIA Jetson AGX Xavier</li>
+                                    <li>Robust performance across diverse weather conditions (rain, fog, night)</li>
+                                    <li>Multi-sensor fusion improved detection range by 40% compared to camera-only</li>
+                                    <li>Model optimized to 15MB for edge deployment without accuracy loss</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="glass rounded-lg p-6">
+                                <h3 class="text-xl font-semibold mb-3">Technical Innovations</h3>
+                                <ul class="key-findings space-y-2 text-[var(--muted)]">
+                                    <li>Novel attention mechanism for improved small object detection</li>
+                                    <li>Custom loss function addressing class imbalance in urban scenes</li>
+                                    <li>Efficient architecture enabling deployment on resource-constrained hardware</li>
+                                    <li>Online learning pipeline for continuous model improvement</li>
+                                    <li>Privacy-preserving federated learning for multi-vehicle training</li>
+                                </ul>
+                            </div>
                         </div>
                         
                         <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Technical Innovations</h3>
-                            <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>Novel attention mechanism for improved small object detection</li>
-                                <li>Custom loss function addressing class imbalance in urban scenes</li>
-                                <li>Efficient architecture enabling deployment on resource-constrained hardware</li>
-                                <li>Online learning pipeline for continuous model improvement</li>
-                                <li>Privacy-preserving federated learning for multi-vehicle training</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="glass rounded-lg p-6">
-                        <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <i class="fab fa-python text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">PyTorch</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-eye text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">OpenCV</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-robot text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">ROS2</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-docker text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Docker</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-chart-line text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">TensorBoard</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Medical Diagnosis Project Detail -->
-                <div id="medical-diagnosis-detail" class="project-detail-section">
-                    <button class="back-btn flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to Projects
-                    </button>
-                    
-                    <div class="glass rounded-lg p-6 mb-6">
-                        <h2 class="text-3xl font-bold mb-4">Medical Image Diagnosis AI System</h2>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Project Description</h3>
-                                <p class="text-[var(--muted)] leading-relaxed">
-                                    This project developed a deep learning system for automated diagnosis of medical images, specifically focusing on detecting abnormalities in chest X-rays and brain MRIs. The system assists radiologists by providing second opinions and prioritizing urgent cases.
-                                </p>
-                                <p class="mt-4 text-[var(--muted)] leading-relaxed">
-                                    Using a combination of convolutional neural networks and vision transformers, the system achieved radiologist-level accuracy while reducing diagnosis time from 15 minutes to 30 seconds per scan. The project involved collaboration with two major hospitals and was validated on 10,000+ anonymized patient scans.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Research Presentation</h3>
-                                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
-                                    <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
+                            <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                                <div class="tool-item">
+                                    <i class="fab fa-python text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">PyTorch</p>
                                 </div>
-                                <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to view research presentation</p>
+                                <div class="tool-item">
+                                    <i class="fas fa-eye text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">OpenCV</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-robot text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">ROS2</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-docker text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">Docker</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-chart-line text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">TensorBoard</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="glass rounded-lg p-6 mb-6">
-                        <h3 class="text-xl font-semibold mb-4">Model Performance & Visualizations</h3>
-                        <div class="dashboard-gallery">
-                            <div class="dashboard-item">
-                                <i class="fas fa-chart-bar text-3xl text-[var(--muted)]"></i>
-                            </div>
-                            <div class="dashboard-item">
-                                <i class="fas fa-heartbeat text-3xl text-[var(--muted)]"></i>
-                            </div>
-                            <div class="dashboard-item">
-                                <i class="fas fa-brain text-3xl text-[var(--muted)]"></i>
+                    <!-- Medical Diagnosis Project Detail -->
+                    <div id="medical-diagnosis-detail" class="project-detail-section">
+                        <button class="back-btn flex items-center gap-2">
+                            <i class="fas fa-arrow-left"></i> Back to Projects
+                        </button>
+                        
+                        <div class="glass rounded-lg p-6 mb-6">
+                            <h2 class="text-3xl font-bold mb-4">Medical Image Diagnosis AI System</h2>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-3">Project Description</h3>
+                                    <p class="text-[var(--muted)] leading-relaxed">
+                                        This project developed a deep learning system for automated diagnosis of medical images, specifically focusing on detecting abnormalities in chest X-rays and brain MRIs. The system assists radiologists by providing second opinions and prioritizing urgent cases.
+                                    </p>
+                                    <p class="mt-4 text-[var(--muted)] leading-relaxed">
+                                        Using a combination of convolutional neural networks and vision transformers, the system achieved radiologist-level accuracy while reducing diagnosis time from 15 minutes to 30 seconds per scan. The project involved collaboration with two major hospitals and was validated on 10,000+ anonymized patient scans.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-3">Research Presentation</h3>
+                                    <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
+                                        <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
+                                    </div>
+                                    <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to view research presentation</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                        <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Clinical Impact</h3>
-                            <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>98.7% accuracy in detecting pneumonia from chest X-rays (validated against 3 radiologists)</li>
-                                <li>95.2% sensitivity for early-stage brain tumor detection in MRIs</li>
-                                <li>40% reduction in false negatives compared to traditional screening methods</li>
-                                <li>Integration reduced average diagnosis time from 15 minutes to 30 seconds</li>
-                                <li>System prioritized 120+ urgent cases that required immediate attention</li>
-                            </ul>
+                        
+                        <div class="glass rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-semibold mb-4">Model Performance & Visualizations</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="dashboard-item">
+                                    <i class="fas fa-chart-bar text-3xl text-[var(--muted)]"></i>
+                                </div>
+                                <div class="dashboard-item">
+                                    <i class="fas fa-heartbeat text-3xl text-[var(--muted)]"></i>
+                                </div>
+                                <div class="dashboard-item">
+                                    <i class="fas fa-brain text-3xl text-[var(--muted)]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                            <div class="glass rounded-lg p-6">
+                                <h3 class="text-xl font-semibold mb-3">Clinical Impact</h3>
+                                <ul class="key-findings space-y-2 text-[var(--muted)]">
+                                    <li>98.7% accuracy in detecting pneumonia from chest X-rays (validated against 3 radiologists)</li>
+                                    <li>95.2% sensitivity for early-stage brain tumor detection in MRIs</li>
+                                    <li>40% reduction in false negatives compared to traditional screening methods</li>
+                                    <li>Integration reduced average diagnosis time from 15 minutes to 30 seconds</li>
+                                    <li>System prioritized 120+ urgent cases that required immediate attention</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="glass rounded-lg p-6">
+                                <h3 class="text-xl font-semibold mb-3">Technical Approach</h3>
+                                <ul class="key-findings space-y-2 text-[var(--muted)]">
+                                    <li>Ensemble of EfficientNet-B7 and Vision Transformers for robust predictions</li>
+                                    <li>Advanced data augmentation simulating various imaging conditions</li>
+                                    <li>Grad-CAM visualizations providing explainable AI insights</li>
+                                    <li>Federated learning preserving patient privacy across hospitals</li>
+                                    <li>Continuous learning system improving with each new scan</li>
+                                </ul>
+                            </div>
                         </div>
                         
                         <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Technical Approach</h3>
-                            <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>Ensemble of EfficientNet-B7 and Vision Transformers for robust predictions</li>
-                                <li>Advanced data augmentation simulating various imaging conditions</li>
-                                <li>Grad-CAM visualizations providing explainable AI insights</li>
-                                <li>Federated learning preserving patient privacy across hospitals</li>
-                                <li>Continuous learning system improving with each new scan</li>
-                            </ul>
+                            <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                                <div class="tool-item">
+                                    <i class="fab fa-python text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">TensorFlow</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-hospital text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">MONAI</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-database text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">DICOM</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-shield-alt text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">HIPAA</p>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-chart-line text-2xl mb-2 text-[var(--accent)]"></i>
+                                    <p class="text-sm">MLflow</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="glass rounded-lg p-6">
-                        <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <i class="fab fa-python text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">TensorFlow</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-hospital text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">MONAI</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-database text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">DICOM</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-shield-alt text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">HIPAA</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-chart-line text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">MLflow</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Other project detail sections (llm-finetuning-detail, anomaly-detection-detail, recommendation-system-detail, mlops-pipeline-detail) -->
+                    <!-- Follow the same structure as above for each project -->
                 </div>
-                
-                <!-- Additional project detail sections follow similar structure -->
-                
             </section>
             
             <!-- Certificates Section -->
@@ -1391,36 +1567,6 @@
         </main>
     </div>
 
-    <!-- Mobile Navigation -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 glass p-4 border-t border-gray-800">
-        <div class="flex justify-around">
-            <a href="#home" class="nav-link p-2 rounded-full" data-section="home">
-                <i class="fas fa-home text-xl"></i>
-            </a>
-            <a href="#about" class="nav-link p-2 rounded-full" data-section="about">
-                <i class="fas fa-user text-xl"></i>
-            </a>
-            <a href="#experience" class="nav-link p-2 rounded-full" data-section="experience">
-                <i class="fas fa-briefcase text-xl"></i>
-            </a>
-            <a href="#skills" class="nav-link p-2 rounded-full" data-section="skills">
-                <i class="fas fa-code text-xl"></i>
-            </a>
-            <a href="#projects" class="nav-link p-2 rounded-full" data-section="projects">
-                <i class="fas fa-folder text-xl"></i>
-            </a>
-             <a href="#certificates" class="nav-link p-2 rounded-full" data-section="certificates">
-                <i class="fas fa-certificate text-xl"></i>
-            </a>
-             <a href="#achievements" class="nav-link p-2 rounded-full" data-section="achievements">
-                <i class="fas fa-trophy text-xl"></i>
-            </a>
-            <a href="#contact" class="nav-link p-2 rounded-full" data-section="contact">
-                <i class="fas fa-envelope text-xl"></i>
-            </a>
-        </div>
-    </div>
-
     <script>
     // Set copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -1494,23 +1640,26 @@
         const viewButtons = document.querySelectorAll('.view-project-btn');
         const projectCards = document.querySelectorAll('.project-card');
         const projectsGrid = document.getElementById('projects-grid');
-        const projectDetailSections = document.querySelectorAll('.project-detail-section');
+        const projectDetailsContainer = document.getElementById('project-details-container');
         const backButtons = document.querySelectorAll('.back-btn');
         
         // Function to show project details
         function showProjectDetail(projectId) {
-            // Hide all project detail sections
-            projectDetailSections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
             // Hide projects grid
             projectsGrid.style.display = 'none';
+            
+            // Show the project details container
+            projectDetailsContainer.style.display = 'block';
+            
+            // Hide all project detail sections
+            document.querySelectorAll('.project-detail-section').forEach(section => {
+                section.style.display = 'none';
+            });
             
             // Show the selected project detail
             const detailSection = document.getElementById(`${projectId}-detail`);
             if (detailSection) {
-                detailSection.classList.add('active');
+                detailSection.style.display = 'block';
                 
                 // Scroll to top of the detail section
                 setTimeout(() => {
@@ -1521,10 +1670,8 @@
         
         // Function to show projects grid
         function showProjectsGrid() {
-            // Hide all project detail sections
-            projectDetailSections.forEach(section => {
-                section.classList.remove('active');
-            });
+            // Hide project details container
+            projectDetailsContainer.style.display = 'none';
             
             // Show projects grid
             projectsGrid.style.display = 'grid';
@@ -1535,7 +1682,7 @@
             }, 100);
         }
         
-        // Add click event listeners to view buttons (only buttons are clickable)
+        // Add click event listeners to view buttons
         viewButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1564,6 +1711,46 @@
                 showProjectsGrid();
             });
         });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                
+                // Toggle between hamburger and close icon
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
     });
 </script>
 </body>

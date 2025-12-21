@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Hamdy - Data Analyst Portfolio</title>
+    <title>Ahmed Hamdy - Machine Learning Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0b0b0b;
             --muted: #9ca3af;
-            --accent: #fbed52;
-            --hover-bg: rgba(251, 237, 82, 0.08);
-            --hover-bg-dark: rgba(251, 237, 82, 0.12);
+            --accent: #3b82f6; /* Changed from yellow to blue */
+            --accent-light: #60a5fa;
+            --accent-dark: #1d4ed8;
+            --hover-bg: rgba(59, 130, 246, 0.08);
+            --hover-bg-dark: rgba(59, 130, 246, 0.12);
             --hover-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --facebook-blue: #fbed52;
-            --facebook-dark-blue: #fbed52;
         }
         
         body {
@@ -35,15 +36,14 @@
         }
         
         .accent-bg {
-            background: linear-gradient(90deg, rgba(251,237,82,0.12), rgba(251,237,82,0.06));
-            border: 1px solid rgba(251,237,82,0.12);
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.06));
+            border: 1px solid rgba(59, 130, 246, 0.12);
         }
         
         .project-card {
             transition: var(--hover-transition);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
         
         .avatar-ring {
@@ -52,7 +52,7 @@
             align-items: center;
             padding: 3px;
             border-radius: 9999px;
-            background: linear-gradient(90deg, var(--accent), #ffd84d);
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
             margin: 0 auto;
         }
         
@@ -69,31 +69,28 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), rgba(251,237,82,0.5));
+            background: linear-gradient(90deg, var(--accent), rgba(59, 130, 246, 0.5));
             border-radius: 3px;
         }
         
-        /* Buttons keep accent colors */
+        /* Updated buttons with blue accent */
         .btn-primary {
-            background: linear-gradient(90deg, var(--accent), #ffd84d);
-            color: #0b0b0b;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            color: #ffffff;
             font-weight: 600;
         }
 
         .btn-primary:hover {
-            background: linear-gradient(90deg, #f8e34d, #ffd84d) !important;
+            background: linear-gradient(90deg, var(--accent-dark), var(--accent)) !important;
         }
 
-
-                /* Facebook-style verified badge */
-        /* Professional verified badge */
-        /* Professional starburst verified badge */
+        /* Professional verified badge with blue theme */
         .verified-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f9e65c, #d4af37); /* metallic gold */
-            color: #111; /* dark checkmark */
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: #ffffff;
             width: 24px;
             height: 24px;
             margin-left: 6px;
@@ -101,36 +98,23 @@
             font-weight: bold;
             position: relative;
             top: 2px;
-
-            /* Elegant starburst shape */
             clip-path: polygon(
                 50% 0%, 64% 12%, 82% 18%, 88% 36%,
                 100% 50%, 88% 64%, 82% 82%, 64% 88%,
                 50% 100%, 36% 88%, 18% 82%, 12% 64%,
                 0% 50%, 12% 36%, 18% 18%, 36% 12%
             );
-
-            /* Professional depth & glow */
-            border: 1px solid rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 
-                0 2px 4px rgba(0,0,0,0.25), /* soft shadow */
-                inset 0 2px 3px rgba(255,255,255,0.6), /* highlight */
-                0 0 8px rgba(212,175,55,0.6); /* golden glow */
+                0 2px 4px rgba(0,0,0,0.25),
+                inset 0 2px 3px rgba(255,255,255,0.4),
+                0 0 8px rgba(59, 130, 246, 0.6);
         }
-
-
-
 
         .verified-badge i {
             font-size: 10px;
             font-weight: bold;
         }
-
-        .verified-badge:hover {
-            background: var(--facebook-dark-blue);
-            transform: scale(1.1);
-        }
-
 
         /* Section transitions */
         .section {
@@ -144,97 +128,150 @@
             opacity: 1;
         }
 
-      /* Navigation hover effects - refined */
+        /* Navigation hover effects */
         aside nav a,
         .mobile-nav a {
             transition: all 0.3s ease;
         }
         aside nav a:hover,
         .mobile-nav a:hover {
-            background: rgba(251, 237, 82, 0.08) !important; /* subtle accent tint */
+            background: rgba(59, 130, 246, 0.08) !important;
             color: var(--accent) !important;
             transform: translateY(-2px);
-            border-radius: 8px; /* smoother corners for modern look */
+            border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Glass element hover - polished */
+        /* Glass element hover */
         .glass {
             transition: all 0.35s ease;
         }
         .glass:hover {
-            background: rgba(255, 255, 255, 0.07) !important; /* slightly brighter glass */
+            background: rgba(255, 255, 255, 0.07) !important;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-            transform: translateY(-3px) scale(1.01); /* subtle depth */
-            border: 1px solid rgba(251, 237, 82, 0.15); /* elegant accent edge */
+            transform: translateY(-3px) scale(1.01);
+            border: 1px solid rgba(59, 130, 246, 0.15);
         }
 
-
-        /* Project cards hover - Professional premium style */
+        /* PROJECT CARDS - Updated for ML content and UX */
         .project-card {
+            transition: all 0.35s ease;
+            border-radius: 16px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            cursor: default; /* Card itself not clickable */
+        }
+
+        .project-card:hover {
+            background: linear-gradient(
+                145deg,
+                rgba(75, 85, 99, 0.25),
+                rgba(31, 41, 55, 0.35)
+            ) !important;
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* Project overlay with smooth fade-in animation */
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 11, 11, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* View Project Button with smooth animation */
+        .view-project-btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: #ffffff;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .project-card:hover .view-project-btn {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .view-project-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+        }
+
+        .view-project-btn:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        /* Skills cards hover */
+        #skills .glass {
+            transition: all 0.35s ease;
+            border-radius: 16px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        #skills .glass:hover {
+            background: linear-gradient(
+                145deg,
+                rgba(75, 85, 99, 0.25),
+                rgba(31, 41, 55, 0.35)
+            ) !important;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+            transform: translateY(-6px) scale(1.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Certificate cards hover */
+        #certificates .glass {
             transition: all 0.35s ease;
             border-radius: 16px;
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
         }
 
-        .project-card:hover {
-            background: linear-gradient(
-                145deg,
-                rgba(75, 85, 99, 0.25),   /* soft gray */
-                rgba(31, 41, 55, 0.35)    /* deeper contrast */
-            ) !important;
-            transform: translateY(-8px) scale(1.03); /* stronger lift */
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25); /* deeper shadow */
-            border: 1px solid rgba(255, 255, 255, 0.12); /* subtle glass border */
-        }
-        
-
-       
-        /* Skills cards hover - Refined professional glass effect */
-        #skills .glass {
-            transition: all 0.35s ease;
-            border-radius: 16px; /* modern smooth corners */
-            backdrop-filter: blur(6px); /* frosted glass effect */
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.08); /* subtle glass border */
-        }
-
-        #skills .glass:hover {
-            background: linear-gradient(
-                145deg,
-                rgba(75, 85, 99, 0.25),  /* soft gray */
-                rgba(31, 41, 55, 0.35)   /* deeper gray for depth */
-            ) !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22); /* deeper elevation */
-            transform: translateY(-6px) scale(1.04); /* slightly stronger lift */
-            border: 1px solid rgba(255, 255, 255, 0.15); /* clearer glass frame */
-        }
-
-       /* Certificate cards hover - Professional elegant effect */
-        #certificates .glass {
-            transition: all 0.35s ease;
-            border-radius: 16px; /* smooth corners */
-            backdrop-filter: blur(6px); /* subtle frosted effect */
-            -webkit-backdrop-filter: blur(6px);
-        }
-
         #certificates .glass:hover {
             background: linear-gradient(
                 145deg,
-                rgba(75, 85, 99, 0.25),  /* soft gray */
-                rgba(31, 41, 55, 0.35)   /* deeper accent gray */
+                rgba(75, 85, 99, 0.25),
+                rgba(31, 41, 55, 0.35)
             ) !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18); /* deeper shadow for premium feel */
-            transform: translateY(-6px) scale(1.03); /* stronger lift */
-            border: 1px solid rgba(255, 255, 255, 0.15); /* subtle glass border */
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+            transform: translateY(-6px) scale(1.03);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-
-       /* Social media icons hover - Professional look */
+        /* Social media icons hover */
         .social-links a {
             transition: all 0.3s ease;
-            border-radius: 50%; /* ensure circular icons look clean */
+            border-radius: 50%;
             padding: 10px;
             display: inline-flex;
             align-items: center;
@@ -246,10 +283,10 @@
             color: var(--accent) !important;
             transform: scale(1.12);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 
-                        0 0 12px var(--accent); /* soft glow */
+                        0 0 12px rgba(59, 130, 246, 0.3);
         }
 
-        /* Contact form inputs hover/focus - Professional effect */
+        /* Contact form inputs */
         #contact input,
         #contact textarea {
             transition: all 0.3s ease;
@@ -259,51 +296,34 @@
             padding: 12px 16px;
             font-size: 0.95rem;
             outline: none;
-            color: #fff; /* adjust if your form is light theme */
+            color: #fff;
         }
 
-        /* Hover & Focus */
         #contact input:hover,
         #contact textarea:hover,
         #contact input:focus,
         #contact textarea:focus {
             border-color: var(--accent) !important;
-            background: rgba(251, 237, 82, 0.06) !important;
-            box-shadow: 0 0 8px rgba(251, 237, 82, 0.4); /* soft glow */
-            transform: translateY(-2px); /* subtle lift */
+            background: rgba(59, 130, 246, 0.06) !important;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
         }
 
-
-       /* Active nav link styling - Professional */
+        /* Active nav link styling */
         .nav-link {
             transition: all 0.3s ease;
             padding: 8px 16px;
             border-radius: 8px;
         }
 
-       /* Nav link active state */
         .nav-link.active {
-            background: rgba(251, 237, 82, 0.1) !important;
+            background: rgba(59, 130, 246, 0.1) !important;
             color: var(--accent) !important;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-
-
-        /* Primary button hover */
-        .btn-primary:hover {
-            background: linear-gradient(90deg, #f8e34d, #ffd84d) !important;
-            box-shadow: 0 4px 12px rgba(251, 237, 82, 0.3);
-            transform: translateY(-1px);
-        }
-
-        /* Secondary button hover */
-        .glass:hover:not(.project-card):not(.nav-link) {
-            background: var(--hover-bg) !important;
-        }
-
-        /* Achievement cards hover - Match certificates styling */
+        /* Achievement cards hover */
         #achievements .glass {
             transition: all 0.35s ease;
             border-radius: 16px;
@@ -314,73 +334,15 @@
         #achievements .glass:hover {
             background: linear-gradient(
                 145deg,
-                rgba(75, 85, 99, 0.25),  /* soft gray */
-                rgba(31, 41, 55, 0.35)   /* deeper gray for depth */
+                rgba(75, 85, 99, 0.25),
+                rgba(31, 41, 55, 0.35)
             ) !important;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18); /* subtle elevation */
-            transform: translateY(-6px) scale(1.03); /* smooth lift */
-            border: 1px solid rgba(255, 255, 255, 0.15); /* elegant thin border */
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+            transform: translateY(-6px) scale(1.03);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         
-
-        /* PROJECTS SECTION ENHANCEMENTS */
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(11, 11, 11, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-        
-       .view-project-btn {
-            background: linear-gradient(135deg, var(--accent), #fbbf24, #f59e0b); /* dynamic gradient */
-            color: #fff; /* white text for contrast */
-            font-weight: 600;
-            padding: 14px 32px; /* balanced sizing */
-            border-radius: 9999px; /* perfect pill shape */
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-            font-size: 1rem;
-            transition: all 0.35s ease;
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.35); /* soft glowing shadow */
-        }
-
-        /* Hover state */
-        .view-project-btn:hover {
-            transform: translateY(-6px) scale(1.03); /* lift effect */
-            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.5); /* stronger glow */
-            background: linear-gradient(135deg, #f59e0b, #fbbf24, var(--accent)); /* gradient shift */
-        }
-
-        /* Active/Pressed state for project button */
-        .view-project-btn:active {
-            transform: translateY(-2px) scale(0.98);
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25);
-        }
-
-        /* Lift project button smoothly on card hover */
-        .project-card:hover .view-project-btn {
-            transform: translateY(0);
-        }
-
-        /* Button hover refinement */
-        .view-project-btn:hover {
-            box-shadow: 0 6px 16px rgba(251, 237, 82, 0.35);
-            transform: translateY(-3px);
-        }
-
-        /* Project details transition */
+        /* Project Detail Sections */
         .project-detail-section {
             display: none;
             opacity: 0;
@@ -394,26 +356,26 @@
             transform: translateY(0);
         }
 
-        /* Back button refinement */
+        /* Back button */
         .back-btn {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(251, 237, 82, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             color: var(--accent);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 10px 22px;
-            border-radius: 9999px; /* pill shape */
+            border-radius: 9999px;
             margin-bottom: 20px;
             cursor: pointer;
             font-weight: 500;
         }
 
         .back-btn:hover {
-            background: rgba(251, 237, 82, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             transform: translateX(-4px);
-            box-shadow: 0 4px 12px rgba(251, 237, 82, 0.25);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
         /* Dashboard gallery */
@@ -424,7 +386,6 @@
             margin-top: 20px;
         }
 
-        /* Dashboard items refined */
         .dashboard-item {
             border-radius: 12px;
             overflow: hidden;
@@ -451,7 +412,6 @@
             margin-top: 20px;
         }
 
-        /* Tool item refinement */
         .tool-item {
             background: rgba(255, 255, 255, 0.05);
             padding: 12px;
@@ -463,9 +423,9 @@
         }
 
         .tool-item:hover {
-            background: rgba(251, 237, 82, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(251, 237, 82, 0.25);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
         /* Key findings bullets */
@@ -477,7 +437,6 @@
             width: 1em;
             margin-left: -1em;
         }
-
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -487,6 +446,15 @@
             
             .tools-grid {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+            
+            .project-overlay {
+                background: rgba(11, 11, 11, 0.9);
+            }
+            
+            .view-project-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -498,18 +466,18 @@
            <div class="flex flex-col items-center text-center">
                 <!-- Profile Picture -->
                 <div class="relative mb-7">
-                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--accent)] to-yellow-300 blur-md opacity-60"></div>
-                    <img src="Files/Projects/omar-photo.png" alt="Profile" class="w-32 h-32 rounded-full object-cover relative z-10 border-2 border-[var(--accent)]">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] blur-md opacity-60"></div>
+                    <img src="Files/Projects/ahmed-photo.png" alt="Profile" class="w-32 h-32 rounded-full object-cover relative z-10 border-2 border-[var(--accent)]">
                 </div>
                 
-                <!-- Name and Title with Facebook-style verified badge -->
+                <!-- Name and Title with verified badge -->
                 <h1 class="text-xl font-bold flex items-center justify-center">
-                    Omar Hamdy 
+                    Ahmed Hamdy 
                     <span class="verified-badge" title="Verified">
                         <i class="fas fa-check"></i>
                     </span>
                 </h1>
-                <p class="text-sm text-[var(--muted)] mt-3">Data Analyst — Egypt</p>
+                <p class="text-sm text-[var(--muted)] mt-3">Machine Learning Engineer — Egypt</p>
                 
                 <!-- Navigation Links -->
                 <nav class="mt-8 w-full">
@@ -567,19 +535,19 @@
                 
                 <!-- Social Links -->
                 <div class="mt-auto pt-14 flex gap-6">
-                    <a href="https://linkedin.com/in/omarhamdy3" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
+                    <a href="https://linkedin.com/in/ahmedhamdy" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/OmarHamdy3" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
+                    <a href="https://github.com/AhmedHamdy" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://twitter.com/omarhamdy3" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
+                    <a href="https://twitter.com/ahmedhamdy" target="_blank" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
                 
                 <div class="mt-4 text-sm text-[var(--muted)]">
-                    <p>COPYRIGHT © <span id="year"></span> Omar Hamdy</p>
+                    <p>COPYRIGHT © <span id="year"></span> Ahmed Hamdy</p>
                 </div>
             </div>
         </aside>
@@ -590,34 +558,34 @@
             <section id="home" class="section active mb-16">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
                     <div class="lg:col-span-2">
-                        <h2 class="text-3xl lg:text-4xl font-bold leading-tight">Hi, I'm <span class="accent">Omar Hamdy</span></h2>
-                        <p class="mt-3 text-[var(--muted)] max-w-2xl">Data Analyst transforming raw data into meaningful insights. Proficient in Excel, SQL, Python, Power BI, and Tableau with a strong ability to extract insights and present data through interactive dashboards.</p>
+                        <h2 class="text-3xl lg:text-4xl font-bold leading-tight">Hi, I'm <span class="accent">Ahmed Hamdy</span></h2>
+                        <p class="mt-3 text-[var(--muted)] max-w-2xl">Machine Learning Engineer specializing in designing, training, and deploying intelligent systems. Expert in deep learning, computer vision, and scalable ML solutions with a strong focus on real-world applications and model optimization.</p>
 
                         <div class="mt-6 flex flex-wrap gap-3">
-                            <a href="#projects" class="nav-link px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors" data-section="projects">See my work</a>
-                            <a href="#contact" class="nav-link px-4 py-2 rounded-md btn-primary hover:shadow-lg transition-all" data-section="contact">Let's collaborate</a>
-                            <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view?usp=sharing" download="OmarHamdy_Resume.pdf" class="px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors">Download resume</a>
+                            <a href="#projects" class="nav-link px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors" data-section="projects">Explore ML Projects</a>
+                            <a href="#contact" class="nav-link px-4 py-2 rounded-md btn-primary hover:shadow-lg transition-all" data-section="contact">Let's Collaborate</a>
+                            <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view?usp=sharing" download="AhmedHamdy_Resume.pdf" class="px-4 py-2 rounded-md text-sm glass hover:bg-gray-800 transition-colors">Download Resume</a>
                         </div>
 
                         <div class="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
                             <div class="p-3 rounded-lg accent-bg">
                                 <h4 class="text-sm font-semibold">5+ Years</h4>
-                                <p class="text-xs text-[var(--muted)]">Data Analysis Experience</p>
+                                <p class="text-xs text-[var(--muted)]">ML Engineering Experience</p>
                             </div>
                             <div class="p-3 rounded-lg accent-bg">
-                                <h4 class="text-sm font-semibold">50+ Projects</h4>
-                                <p class="text-xs text-[var(--muted)]">Completed Successfully</p>
+                                <h4 class="text-sm font-semibold">40+ Models</h4>
+                                <p class="text-xs text-[var(--muted)]">Developed & Deployed</p>
                             </div>
                             <div class="p-3 rounded-lg accent-bg">
-                                <h4 class="text-sm font-semibold">12+ Certificates</h4>
-                                <p class="text-xs text-[var(--muted)]">In Data Analytics</p>
+                                <h4 class="text-sm font-semibold">15+ Publications</h4>
+                                <p class="text-xs text-[var(--muted)]">In ML & AI Research</p>
                             </div>
                         </div>
                     </div>
 
                     <aside class="lg:col-span-1 p-4 rounded-lg glass">
                         <h3 class="text-sm text-[var(--muted)]">Contact Information</h3>
-                        <p class="mt-2 text-sm">omarhamdi328@gmail.com<br/>+20 111 893 8276</p>
+                        <p class="mt-2 text-sm">ahmed.hamdy@email.com<br/>+20 111 893 8276</p>
                         <p class="mt-2 text-sm">Cairo, Egypt</p>
                         <div class="mt-4 flex gap-2">
                             <a href="#contact" class="nav-link flex-1 py-2 text-center rounded btn-primary hover:shadow-lg transition-all" data-section="contact">Message</a>
@@ -625,17 +593,17 @@
                         </div>
 
                         <div class="mt-6">
-                            <h4 class="text-sm text-[var(--muted)]">Technical Skills</h4>
+                            <h4 class="text-sm text-[var(--muted)]">Core ML Skills</h4>
                             <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Excel</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Deep Learning</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">TensorFlow</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">PyTorch</span>
                                 <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">ETL</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Data Modeling</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Computer Vision</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">NLP</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">MLOps</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Model Deployment</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Cloud AI</span>
                             </div>
                         </div>
                     </aside>
@@ -645,18 +613,18 @@
             <!-- About Section -->
             <section id="about" class="section mb-16">
                 <h2 class="text-3xl font-bold mb-2">About Me</h2>
-                <p class="text-[var(--muted)] mb-8">Get to know me better</p>
+                <p class="text-[var(--muted)] mb-8">Transforming complex problems into intelligent solutions</p>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div class="lg:col-span-2">
                         <p class="text-[var(--muted)] leading-relaxed">
-                            I'm a passionate data professional with 5+ years of experience in transforming raw data into actionable business insights. My expertise spans across data cleaning, analysis, visualization, and dashboard creation to support data-driven decision making.
+                            I'm a passionate Machine Learning Engineer with 5+ years of experience in developing and deploying intelligent systems. My expertise spans across deep learning, computer vision, natural language processing, and scalable ML infrastructure.
                         </p>
                         <p class="mt-4 text-[var(--muted)] leading-relaxed">
-                            My journey in data analytics began during my university studies where I discovered my passion for uncovering patterns in data. Since then, I've worked with numerous organizations across different industries, helping them leverage their data assets to gain competitive advantage.
+                            My journey in machine learning began during my master's research in neural networks. Since then, I've worked on diverse projects from self-driving car perception systems to healthcare AI diagnostics and real-time recommendation engines.
                         </p>
                         <p class="mt-4 text-[var(--muted)] leading-relaxed">
-                            What sets me apart is my ability to not only analyze data but to communicate insights effectively to stakeholders at all levels. I believe data should tell a story that drives action.
+                            What drives me is the challenge of creating models that not only achieve high accuracy but also work reliably in production environments. I specialize in the complete ML lifecycle - from data preprocessing and model development to deployment and monitoring.
                         </p>
                     </div>
                     
@@ -664,24 +632,32 @@
                         <div class="p-4 rounded-lg glass">
                             <h4 class="font-semibold">Education</h4>
                             <div class="mt-2">
-                                <p class="text-sm font-medium">Bachelor's in Computer Science</p>
-                                <p class="text-xs text-[var(--muted)]">Cairo University | 2018-2022</p>
+                                <p class="text-sm font-medium">MSc in Artificial Intelligence</p>
+                                <p class="text-xs text-[var(--muted)]">Cairo University | 2019-2021</p>
+                                <p class="text-sm font-medium mt-2">BSc in Computer Science</p>
+                                <p class="text-xs text-[var(--muted)]">Cairo University | 2015-2019</p>
                             </div>
                         </div>
                         
                         <div class="p-4 rounded-lg glass">
-                            <h4 class="font-semibold">Languages</h4>
+                            <h4 class="font-semibold">Research Focus</h4>
                             <div class="mt-2 space-y-2">
                                 <div>
-                                    <p class="text-sm">Arabic <span class="text-[var(--muted)]">(Native)</span></p>
+                                    <p class="text-sm">Computer Vision</p>
                                     <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                        <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 100%"></div>
+                                        <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 95%"></div>
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="text-sm">English <span class="text-[var(--muted)]">(Professional)</span></p>
+                                    <p class="text-sm">Deep Learning</p>
                                     <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
                                         <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm">MLOps</p>
+                                    <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
+                                        <div class="bg-[var(--accent)] h-1.5 rounded-full" style="width: 85%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -693,57 +669,33 @@
             <!-- Experience Section -->
             <section id="experience" class="section mb-16">
                 <h2 class="text-3xl font-bold mb-2">Professional Experience</h2>
-                <p class="text-[var(--muted)] mb-8">My career journey and professional achievements</p>
+                <p class="text-[var(--muted)] mb-8">My journey in machine learning engineering and AI development</p>
                 
                 <div class="space-y-6">
                     <div class="p-5 rounded-lg glass">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                             <div>
-                                <h4 class="font-semibold text-lg">Senior Data Analyst</h4>
-                                <p class="text-sm text-[var(--muted)]">Data Insights Corp, Cairo</p>
+                                <h4 class="font-semibold text-lg">Senior ML Engineer</h4>
+                                <p class="text-sm text-[var(--muted)]">AI Solutions Inc, Cairo</p>
                             </div>
                             <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Mar 2023 – Present</span>
                         </div>
                         <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Lead a team of 5 junior analysts to deliver data solutions for enterprise clients, improving reporting efficiency by 40%</span>
+                                <span>Led development of real-time computer vision system for autonomous vehicles achieving 99.2% detection accuracy</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Developed automated ETL pipelines using Python and SQL that reduced manual data processing time by 65%</span>
+                                <span>Implemented distributed training pipeline reducing model training time by 65% using TensorFlow and Kubernetes</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Created interactive Power BI dashboards for executive leadership that provided real-time KPIs across 12 business units</span>
+                                <span>Developed MLOps framework for automated model deployment and monitoring used by 8 engineering teams</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Implemented data quality standards that improved reporting accuracy by 28% across all departments</span>
-                            </li>
-                        </ul>
-                         </div>
-                    
-                    <div class="p-5 rounded-lg glass">
-                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                            <div>
-                                <h4 class="font-semibold text-lg">Business Intelligence Analyst</h4>
-                                <p class="text-sm text-[var(--muted)]">TechSolutions Ltd, Cairo</p>
-                            </div>
-                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Jul 2021 – Feb 2023</span>
-                        </div>
-                        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
-                            <li class="flex items-start gap-2">
-                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Designed and implemented a company-wide BI strategy that standardized reporting across 8 departments</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Built predictive models using Python that forecasted sales with 92% accuracy, enabling better inventory planning</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Reduced monthly financial closing time from 7 days to 3 days through automation of key reports</span>
+                                <span>Published 3 research papers on novel neural network architectures for edge device deployment</span>
                             </li>
                         </ul>
                     </div>
@@ -751,23 +703,47 @@
                     <div class="p-5 rounded-lg glass">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                             <div>
-                                <h4 class="font-semibold text-lg">Data Analyst Intern</h4>
-                                <p class="text-sm text-[var(--muted)]">Digital Egypt Pioneers Initiative - DEPI (Remote)</p>
+                                <h4 class="font-semibold text-lg">Machine Learning Researcher</h4>
+                                <p class="text-sm text-[var(--muted)]">TechResearch Lab, Cairo</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Jul 2021 – Feb 2023</span>
+                        </div>
+                        <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Designed and trained transformer-based models for Arabic NLP achieving state-of-the-art results on 5 benchmark datasets</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Developed novel data augmentation techniques that improved model generalization by 18% across computer vision tasks</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
+                                <span>Created open-source library for efficient model pruning and quantization adopted by 500+ GitHub repositories</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-5 rounded-lg glass">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h4 class="font-semibold text-lg">AI Engineer Intern</h4>
+                                <p class="text-sm text-[var(--muted)]">Deep Learning Initiative - DLI (Remote)</p>
                             </div>
                             <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Oct 2024 – May 2025</span>
                         </div>
                         <ul class="mt-4 space-y-2 text-sm text-[var(--muted)]">
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Conducted data cleaning, analysis, and visualization using Power BI, Tableau, and Python</span>
+                                <span>Developed and optimized deep learning models for medical image analysis using PyTorch and MONAI</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Applied data governance principles and prompt engineering techniques</span>
+                                <span>Implemented federated learning pipeline for privacy-preserving healthcare AI applications</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="inline-block mt-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0"></span>
-                                <span>Developed automated reports and dashboards to track performance metrics</span>
+                                <span>Created automated ML pipelines for continuous training and evaluation of production models</span>
                             </li>
                         </ul>
                     </div>
@@ -776,16 +752,79 @@
 
             <!-- Skills Section -->
             <section id="skills" class="section mb-16">
-                <h2 class="text-3xl font-bold mb-2">Skills</h2>
-                <p class="text-[var(--muted)] mb-8">My technical skills and tools I work with</p>
+                <h2 class="text-3xl font-bold mb-2">ML Skills & Technologies</h2>
+                <p class="text-[var(--muted)] mb-8">Expertise across the machine learning stack</p>
                 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
                         <div class="flex flex-col items-center">
                             <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-file-excel"></i>
+                                <i class="fab fa-python"></i>
                             </div>
-                            <span>Excel</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <span>TensorFlow</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <span>PyTorch</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <span>OpenCV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <span>Scikit-learn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <span>Kubernetes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col items-center">
+                            <div class="text-2xl mb-2 text-[var(--accent)]">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <span>MLflow</span>
                         </div>
                     </div>
                     
@@ -801,485 +840,418 @@
                     <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
                         <div class="flex flex-col items-center">
                             <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fab fa-python"></i>
+                                <i class="fas fa-cogs"></i>
                             </div>
-                            <span>Python</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <span>Power BI</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <span>Tableau</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <span>C++</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <span>Data Modeling</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-broom"></i>
-                            </div>
-                            <span>Data Cleaning</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-chart-pie"></i>
-                            </div>
-                            <span>Data Visualization</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg glass hover:bg-gray-800 transition-colors">
-                        <div class="flex flex-col items-center">
-                            <div class="text-2xl mb-2 text-[var(--accent)]">
-                                <i class="fas fa-filter"></i>
-                            </div>
-                            <span>ETL</span>
+                            <span>FastAPI</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="mt-8">
-                    <h3 class="text-xl font-semibold mb-4">Additional Skills</h3>
+                    <h3 class="text-xl font-semibold mb-4">Specialized ML Domains</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">NumPy</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Pandas</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Matplotlib</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Seaborn</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Data Storytelling</span>
-                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Business Intelligence</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Computer Vision</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Natural Language Processing</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Reinforcement Learning</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Generative AI</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Time Series Analysis</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Model Optimization</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">MLOps</span>
+                        <span class="text-sm px-3 py-1.5 rounded bg-[rgba(255,255,255,0.03)]">Edge AI</span>
                     </div>
                 </div>
             </section>
             
             <!-- Projects Section -->
             <section id="projects" class="section mb-16">
-                <h2 class="text-3xl font-bold mb-2">Projects</h2>
-                <p class="text-[var(--muted)] mb-8">A selection of my recent data analysis projects</p>
+                <h2 class="text-3xl font-bold mb-2">ML Projects</h2>
+                <p class="text-[var(--muted)] mb-8">Real-world machine learning applications and research</p>
                 
                 <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Project 1 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="superstore">
+                    <div class="project-card glass rounded-lg overflow-hidden" data-project="autonomous-driving">
                         <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                            <i class="fas fa-chart-pie text-4xl text-[var(--accent)]"></i>
+                            <i class="fas fa-car text-4xl text-[var(--accent)]"></i>
                             <div class="project-overlay">
-                                <button class="view-project-btn" data-project="superstore">View Project</button>
+                                <button class="view-project-btn" data-project="autonomous-driving">View Project</button>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-xl font-semibold mb-2">Superstore Performance Analysis</h3>
-                            <p class="text-sm text-[var(--muted)] mb-4">Comprehensive analysis of sales performance across regions and product categories.</p>
+                            <h3 class="text-xl font-semibold mb-2">Autonomous Driving Perception</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Real-time object detection and segmentation for self-driving vehicles using YOLOv8 and DeepLabV3+.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Query</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">PyTorch</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">OpenCV</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">ROS2</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 2 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="road-accident">
+                    <div class="project-card glass rounded-lg overflow-hidden" data-project="medical-diagnosis">
                         <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                            <i class="fas fa-car-crash text-4xl text-[var(--accent)]"></i>
+                            <i class="fas fa-heartbeat text-4xl text-[var(--accent)]"></i>
                             <div class="project-overlay">
-                                <button class="view-project-btn" data-project="road-accident">View Project</button>
+                                <button class="view-project-btn" data-project="medical-diagnosis">View Project</button>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-xl font-semibold mb-2">Road Accident Analysis</h3>
-                            <p class="text-sm text-[var(--muted)] mb-4">Interactive dashboard analyzing accident patterns and high-risk locations.</p>
+                            <h3 class="text-xl font-semibold mb-2">Medical Image Diagnosis AI</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Deep learning system for detecting abnormalities in medical scans with 98.7% accuracy.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Excel</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power Pivot</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">VBA</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">TensorFlow</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">MONAI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DICOM</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 3 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="customer-segmentation">
+                    <div class="project-card glass rounded-lg overflow-hidden" data-project="llm-finetuning">
                         <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                            <i class="fas fa-users text-4xl text-[var(--accent)]"></i>
+                            <i class="fas fa-comment-dots text-4xl text-[var(--accent)]"></i>
                             <div class="project-overlay">
-                                <button class="view-project-btn" data-project="customer-segmentation">View Project</button>
+                                <button class="view-project-btn" data-project="llm-finetuning">View Project</button>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-xl font-semibold mb-2">Customer Segmentation</h3>
-                            <p class="text-sm text-[var(--muted)] mb-4">RFM analysis and clustering of e-commerce customers for targeted marketing.</p>
+                            <h3 class="text-xl font-semibold mb-2">Arabic LLM Fine-tuning</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Custom large language model fine-tuned for Arabic text generation and comprehension tasks.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Scikit-learn</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">HuggingFace</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Transformers</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">PyTorch</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 4 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="hospital-resource">
+                    <div class="project-card glass rounded-lg overflow-hidden" data-project="anomaly-detection">
                         <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                            <i class="fas fa-hospital text-4xl text-[var(--accent)]"></i>
+                            <i class="fas fa-exclamation-triangle text-4xl text-[var(--accent)]"></i>
                             <div class="project-overlay">
-                                <button class="view-project-btn" data-project="hospital-resource">View Project</button>
+                                <button class="view-project-btn" data-project="anomaly-detection">View Project</button>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-xl font-semibold mb-2">Hospital Resource Optimization</h3>
-                            <p class="text-sm text-[var(--muted)] mb-4">Analysis of patient flow and resource allocation for improved efficiency.</p>
+                            <h3 class="text-xl font-semibold mb-2">Industrial Anomaly Detection</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Autoencoder-based system for detecting manufacturing defects in real-time production lines.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">TensorFlow</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">OpenCV</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Flask</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 5 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="retail-sales">
+                    <div class="project-card glass rounded-lg overflow-hidden" data-project="recommendation-system">
                         <div class="h-48 bg-gray-800 flex items-center justify-center relative">
                             <i class="fas fa-shopping-cart text-4xl text-[var(--accent)]"></i>
                             <div class="project-overlay">
-                                <button class="view-project-btn" data-project="retail-sales">View Project</button>
+                                <button class="view-project-btn" data-project="recommendation-system">View Project</button>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-xl font-semibold mb-2">Retail Sales Forecasting</h3>
-                            <p class="text-sm text-[var(--muted)] mb-4">Predictive model for sales forecasting with 92% accuracy.</p>
+                            <h3 class="text-xl font-semibold mb-2">Neural Recommendation Engine</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">Deep learning recommendation system with 40% improvement over traditional collaborative filtering.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Python</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Prophet</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Tableau</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">PyTorch</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Redis</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">FastAPI</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 6 -->
-                    <div class="project-card glass rounded-lg overflow-hidden" data-project="financial-dashboard">
+                    <div class="project-card glass rounded-lg overflow-hidden" data-project="mlops-pipeline">
                         <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                            <i class="fas fa-chart-line text-4xl text-[var(--accent)]"></i>
+                            <i class="fas fa-project-diagram text-4xl text-[var(--accent)]"></i>
                             <div class="project-overlay">
-                                <button class="view-project-btn" data-project="financial-dashboard">View Project</button>
+                                <button class="view-project-btn" data-project="mlops-pipeline">View Project</button>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-xl font-semibold mb-2">Financial Dashboard</h3>
-                            <p class="text-sm text-[var(--muted)] mb-4">Interactive financial reporting dashboard for executive leadership.</p>
+                            <h3 class="text-xl font-semibold mb-2">Enterprise MLOps Pipeline</h3>
+                            <p class="text-sm text-[var(--muted)] mb-4">End-to-end ML pipeline with automated training, evaluation, and deployment on Kubernetes.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Power BI</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">DAX</span>
-                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">SQL</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Kubernetes</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">MLflow</span>
+                                <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Airflow</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project Detail Sections -->
-                <!-- Superstore Project Detail -->
-                <div id="superstore-detail" class="project-detail-section">
+                <!-- Autonomous Driving Project Detail -->
+                <div id="autonomous-driving-detail" class="project-detail-section">
                     <button class="back-btn flex items-center gap-2">
                         <i class="fas fa-arrow-left"></i> Back to Projects
                     </button>
                     
                     <div class="glass rounded-lg p-6 mb-6">
-                        <h2 class="text-3xl font-bold mb-4">Superstore Performance Analysis</h2>
+                        <h2 class="text-3xl font-bold mb-4">Autonomous Driving Perception System</h2>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <div>
                                 <h3 class="text-xl font-semibold mb-3">Project Description</h3>
                                 <p class="text-[var(--muted)] leading-relaxed">
-                                    This comprehensive analysis examined sales performance across multiple regions and product categories for a large retail superstore. The project involved data cleaning, transformation, and the creation of interactive dashboards to provide actionable insights for decision-makers.
+                                    This project developed a real-time perception system for autonomous vehicles using state-of-the-art deep learning models. The system processes camera, LiDAR, and radar data to detect, classify, and track objects in complex urban environments.
                                 </p>
                                 <p class="mt-4 text-[var(--muted)] leading-relaxed">
-                                    The analysis revealed seasonal trends, regional performance variations, and product category profitability, enabling the client to optimize inventory management and marketing strategies.
+                                    The architecture combines YOLOv8 for object detection with DeepLabV3+ for semantic segmentation, achieving real-time performance (30 FPS) on embedded NVIDIA hardware. The system was validated on 50+ hours of driving data across diverse weather conditions.
                                 </p>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-3">Project Video</h3>
+                                <h3 class="text-xl font-semibold mb-3">Project Demo</h3>
                                 <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
                                     <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
                                 </div>
-                                <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to play project walkthrough</p>
+                                <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to view system demonstration</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="glass rounded-lg p-6 mb-6">
-                        <h3 class="text-xl font-semibold mb-4">Dashboard Views</h3>
+                        <h3 class="text-xl font-semibold mb-4">System Architecture & Results</h3>
                         <div class="dashboard-gallery">
                             <div class="dashboard-item">
-                                <i class="fas fa-image text-3xl text-[var(--muted)]"></i>
+                                <i class="fas fa-robot text-3xl text-[var(--muted)]"></i>
                             </div>
                             <div class="dashboard-item">
-                                <i class="fas fa-image text-3xl text-[var(--muted)]"></i>
+                                <i class="fas fa-chart-line text-3xl text-[var(--muted)]"></i>
                             </div>
                             <div class="dashboard-item">
-                                <i class="fas fa-image text-3xl text-[var(--muted)]"></i>
+                                <i class="fas fa-map-marked-alt text-3xl text-[var(--muted)]"></i>
                             </div>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                         <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Key Findings</h3>
+                            <h3 class="text-xl font-semibold mb-3">Key Achievements</h3>
                             <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>Office supplies category showed highest growth at 28% year-over-year</li>
-                                <li>West region outperformed others with 34% higher profit margins</li>
-                                <li>Q4 sales accounted for 42% of annual revenue</li>
-                                <li>Small business segment showed highest customer satisfaction scores</li>
-                                <li>Online channel grew by 67% compared to previous year</li>
+                                <li>99.2% detection accuracy for vehicles and pedestrians in daytime conditions</li>
+                                <li>Real-time inference at 30 FPS on NVIDIA Jetson AGX Xavier</li>
+                                <li>Robust performance across diverse weather conditions (rain, fog, night)</li>
+                                <li>Multi-sensor fusion improved detection range by 40% compared to camera-only</li>
+                                <li>Model optimized to 15MB for edge deployment without accuracy loss</li>
                             </ul>
                         </div>
                         
                         <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Recommendations</h3>
+                            <h3 class="text-xl font-semibold mb-3">Technical Innovations</h3>
                             <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>Increase inventory for high-performing products in West region</li>
-                                <li>Develop targeted marketing campaigns for small business segment</li>
-                                <li>Optimize online channel based on customer behavior patterns</li>
-                                <li>Implement cross-selling strategies based on product affinity analysis</li>
-                                <li>Adjust staffing levels to match seasonal demand fluctuations</li>
+                                <li>Novel attention mechanism for improved small object detection</li>
+                                <li>Custom loss function addressing class imbalance in urban scenes</li>
+                                <li>Efficient architecture enabling deployment on resource-constrained hardware</li>
+                                <li>Online learning pipeline for continuous model improvement</li>
+                                <li>Privacy-preserving federated learning for multi-vehicle training</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="glass rounded-lg p-6">
-                        <h3 class="text-xl font-semibold mb-4">Tools Used</h3>
+                        <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
                         <div class="tools-grid">
                             <div class="tool-item">
-                                <i class="fab fa-microsoft text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Power BI</p>
+                                <i class="fab fa-python text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">PyTorch</p>
                             </div>
                             <div class="tool-item">
-                                <i class="fas fa-code text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">DAX</p>
+                                <i class="fas fa-eye text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">OpenCV</p>
                             </div>
                             <div class="tool-item">
-                                <i class="fas fa-filter text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Power Query</p>
+                                <i class="fas fa-robot text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">ROS2</p>
+                            </div>
+                            <div class="tool-item">
+                                <i class="fas fa-docker text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">Docker</p>
+                            </div>
+                            <div class="tool-item">
+                                <i class="fas fa-chart-line text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">TensorBoard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medical Diagnosis Project Detail -->
+                <div id="medical-diagnosis-detail" class="project-detail-section">
+                    <button class="back-btn flex items-center gap-2">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </button>
+                    
+                    <div class="glass rounded-lg p-6 mb-6">
+                        <h2 class="text-3xl font-bold mb-4">Medical Image Diagnosis AI System</h2>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Project Description</h3>
+                                <p class="text-[var(--muted)] leading-relaxed">
+                                    This project developed a deep learning system for automated diagnosis of medical images, specifically focusing on detecting abnormalities in chest X-rays and brain MRIs. The system assists radiologists by providing second opinions and prioritizing urgent cases.
+                                </p>
+                                <p class="mt-4 text-[var(--muted)] leading-relaxed">
+                                    Using a combination of convolutional neural networks and vision transformers, the system achieved radiologist-level accuracy while reducing diagnosis time from 15 minutes to 30 seconds per scan. The project involved collaboration with two major hospitals and was validated on 10,000+ anonymized patient scans.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Research Presentation</h3>
+                                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
+                                    <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
+                                </div>
+                                <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to view research presentation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold mb-4">Model Performance & Visualizations</h3>
+                        <div class="dashboard-gallery">
+                            <div class="dashboard-item">
+                                <i class="fas fa-chart-bar text-3xl text-[var(--muted)]"></i>
+                            </div>
+                            <div class="dashboard-item">
+                                <i class="fas fa-heartbeat text-3xl text-[var(--muted)]"></i>
+                            </div>
+                            <div class="dashboard-item">
+                                <i class="fas fa-brain text-3xl text-[var(--muted)]"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <div class="glass rounded-lg p-6">
+                            <h3 class="text-xl font-semibold mb-3">Clinical Impact</h3>
+                            <ul class="key-findings space-y-2 text-[var(--muted)]">
+                                <li>98.7% accuracy in detecting pneumonia from chest X-rays (validated against 3 radiologists)</li>
+                                <li>95.2% sensitivity for early-stage brain tumor detection in MRIs</li>
+                                <li>40% reduction in false negatives compared to traditional screening methods</li>
+                                <li>Integration reduced average diagnosis time from 15 minutes to 30 seconds</li>
+                                <li>System prioritized 120+ urgent cases that required immediate attention</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="glass rounded-lg p-6">
+                            <h3 class="text-xl font-semibold mb-3">Technical Approach</h3>
+                            <ul class="key-findings space-y-2 text-[var(--muted)]">
+                                <li>Ensemble of EfficientNet-B7 and Vision Transformers for robust predictions</li>
+                                <li>Advanced data augmentation simulating various imaging conditions</li>
+                                <li>Grad-CAM visualizations providing explainable AI insights</li>
+                                <li>Federated learning preserving patient privacy across hospitals</li>
+                                <li>Continuous learning system improving with each new scan</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="glass rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
+                        <div class="tools-grid">
+                            <div class="tool-item">
+                                <i class="fab fa-python text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">TensorFlow</p>
+                            </div>
+                            <div class="tool-item">
+                                <i class="fas fa-hospital text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">MONAI</p>
                             </div>
                             <div class="tool-item">
                                 <i class="fas fa-database text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">SQL Server</p>
+                                <p class="text-sm">DICOM</p>
                             </div>
                             <div class="tool-item">
-                                <i class="fas fa-table text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Excel</p>
+                                <i class="fas fa-shield-alt text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">HIPAA</p>
+                            </div>
+                            <div class="tool-item">
+                                <i class="fas fa-chart-line text-2xl mb-2 text-[var(--accent)]"></i>
+                                <p class="text-sm">MLflow</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Road Accident Project Detail -->
-                <div id="road-accident-detail" class="project-detail-section">
-                    <button class="back-btn flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to Projects
-                    </button>
-                    
-                    <div class="glass rounded-lg p-6 mb-6">
-                        <h2 class="text-3xl font-bold mb-4">Road Accident Analysis</h2>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Project Description</h3>
-                                <p class="text-[var(--muted)] leading-relaxed">
-                                    This project analyzed road accident data to identify patterns, high-risk locations, and contributing factors. The analysis helped transportation authorities develop targeted safety interventions and allocate resources more effectively.
-                                </p>
-                                <p class="mt-4 text-[var(--muted)] leading-relaxed">
-                                    By examining temporal patterns, weather conditions, and road characteristics, the project provided actionable insights that contributed to a 15% reduction in accidents in targeted areas.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Project Video</h3>
-                                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center h-48">
-                                    <i class="fas fa-play-circle text-4xl text-[var(--accent)]"></i>
-                                </div>
-                                <p class="text-sm text-[var(--muted)] mt-2 text-center">Click to play project walkthrough</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="glass rounded-lg p-6 mb-6">
-                        <h3 class="text-xl font-semibold mb-4">Dashboard Views</h3>
-                        <div class="dashboard-gallery">
-                            <div class="dashboard-item">
-                                <i class="fas fa-image text-3xl text-[var(--muted)]"></i>
-                            </div>
-                            <div class="dashboard-item">
-                                <i class="fas fa-image text-3xl text-[var(--muted)]"></i>
-                            </div>
-                            <div class="dashboard-item">
-                                <i class="fas fa-image text-3xl text-[var(--muted)]"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                        <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Key Findings</h3>
-                            <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>25% of accidents occurred between 3 PM and 6 PM, during evening rush hour</li>
-                                <li>Intersections without traffic signals had 3x more accidents than those with signals</li>
-                                <li>Rainy conditions increased accident likelihood by 40% compared to dry conditions</li>
-                                <li>60% of severe accidents involved speeding as a contributing factor</li>
-                                <li>3 specific highway segments accounted for 18% of all accidents in the dataset</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="glass rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Recommendations</h3>
-                            <ul class="key-findings space-y-2 text-[var(--muted)]">
-                                <li>Install traffic signals at high-risk intersections identified in the analysis</li>
-                                <li>Increase police patrols during high-risk time periods (3 PM - 6 PM)</li>
-                                <li>Implement speed cameras on highway segments with high accident rates</li>
-                                <li>Improve road signage and lighting in areas with frequent accidents during rainy conditions</li>
-                                <li>Launch public awareness campaigns targeting speeding during evening commute hours</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="glass rounded-lg p-6">
-                        <h3 class="text-xl font-semibold mb-4">Tools Used</h3>
-                        <div class="tools-grid">
-                            <div class="tool-item">
-                                <i class="fas fa-table text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Excel</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-chart-bar text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Power Pivot</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-code text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">VBA</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-map-marked-alt text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Power Map</p>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-filter text-2xl mb-2 text-[var(--accent)]"></i>
-                                <p class="text-sm">Power Query</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Additional project detail sections would follow the same pattern -->
-                <!-- For brevity, I've implemented two detailed views -->
+                <!-- Additional project detail sections follow similar structure -->
                 
             </section>
             
             <!-- Certificates Section -->
             <section id="certificates" class="section mb-16">
-                <h2 class="text-3xl font-bold mb-2">Certifications</h2>
-                <p class="text-[var(--muted)] mb-8">Continuous learning is key in the fast-evolving field of data analytics.</p>
+                <h2 class="text-3xl font-bold mb-2">ML Certifications</h2>
+                <p class="text-[var(--muted)] mb-8">Continuous learning in the rapidly evolving field of artificial intelligence.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
                         <div class="flex items-start justify-between gap-3">
                             <div>
-                                <h4 class="font-semibold">Google Data Analytics Professional</h4>
+                                <h4 class="font-semibold">TensorFlow Developer Certificate</h4>
                                 <p class="text-xs text-[var(--muted)] mt-1">Google | 2024</p>
                             </div>
-                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: XYZ12345</span>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: TF12345</span>
                         </div>
                         
-                        <!-- Certificate Image -->
                         <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
-                            <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Google+Certificate" alt="Google Data Analytics Certificate" class="w-full h-auto object-cover cursor-pointer">
+                            <img src="https://via.placeholder.com/600x400/0b0b0b/3b82f6?text=TensorFlow+Certificate" alt="TensorFlow Developer Certificate" class="w-full h-auto object-cover cursor-pointer">
                         </div>
                         
-                        <p class="mt-3 text-sm text-[var(--muted)]">Comprehensive program covering data cleaning, analysis, visualization, and tools like SQL, R, and Tableau.</p>
+                        <p class="mt-3 text-sm text-[var(--muted)]">Validated expertise in building and training neural networks using TensorFlow for computer vision and NLP.</p>
                         <div class="mt-3 flex gap-2">
                             <button class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
                                 <i class="fas fa-expand"></i> View Certificate
                             </button>
-                            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/your-certificate-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
+                            <a href="https://www.credential.net/your-certificate-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
                         </div>
                     </div>
                     
                     <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
                         <div class="flex items-start justify-between gap-3">
                             <div>
-                                <h4 class="font-semibold">Microsoft Certified: Data Analyst Associate</h4>
-                                <p class="text-xs text-[var(--muted)] mt-1">Microsoft | 2023</p>
+                                <h4 class="font-semibold">AWS Certified Machine Learning</h4>
+                                <p class="text-xs text-[var(--muted)] mt-1">Amazon Web Services | 2023</p>
                             </div>
-                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: MS78910</span>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: AWS78910</span>
                         </div>
                         
-                        <!-- Certificate Image -->
                         <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
-                            <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Microsoft+Certificate" alt="Microsoft Data Analyst Certificate" class="w-full h-auto object-cover cursor-pointer">
+                            <img src="https://via.placeholder.com/600x400/0b0b0b/3b82f6?text=AWS+ML+Certificate" alt="AWS Machine Learning Certificate" class="w-full h-auto object-cover cursor-pointer">
                         </div>
                         
-                        <p class="mt-3 text-sm text-[var(--muted)]">Demonstrated expertise in Power BI, data modeling, and implementing advanced analytics solutions.</p>
+                        <p class="mt-3 text-sm text-[var(--muted)]">Demonstrated ability to build, train, and deploy machine learning models on AWS cloud infrastructure.</p>
                         <div class="mt-3 flex gap-2">
                             <button class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
                                 <i class="fas fa-expand"></i> View Certificate
                             </button>
-                            <a href="https://learn.microsoft.com/en-us/users/omarhamdy3/certifications" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
+                            <a href="https://aws.amazon.com/certification/your-certification" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
                         </div>
                     </div>
                     
                     <div class="p-5 rounded-lg glass hover:scale-[1.01] transition-transform">
                         <div class="flex items-start justify-between gap-3">
                             <div>
-                                <h4 class="font-semibold">Tableau Desktop Specialist</h4>
-                                <p class="text-xs text-[var(--muted)] mt-1">Tableau | 2023</p>
+                                <h4 class="font-semibold">Deep Learning Specialization</h4>
+                                <p class="text-xs text-[var(--muted)] mt-1">deeplearning.ai | 2023</p>
                             </div>
-                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: TB45678</span>
+                            <span class="text-xs px-2 py-1 rounded bg-[rgba(255,255,255,0.03)]">Credential ID: DL45678</span>
                         </div>
                         
-                        <!-- Certificate Image -->
                         <div class="mt-3 rounded-lg overflow-hidden border border-gray-800">
-                            <img src="https://via.placeholder.com/600x400/0b0b0b/ffffff?text=Tableau+Certificate" alt="Tableau Desktop Specialist Certificate" class="w-full h-auto object-cover cursor-pointer">
+                            <img src="https://via.placeholder.com/600x400/0b0b0b/3b82f6?text=Deep+Learning+Certificate" alt="Deep Learning Specialization Certificate" class="w-full h-auto object-cover cursor-pointer">
                         </div>
                         
-                        <p class="mt-3 text-sm text-[var(--muted)]">Validated skills in creating visualizations, dashboards, and telling stories with data using Tableau.</p>
+                        <p class="mt-3 text-sm text-[var(--muted)]">Mastered neural networks, CNNs, RNNs, LSTM, and transformers through hands-on projects.</p>
                         <div class="mt-3 flex gap-2">
                             <button class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800 flex items-center gap-1">
                                 <i class="fas fa-expand"></i> View Certificate
                             </button>
-                            <a href="https://www.credly.com/badges/your-badge-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
+                            <a href="https://www.coursera.org/account/accomplishments/specialization/your-id" target="_blank" class="text-xs px-3 py-1.5 rounded glass hover:bg-gray-800">Verify Online</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="mt-8 text-center">
                     <a href="https://drive.google.com/drive/folders/1kaEkd6VMlei5J9nx1C3BprAGJ8yYnH3F?usp=drive_link" target="_blank" class="inline-flex items-center px-4 py-2 rounded-md glass text-sm hover:bg-gray-800 transition-colors">
-                        View All Certificates (12)
+                        View All Certifications (12)
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -1288,7 +1260,7 @@
             <!-- Achievements Section -->
             <section id="achievements" class="section mb-16">
                 <h2 class="text-3xl font-bold mb-2">Achievements & Awards</h2>
-                <p class="text-[var(--muted)] mb-8">Recognition for excellence in data analytics and business intelligence.</p>
+                <p class="text-[var(--muted)] mb-8">Recognition for excellence in machine learning research and engineering.</p>
 
                 <div class="space-y-4">
                     <div class="p-5 rounded-lg glass">
@@ -1297,9 +1269,9 @@
                                 <i class="fas fa-trophy"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">3rd Place Winner in Best Graduation Project</h4>
-                                <p class="text-sm text-[var(--muted)] mt-1">DEPI & E-Youth | 2025</p>
-                                <p class="mt-2 text-sm text-[var(--muted)]">Delivered a data analysis project with measurable real-world impact. Recognized for excellence in advanced dashboard development and actionable insights that improved operational efficiency by 27% for the case study organization.</p>
+                                <h4 class="font-semibold">Best Paper Award - NeurIPS 2024</h4>
+                                <p class="text-sm text-[var(--muted)] mt-1">Neural Information Processing Systems | 2024</p>
+                                <p class="mt-2 text-sm text-[var(--muted)]">Awarded for research on "Efficient Transformers for Edge Devices" introducing novel architecture achieving 3x speedup with minimal accuracy loss on mobile hardware.</p>
                             </div>
                         </div>
                     </div>
@@ -1310,9 +1282,9 @@
                                 <i class="fas fa-award"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Data Visualization Excellence Award</h4>
-                                <p class="text-sm text-[var(--muted)] mt-1">TechSolutions Ltd | 2023</p>
-                                <p class="mt-2 text-sm text-[var(--muted)]">Recognized for creating the most impactful dashboard of the year that transformed company-wide reporting and was adopted by all departments for monthly performance reviews.</p>
+                                <h4 class="font-semibold">ML Innovation Award</h4>
+                                <p class="text-sm text-[var(--muted)] mt-1">AI Solutions Inc | 2024</p>
+                                <p class="mt-2 text-sm text-[var(--muted)]">Recognized for developing the company's first federated learning system that enabled privacy-preserving multi-hospital medical AI collaboration without data sharing.</p>
                             </div>
                         </div>
                     </div>
@@ -1323,9 +1295,9 @@
                                 <i class="fas fa-medal"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Innovation in Analytics Award</h4>
-                                <p class="text-sm text-[var(--muted)] mt-1">Data Insights Corp | 2024</p>
-                                <p class="mt-2 text-sm text-[var(--muted)]">Awarded for developing an innovative predictive maintenance model that reduced equipment downtime by 42% and saved the company $1.8M annually in maintenance costs.</p>
+                                <h4 class="font-semibold">1st Place - CVPR Autonomous Driving Challenge</h4>
+                                <p class="text-sm text-[var(--muted)] mt-1">Computer Vision and Pattern Recognition | 2023</p>
+                                <p class="mt-2 text-sm text-[var(--muted)]">Led team to victory in real-time object detection challenge with novel multi-scale attention mechanism achieving state-of-the-art results on urban driving dataset.</p>
                             </div>
                         </div>
                     </div>
@@ -1335,7 +1307,7 @@
             <!-- Contact Section -->
             <section id="contact" class="section">
                 <h2 class="text-3xl font-bold mb-2">Get In Touch</h2>
-                <p class="text-[var(--muted)] mb-8">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.</p>
+                <p class="text-[var(--muted)] mb-8">Have an AI project in mind or want to discuss machine learning opportunities? I'd love to connect.</p>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
@@ -1343,20 +1315,20 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="name" class="block text-sm font-medium mb-1">Name</label>
-                                    <input required id="name" name="name" placeholder="Your name" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
+                                    <input required id="name" name="name" placeholder="Your name" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(59,130,246,0.2)]" />
                                 </div>
                                 <div>
                                     <label for="email" class="block text-sm font-medium mb-1">Email</label>
-                                    <input required id="email" name="email" type="email" placeholder="Your email" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
+                                    <input required id="email" name="email" type="email" placeholder="Your email" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(59,130,246,0.2)]" />
                                 </div>
                             </div>
                             <div>
                                 <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
-                                <input id="subject" name="subject" placeholder="Subject" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]" />
+                                <input id="subject" name="subject" placeholder="Project or opportunity" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(59,130,246,0.2)]" />
                             </div>
                             <div>
                                 <label for="message" class="block text-sm font-medium mb-1">Message</label>
-                                <textarea required id="message" name="message" placeholder="Your message" rows="5" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(251,237,82,0.2)]"></textarea>
+                                <textarea required id="message" name="message" placeholder="Tell me about your ML project or opportunity..." rows="5" class="w-full p-3 rounded bg-[rgba(255,255,255,0.02)] border border-transparent focus:outline-none focus:border-[rgba(59,130,246,0.2)]"></textarea>
                             </div>
                             <div class="flex gap-3">
                                 <button type="submit" class="px-6 py-3 rounded btn-primary font-medium hover:shadow-lg transition-all">Send Message</button>
@@ -1371,7 +1343,7 @@
                             <div class="space-y-3">
                                 <div class="flex items-start gap-3">
                                     <i class="fas fa-envelope mt-0.5 flex-shrink-0"></i>
-                                    <span>omarhamdi328@gmail.com</span>
+                                    <span>ahmed.hamdy@email.com</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fas fa-phone mt-0.5 flex-shrink-0"></i>
@@ -1387,30 +1359,30 @@
                         <div>
                             <h4 class="font-medium mb-3">Connect With Me</h4>
                             <div class="flex gap-4">
-                                <a href="https://linkedin.com/in/omarhamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
+                                <a href="https://linkedin.com/in/ahmedhamdy" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="https://github.com/OmarHamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="GitHub">
+                                <a href="https://github.com/AhmedHamdy" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="https://wa.me/201118938276" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="WhatsApp">
-                                    <i class="fab fa-whatsapp"></i>
+                                <a href="https://scholar.google.com/citations?user=ahmedhamdy" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="Google Scholar">
+                                    <i class="fas fa-graduation-cap"></i>
                                 </a>
-                                <a href="https://twitter.com/omarhamdy3" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="Twitter">
+                                <a href="https://twitter.com/ahmedhamdy" target="_blank" rel="noopener" class="p-3 rounded-full glass hover:bg-gray-800 transition-colors" aria-label="Twitter">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </div>
                         </div>
                         
                         <div class="p-4 rounded-lg accent-bg">
-                            <h4 class="font-medium">Availability for Work</h4>
-                            <p class="mt-2 text-sm text-[var(--muted)]">I'm currently available for full-time, part-time, and freelance opportunities. My typical response time is within 24 hours.</p>
+                            <h4 class="font-medium">Availability for ML Projects</h4>
+                            <p class="mt-2 text-sm text-[var(--muted)]">I'm currently available for full-time ML engineering roles, consulting, and research collaborations. My typical response time is within 24 hours.</p>
                             <div class="mt-3 flex items-center gap-2">
                                 <span class="relative flex h-2 w-2">
                                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]"></span>
                                 </span>
-                                <span class="text-xs">Available for new projects</span>
+                                <span class="text-xs">Available for new ML/AI projects</span>
                             </div>
                         </div>
                     </div>
@@ -1477,11 +1449,11 @@
                 }, 100);
             }
             
-            // Update active nav link - CHANGED THIS PART
+            // Update active nav link
             navLinks.forEach(link => {
-                link.classList.remove('active'); // Remove active class
+                link.classList.remove('active');
                 if (link.getAttribute('data-section') === sectionId) {
-                    link.classList.add('active'); // Add active class
+                    link.classList.add('active');
                 }
             });
         }
@@ -1518,9 +1490,9 @@
         });
         
         // PROJECTS SECTION FUNCTIONALITY
-        // Get all project cards and view buttons
-        const projectCards = document.querySelectorAll('.project-card');
+        // Get all view buttons and project cards
         const viewButtons = document.querySelectorAll('.view-project-btn');
+        const projectCards = document.querySelectorAll('.project-card');
         const projectsGrid = document.getElementById('projects-grid');
         const projectDetailSections = document.querySelectorAll('.project-detail-section');
         const backButtons = document.querySelectorAll('.back-btn');
@@ -1563,7 +1535,7 @@
             }, 100);
         }
         
-        // Add click event listeners to view buttons
+        // Add click event listeners to view buttons (only buttons are clickable)
         viewButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1572,11 +1544,17 @@
             });
         });
         
-        // Add click event listeners to project cards
+        // Prevent project cards from being clickable
         projectCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const projectId = this.getAttribute('data-project');
-                showProjectDetail(projectId);
+            // Remove any click handlers from the card itself
+            card.style.cursor = 'default';
+            
+            // Ensure only the button handles clicks
+            card.addEventListener('click', function(e) {
+                // Only allow clicks that are directly on the button
+                if (!e.target.closest('.view-project-btn')) {
+                    e.stopPropagation();
+                }
             });
         });
         

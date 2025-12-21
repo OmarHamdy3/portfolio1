@@ -587,65 +587,78 @@
         }
         
         .featured-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: var(--hover-transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            min-height: 200px;
-        }
-        
-        .featured-card:hover {
-            background: rgba(59, 130, 246, 0.1) !important;
-            border-color: rgba(59, 130, 246, 0.3) !important;
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .featured-card i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            background: rgba(59, 130, 246, 0.1);
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: var(--hover-transition);
-        }
-        
-        .featured-card:hover i {
-            background: rgba(59, 130, 246, 0.2);
-            transform: scale(1.1);
-        }
-        
-        .featured-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .featured-card p {
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .featured-card a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: var(--hover-transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 220px;
+    backdrop-filter: blur(6px);
+}
+
+/* Hover – clean & professional */
+.featured-card:hover {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Icon container – centered above title */
+.featured-card i {
+    font-size: 2.3rem;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+    background: rgba(59, 130, 246, 0.12);
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--hover-transition);
+}
+
+/* Icon hover effect */
+.featured-card:hover i {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px) scale(1.08);
+}
+
+/* Section title */
+.featured-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.3px;
+}
+
+/* Description text */
+.featured-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 260px;
+}
+
+/* Make whole card clickable */
+.featured-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
         
         /* Section spacing for home */
         #home > div:not(:first-child) {
@@ -964,7 +977,7 @@
                 
                 <!-- Featured Section -->
                 <div class="mt-16">
-                    <h2 class="text-3xl font-bold mb-2">Featured</h2>
+                    <h2 class="text-3xl font-bold mb-2">Featured Sections</h2>
                     <p class="text-[var(--muted)] mb-8">Explore my professional journey and key accomplishments</p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

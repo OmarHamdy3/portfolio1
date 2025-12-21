@@ -534,6 +534,123 @@
         #mobile-menu.active {
             transform: translateY(0);
         }
+        
+        /* =============================== */
+        /* NEW HOME SECTION STYLES */
+        /* =============================== */
+        
+        .skill-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--hover-transition);
+        }
+        
+        .skill-category:hover {
+            background: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.25) !important;
+            transform: translateY(-4px);
+        }
+        
+        .skill-category h3 {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skill-category li {
+            padding: 0.4rem 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-category li::before {
+            content: "▸";
+            color: var(--accent);
+            margin-right: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .featured-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--hover-transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 200px;
+        }
+        
+        .featured-card:hover {
+            background: rgba(59, 130, 246, 0.1) !important;
+            border-color: rgba(59, 130, 246, 0.3) !important;
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .featured-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+            background: rgba(59, 130, 246, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--hover-transition);
+        }
+        
+        .featured-card:hover i {
+            background: rgba(59, 130, 246, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .featured-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .featured-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .featured-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Section spacing for home */
+        #home > div:not(:first-child) {
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -757,6 +874,154 @@
                             </div>
                         </div>
                     </aside>
+                </div>
+                
+                <!-- Skills Section in Home -->
+                <div class="mt-16">
+                    <h2 class="text-3xl font-bold mb-2">Skills</h2>
+                    <p class="text-[var(--muted)] mb-8">Expertise across data analysis, machine learning, and statistical modeling</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Data Analysis & Visualization -->
+                        <div class="skill-category">
+                            <h3><i class="fas fa-chart-line"></i> Data Analysis & Visualization</h3>
+                            <ul>
+                                <li>Exploratory Data Analysis (EDA)</li>
+                                <li>Data Cleaning & Preprocessing</li>
+                                <li>Statistical Analysis & Hypothesis Testing</li>
+                                <li>Data Visualization (Matplotlib, Seaborn)</li>
+                                <li>Interactive Dashboards (Plotly, Dash)</li>
+                                <li>Business Intelligence Tools</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Machine Learning & Model Evaluation -->
+                        <div class="skill-category">
+                            <h3><i class="fas fa-brain"></i> Machine Learning & Model Evaluation</h3>
+                            <ul>
+                                <li>Supervised & Unsupervised Learning</li>
+                                <li>Model Training & Hyperparameter Tuning</li>
+                                <li>Cross-validation & Model Selection</li>
+                                <li>Performance Metrics (Accuracy, F1, ROC)</li>
+                                <li>Bias-Variance Tradeoff Analysis</li>
+                                <li>Model Interpretability & Explainability</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Python for Data & ML -->
+                        <div class="skill-category">
+                            <h3><i class="fab fa-python"></i> Python for Data & ML</h3>
+                            <ul>
+                                <li>NumPy & Pandas for Data Manipulation</li>
+                                <li>Scikit-learn for ML Algorithms</li>
+                                <li>TensorFlow & PyTorch for Deep Learning</li>
+                                <li>Statistical Modeling (Statsmodels)</li>
+                                <li>Data Pipeline Development</li>
+                                <li>API Development for ML Models</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- SQL & Data Querying -->
+                        <div class="skill-category">
+                            <h3><i class="fas fa-database"></i> SQL & Data Querying</h3>
+                            <ul>
+                                <li>Complex SQL Queries & Joins</li>
+                                <li>Database Design & Optimization</li>
+                                <li>ETL Pipeline Development</li>
+                                <li>Data Warehousing Concepts</li>
+                                <li>Query Optimization & Performance Tuning</li>
+                                <li>NoSQL Databases (MongoDB, Redis)</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Statistical Analysis -->
+                        <div class="skill-category">
+                            <h3><i class="fas fa-calculator"></i> Statistical Analysis</h3>
+                            <ul>
+                                <li>Probability Distributions</li>
+                                <li>Regression Analysis (Linear, Logistic)</li>
+                                <li>Time Series Analysis & Forecasting</li>
+                                <li>A/B Testing & Experiment Design</li>
+                                <li>Multivariate Analysis</li>
+                                <li>Bayesian Statistics</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Machine Learning Frameworks -->
+                        <div class="skill-category">
+                            <h3><i class="fas fa-cogs"></i> ML Frameworks & Tools</h3>
+                            <ul>
+                                <li>Scikit-learn for Traditional ML</li>
+                                <li>TensorFlow/Keras for Deep Learning</li>
+                                <li>PyTorch for Research & Custom Models</li>
+                                <li>XGBoost & LightGBM for Gradient Boosting</li>
+                                <li>MLflow for Model Tracking</li>
+                                <li>Feature Engineering Libraries</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Section -->
+                <div class="mt-16">
+                    <h2 class="text-3xl font-bold mb-2">Featured</h2>
+                    <p class="text-[var(--muted)] mb-8">Explore my professional journey and key accomplishments</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- About Me Card -->
+                        <div class="featured-card">
+                            <a href="#about" class="nav-link" data-section="about">
+                                <i class="fas fa-user"></i>
+                                <h3>About Me</h3>
+                                <p>Learn about my background, education, and passion for machine learning and data science.</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Experience Card -->
+                        <div class="featured-card">
+                            <a href="#experience" class="nav-link" data-section="experience">
+                                <i class="fas fa-briefcase"></i>
+                                <h3>Experience</h3>
+                                <p>Explore my professional journey through various ML engineering and research roles.</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Education Card -->
+                        <div class="featured-card">
+                            <a href="#about" class="nav-link" data-section="about">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>Education</h3>
+                                <p>Academic background in Artificial Intelligence and Computer Science.</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Certifications Card -->
+                        <div class="featured-card">
+                            <a href="#certificates" class="nav-link" data-section="certificates">
+                                <i class="fas fa-certificate"></i>
+                                <h3>Certifications</h3>
+                                <p>Professional certifications in machine learning, deep learning, and cloud technologies.</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Projects Card -->
+                        <div class="featured-card">
+                            <a href="#projects" class="nav-link" data-section="projects">
+                                <i class="fas fa-folder"></i>
+                                <h3>Projects</h3>
+                                <p>Real-world ML applications and research projects with detailed case studies.</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Achievements Card -->
+                        <div class="featured-card">
+                            <a href="#achievements" class="nav-link" data-section="achievements">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Achievements</h3>
+                                <p>Awards, publications, and recognitions in machine learning research.</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
             

@@ -2984,41 +2984,40 @@
         
  /* ================= REFINED EXPERIENCE SECTION ================= */
 /* ================= REFINED EXPERIENCE SECTION ================= */
+/* ================= EXPERIENCE SECTION - FIXED ================= */
 .experience-section {
     position: relative;
     padding: 4rem 0;
     overflow: visible !important;
+    width: 100%;
 }
 
-/* Remove padding from section-container for experience section only */
+/* Remove ALL padding from section-container for experience section */
 .experience-section .section-container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 !important; /* Remove all padding */
+    padding: 0 !important;
     overflow: visible;
+    width: 100%;
 }
 
-/* Fix for the achievements-header inside experience section */
-.experience-section .achievements-header {
-    padding: 0 1.5rem; /* Add padding only to the header */
-    margin-bottom: 3rem;
-}
-
-/* Experience cards container */
+/* Experience cards container - NO PADDING HERE */
 .experience-timeline {
     position: relative;
     overflow: visible;
-    padding: 0; /* Remove any padding */
+    padding: 0; /* REMOVED all padding */
+    width: 100%;
 }
 
+/* Header with controlled padding */
 .experience-section .achievements-header {
     padding: 0 1.5rem;
     margin-bottom: 3rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.experience-timeline {
-    padding: 0 1.5rem;
-}
+
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
@@ -3136,16 +3135,18 @@
 }
 
 /* ================= REFINED EXPERIENCE CARD ================= */
+/* EXPERIENCE CARD - CRITICAL FIXES */
 .experience-card {
     position: relative;
     max-width: 850px;
     margin: 0 auto 3rem;
     perspective: 1000px;
     width: 100%;
-    padding: 0; /* Remove padding */
+    padding: 0 !important; /* Force no padding */
+    box-sizing: border-box;
 }
 
-/* Card content */
+/* Card content - handles its own padding */
 .experience-card-content {
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.06) 0%, 
@@ -3162,45 +3163,104 @@
     overflow: visible;
     width: 100%;
     box-sizing: border-box;
-    margin: 0; /* Remove margin */
+    margin: 0 auto; /* Center the card */
 }
 
-/* MOBILE RESPONSIVE ADJUSTMENTS */
+/* ================= MOBILE RESPONSIVE - FIXED ================= */
 @media (max-width: 768px) {
     .experience-section {
         padding: 3rem 0;
+        overflow: visible !important;
+        width: 100vw;
+        margin: 0;
     }
     
-    /* Add horizontal padding for mobile */
+    /* CRITICAL: Remove ALL padding from container on mobile */
+    .experience-section .section-container {
+        padding: 0 !important;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* CRITICAL: Remove padding from timeline */
+    .experience-timeline {
+        padding: 0 !important;
+        margin: 0;
+        width: 100%;
+    }
+    
+    /* Header padding for mobile */
     .experience-section .achievements-header {
         padding: 0 1.5rem;
+        margin: 0 auto 2rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
-    /* Add horizontal padding for cards on mobile */
+    /* EXPERIENCE CARD - NO HORIZONTAL PADDING */
     .experience-card {
-        padding: 0 1.5rem; /* Add padding to cards instead of container */
+        max-width: 100%;
+        margin: 0 auto 2rem;
+        padding: 0 !important; /* NO PADDING */
+        width: 100%;
+        box-sizing: border-box;
     }
     
+    /* Card content - reduced padding for mobile */
     .experience-card-content {
         padding: 1.5rem;
+        margin: 0;
+        width: 100%;
+        border-radius: 12px;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure content doesn't overflow */
+    .experience-card-content * {
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 }
 
 @media (max-width: 480px) {
     .experience-section {
         padding: 2rem 0;
+        width: 100vw;
+    }
+    
+    /* CRITICAL: No padding anywhere */
+    .experience-section .section-container {
+        padding: 0 !important;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .experience-timeline {
+        padding: 0 !important;
+        margin: 0;
+        width: 100%;
     }
     
     .experience-section .achievements-header {
         padding: 0 1rem;
+        margin: 0 auto 1.5rem;
+        width: 100%;
     }
     
+    /* EXPERIENCE CARD - NO PADDING */
     .experience-card {
-        padding: 0 1rem; /* Less padding on smaller screens */
+        padding: 0 !important;
+        margin: 0 auto 1.5rem;
+        width: 100%;
     }
     
     .experience-card-content {
         padding: 1.25rem;
+        margin: 0;
+        width: 100%;
+        border-radius: 10px;
     }
 }
 
@@ -3211,145 +3271,19 @@
     }
     
     .experience-card {
-        padding: 0 0.8rem;
+        padding: 0 !important;
+        margin: 0 auto 1.25rem;
     }
     
     .experience-card-content {
         padding: 1rem;
-    }
-}
-
-/* ================= MOBILE RESPONSIVE ADJUSTMENTS ================= */
-@media (max-width: 768px) {
-    .experience-section {
-        padding: 3rem 0;
-        overflow: visible !important; /* Force visible on mobile */
-    }
-    
-    .experience-section .section-container {
-        padding: 0 1.5rem; /* Increased padding for better spacing */
-    }
-    
-    .experience-card {
-        max-width: 100%; /* Allow cards to use full width */
-        margin: 0 auto 2rem; /* Reduced margin on mobile */
-        padding: 0; /* Remove any padding */
-    }
-    
-    .experience-card-content {
-        padding: 1.5rem; /* Reduced padding for mobile */
-        margin: 0; /* Remove any margin */
-        width: 100%; /* Full width */
-        box-sizing: border-box; /* Include padding in width calculation */
-    }
-    
-    /* Fix for skills tags wrapping */
-    .skills-tags {
-        gap: 0.5rem; /* Reduced gap on mobile */
-    }
-    
-    .skill-tag {
-        padding: 0.3rem 0.6rem; /* Slightly smaller on mobile */
-        font-size: 0.75rem; /* Smaller font for mobile */
-    }
-    
-    /* Ensure content doesn't overflow horizontally */
-    .experience-header,
-    .company-info,
-    .responsibilities,
-    .experience-skills,
-    .experience-achievements,
-    .impact-metrics {
-        max-width: 100%;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-    }
-}
-
-@media (max-width: 480px) {
-    .experience-section {
-        padding: 2rem 0;
-    }
-    
-   /* Container adjustments for mobile */
-.experience-section .section-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1rem; /* Add padding for mobile */
-    overflow: visible; /* Ensure container doesn't cut content */
-}
-
-/* Experience cards container */
-.experience-timeline {
-    position: relative;
-    overflow: visible; /* Ensure cards are visible */
-}
-    
-    .experience-card-content {
-        padding: 1.25rem; /* Even smaller padding */
-    }
-    
-    .company-info {
-        flex-direction: column; /* Stack company info vertically */
-        text-align: center;
-        gap: 0.8rem;
-    }
-    
-    /* Fix for long text in responsibilities */
-    .responsibility-item {
-        padding-left: 1.5rem; /* Reduced padding */
-        font-size: 0.85rem; /* Slightly smaller font */
-        line-height: 1.4;
-    }
-    
-    /* Ensure impact metrics fit on small screens */
-    .impact-metrics {
-        grid-template-columns: 1fr; /* Single column on very small screens */
-        gap: 0.8rem;
-        padding: 0.8rem;
-    }
-    
-    .metric-value {
-        font-size: 1.6rem; /* Slightly smaller on mobile */
-    }
-}
-
-/* ================= EXTRA SMALL SCREENS ================= */
-@media (max-width: 360px) {
-    .experience-card-content {
-        padding: 1rem;
-    }
-    
-    .experience-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-    }
-    
-    .experience-date {
-        align-self: flex-start;
-        font-size: 0.7rem;
-        padding: 0.3rem 0.8rem;
-    }
-    
-    .skills-tags {
-        gap: 0.4rem;
-    }
-    
-    .skill-tag {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.7rem;
     }
 }
 
 /* ================= FIX FOR CONTENT OVERFLOW ================= */
 .experience-card-content * {
-    max-width: 100%; /* Prevent any child element from exceeding card width */
-}
-
-.responsibilities-list,
-.achievements-list {
-    padding-right: 0; /* Remove any right padding that might cause overflow */
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Ensure images or other media don't cause overflow */
@@ -3360,35 +3294,40 @@
     height: auto;
 }
 
-/* Subtle accent border */
-.experience-card-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        var(--primary) 0%, 
-        var(--secondary) 50%, 
-        var(--primary) 100%);
-    opacity: 0.6;
+/* Responsive typography for mobile */
+@media (max-width: 768px) {
+    .responsibility-item {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .company-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
 }
 
-/* Hover effect */
-.experience-card:hover .experience-card-content {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 15px 45px rgba(251, 237, 82, 0.15),
-        0 8px 32px rgba(0, 0, 0, 0.25);
-    border-color: rgba(251, 237, 82, 0.2);
-}
-
-[data-theme="light"] .experience-card:hover .experience-card-content {
-    box-shadow: 
-        0 15px 45px rgba(255, 157, 0, 0.12),
-        0 8px 32px rgba(0, 0, 0, 0.1);
-    border-color: rgba(255, 157, 0, 0.2);
+/* Force full width on very small screens */
+@media (max-width: 320px) {
+    .experience-card-content {
+        padding: 0.75rem;
+        border-radius: 8px;
+    }
+    
+    .skills-tags {
+        gap: 0.3rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
 }
 
 /* ================= ENHANCED HEADER - Compact ================= */

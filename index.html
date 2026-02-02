@@ -8013,80 +8013,47 @@ footer p.copyright {
      /* ================= PROFESSIONAL ULTRA-COMPACT MODALS ================= */
 /* Enhanced with premium aesthetics, larger dashboard images, and professional styling */
 
-.project-modal {
+/* ================= EXECUTIVE MODAL STYLES ================= */
+/* ================= EXECUTIVE MODAL STYLES - COMPACT VERSION ================= */
+.project-modal.executive {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(5, 5, 10, 0.98);
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    z-index: 9999;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    z-index: 10000;
+    animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
-    animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes modalFadeIn {
-    from { 
-        opacity: 0; 
-        backdrop-filter: blur(0px);
-    }
-    to { 
-        opacity: 1; 
-        backdrop-filter: blur(25px) saturate(180%);
-    }
+    from { opacity: 0; backdrop-filter: blur(0px); }
+    to { opacity: 1; backdrop-filter: blur(20px) saturate(180%); }
 }
 
-.modal-content.ultra-compact {
-    width: 92%;
-    max-width: 860px;
-    margin: 3% auto;
+.modal-content.executive {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 4vh auto;
     background: linear-gradient(165deg, 
-        rgba(18, 18, 28, 0.97) 0%, 
-        rgba(12, 12, 20, 0.98) 100%);
-    border-radius: 28px;
-    padding: 2.8rem;
+        rgba(18, 18, 28, 0.98) 0%,
+        rgba(12, 12, 20, 0.99) 100%);
+    border-radius: 16px;
     border: 1px solid rgba(251, 237, 82, 0.12);
     box-shadow: 
-        0 25px 80px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(251, 237, 82, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    position: relative;
-    animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-}
-
-.modal-content.ultra-compact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(251, 237, 82, 0.3), 
-        transparent);
-    z-index: 1;
-}
-
-[data-theme="light"] .modal-content.ultra-compact {
-    background: linear-gradient(165deg, 
-        rgba(255, 255, 255, 0.98) 0%, 
-        rgba(248, 249, 252, 0.98) 100%);
-    border: 1px solid rgba(255, 157, 0, 0.15);
-    box-shadow: 
-        0 25px 80px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255, 157, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 12px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(251, 237, 82, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    overflow: visible;
+    animation: modalSlideIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes modalSlideIn {
     from {
         opacity: 0;
-        transform: translateY(-40px) scale(0.97);
+        transform: translateY(-15px) scale(0.99);
     }
     to {
         opacity: 1;
@@ -8094,760 +8061,382 @@ footer p.copyright {
     }
 }
 
-/* Ultra Compact Header - Premium Edition */
-.modal-header.ultra-compact {
-    text-align: center;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    background: linear-gradient(135deg, 
-        rgba(251, 237, 82, 0.03) 0%, 
-        rgba(255, 157, 0, 0.02) 100%);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    margin-bottom: 2.5rem;
-}
-
-[data-theme="light"] .modal-header.ultra-compact {
-    background: linear-gradient(135deg, 
-        rgba(255, 157, 0, 0.03) 0%, 
-        rgba(255, 157, 0, 0.01) 100%);
-    border-bottom: 1px solid rgba(255, 157, 0, 0.15);
-}
-
-.modal-badge.ultra-compact {
-    display: inline-block;
-    padding: 0.6rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #000000 !important;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    border-radius: 24px;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    border: 2px solid rgba(255, 255, 255, 0.25);
+[data-theme="light"] .modal-content.executive {
+    background: linear-gradient(165deg, 
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(248, 249, 252, 0.99) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.12);
     box-shadow: 
-        0 6px 20px rgba(251, 237, 82, 0.25),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
+        0 12px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 157, 0, 0.04);
 }
 
-.modal-badge.ultra-compact:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 10px 30px rgba(251, 237, 82, 0.35),
-        0 0 0 1px rgba(255, 255, 255, 0.2);
+/* Header Styles - Compact */
+.modal-header.executive {
+    padding: 1.2rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, 
+        rgba(251, 237, 82, 0.02) 0%,
+        transparent 100%);
 }
 
-.modal-header.ultra-compact h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 0.8rem;
-    background: linear-gradient(135deg, #ff9d00, #FFD700, #ff9d00);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    line-height: 1.3;
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 10px rgba(251, 237, 82, 0.15);
-    position: relative;
-    padding-bottom: 1rem;
+[data-theme="light"] .modal-header.executive {
+    border-bottom: 1px solid rgba(255, 157, 0, 0.06);
 }
 
-.modal-header.ultra-compact h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        var(--primary), 
-        transparent);
-    border-radius: 3px;
-}
-
-.modal-subtitle.ultra-compact {
-    color: var(--gray);
-    font-size: 1.05rem;
-    max-width: 650px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-weight: 500;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="light"] .modal-subtitle.ultra-compact {
-    color: rgba(0, 0, 0, 0.7);
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Compact Stats Grid - Enhanced */
-.quick-stats.ultra-compact {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    margin-bottom: 2.5rem;
-}
-
-.stat-card.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06) 0%, 
-        rgba(255, 255, 255, 0.03) 100%);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.stat-card.ultra-compact:hover {
-    background: linear-gradient(145deg, 
-        rgba(251, 237, 82, 0.08) 0%, 
-        rgba(255, 157, 0, 0.04) 100%);
-    transform: translateY(-5px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 
-        0 12px 30px rgba(251, 237, 82, 0.15),
-        0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.stat-icon.ultra-compact {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    color: #000;
-    font-size: 1.2rem;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-        0 6px 15px rgba(251, 237, 82, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-}
-
-.stat-card.ultra-compact:hover .stat-icon.ultra-compact {
-    transform: rotate(5deg) scale(1.1);
-    box-shadow: 
-        0 8px 20px rgba(251, 237, 82, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-.stat-value.ultra-compact {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--light);
-    display: block;
-    line-height: 1.2;
-    margin-bottom: 0.3rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.stat-label.ultra-compact {
-    font-size: 0.75rem;
-    color: var(--gray);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    opacity: 0.9;
-}
-
-/* Premium Dashboard Gallery - Enhanced with Larger Images */
-.dashboard-gallery.ultra-compact {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.gallery-item.ultra-compact {
-    border-radius: 16px;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.3);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    height: 280px; /* Increased height for larger images */
-    display: flex;
-    flex-direction: column;
-}
-
-[data-theme="light"] .gallery-item.ultra-compact {
-    border: 2px solid rgba(255, 157, 0, 0.15);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.gallery-item.ultra-compact:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: rgba(251, 237, 82, 0.3);
-    box-shadow: 
-        0 20px 60px rgba(251, 237, 82, 0.15),
-        0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="light"] .gallery-item.ultra-compact:hover {
-    border-color: rgba(255, 157, 0, 0.3);
-    box-shadow: 
-        0 20px 60px rgba(255, 157, 0, 0.15),
-        0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Enhanced Image Container */
-.gallery-item.ultra-compact .image-container {
-    flex: 1;
-    overflow: hidden;
-    position: relative;
-}
-
-.gallery-item.ultra-compact img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: brightness(0.95) contrast(1.05);
-}
-
-.gallery-item.ultra-compact:hover img {
-    transform: scale(1.08);
-    filter: brightness(1) contrast(1.1);
-}
-
-/* Professional Image Overlay */
-.gallery-item.ultra-compact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, 
-        transparent 0%,
-        transparent 60%,
-        rgba(0, 0, 0, 0.8) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.gallery-item.ultra-compact:hover::before {
-    opacity: 1;
-}
-
-/* Enhanced Caption */
-.gallery-caption.ultra-compact {
-    padding: 1.5rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.gallery-item.ultra-compact:hover .gallery-caption.ultra-compact {
-    transform: translateY(0);
-}
-
-.gallery-caption.ultra-compact h5 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--light);
-    margin-bottom: 0.5rem;
+.project-meta {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
 }
 
-.gallery-caption.ultra-compact h5 i {
-    color: var(--primary);
-    font-size: 0.9rem;
-}
-
-.gallery-caption.ultra-compact p {
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin: 0;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-/* Compact Video Container - Premium */
-.video-container.ultra-compact {
-    border-radius: 18px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    border: 2px solid rgba(255, 255, 255, 0.12);
-    background: #000;
-    position: relative;
-    box-shadow: 
-        0 15px 50px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(251, 237, 82, 0.05);
-    transition: all 0.3s ease;
-}
-
-.video-container.ultra-compact:hover {
-    border-color: rgba(251, 237, 82, 0.25);
-    box-shadow: 
-        0 20px 60px rgba(251, 237, 82, 0.15),
-        0 0 0 1px rgba(251, 237, 82, 0.1);
-}
-
-.video-container.ultra-compact video {
-    width: 100%;
-    display: block;
-    border-radius: 16px;
-}
-
-.video-container.ultra-compact::before {
-    content: '▶';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2.5rem;
-    opacity: 0.9;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    background: rgba(0, 0, 0, 0.5);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.video-container.ultra-compact:hover::before {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
-    background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(251, 237, 82, 0.4);
-}
-
-/* Compact Grid Layout - Enhanced */
-.modal-grid.ultra-compact {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-}
-
-@media (min-width: 768px) {
-    .modal-grid.ultra-compact {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* Compact Section - Professional */
-.modal-section.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.05) 0%, 
-        rgba(255, 255, 255, 0.02) 100%);
-    border-radius: 20px;
-    padding: 1.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.modal-section.ultra-compact:hover {
-    border-color: rgba(251, 237, 82, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 
-        0 10px 30px rgba(251, 237, 82, 0.08),
-        0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.section-header.ultra-compact {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.section-header.ultra-compact h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--light);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+.project-category {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.project-status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.header-main {
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
 }
 
-.section-header.ultra-compact i {
-    color: var(--primary);
-    font-size: 1.2rem;
-    background: rgba(251, 237, 82, 0.1);
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+.project-subtitle {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(251, 237, 82, 0.2);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.4rem;
 }
 
-/* Compact Challenge Card - Enhanced */
-.challenge-card.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(255, 71, 87, 0.08) 0%, 
-        rgba(255, 71, 87, 0.04) 100%);
-    border-left: 4px solid #ff4757;
-    padding: 1.5rem;
-    border-radius: 14px;
-    margin-bottom: 1.2rem;
-    border: 1px solid rgba(255, 71, 87, 0.15);
-    position: relative;
-    overflow: hidden;
-}
-
-.challenge-card.ultra-compact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, 
-        #ff4757 0%, 
-        #ff6b81 100%);
-}
-
-.challenge-card.ultra-compact p {
-    font-size: 0.95rem;
-    color: var(--light);
-    margin: 0;
-    line-height: 1.6;
+.subtitle-text {
+    font-size: 0.85rem;
+    color: var(--gray);
     font-weight: 500;
-    padding-left: 0.5rem;
 }
 
-/* Compact Process Steps - Professional */
-.process-steps.ultra-compact {
+.project-timeline {
     display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.process-step.ultra-compact {
+.executive-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.summary-card {
     display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    padding: 1.2rem;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    min-height: 60px;
 }
 
-.process-step.ultra-compact:hover {
+.summary-card:hover {
     background: rgba(251, 237, 82, 0.05);
-    transform: translateX(5px);
-    border-color: rgba(251, 237, 82, 0.1);
+    border-color: rgba(251, 237, 82, 0.12);
+    transform: translateY(-1px);
 }
 
-.step-number.ultra-compact {
+.summary-icon {
     width: 36px;
     height: 36px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #000;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.summary-value {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--light);
+    line-height: 1;
+}
+
+.summary-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 0.1rem;
+    line-height: 1.2;
+}
+
+/* Close Button */
+.close-modal.executive {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--light);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.close-modal.executive:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+    transform: rotate(90deg) scale(1.05);
+    border-color: transparent;
+}
+
+/* Modal Body - No inner scroll */
+.modal-body.executive {
+    padding: 0 1.5rem;
+    overflow: visible;
+}
+
+/* Section Headers */
+.section-header {
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.section-header h2 i {
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.section-description {
+    color: var(--gray);
+    font-size: 0.8rem;
+    max-width: 600px;
+    line-height: 1.3;
+}
+
+/* Dashboard Grid - Compact */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card.featured {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.015) 100%);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.dashboard-preview {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+}
+
+.dashboard-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.dashboard-card.featured:hover .dashboard-preview img {
+    transform: scale(1.02);
+}
+
+.dashboard-info {
+    padding: 1rem;
+}
+
+.dashboard-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 0.3rem;
+}
+
+.dashboard-description {
+    color: var(--gray);
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.dashboard-metrics {
+    display: flex;
+    gap: 1rem;
+}
+
+.metric {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.dashboard-grid-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dashboard-mini-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.6rem;
+    gap: 0.6rem;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.dashboard-mini-card:hover {
+    background: rgba(251, 237, 82, 0.05);
+    border-color: rgba(251, 237, 82, 0.12);
+    transform: translateX(2px);
+}
+
+.mini-preview {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.mini-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mini-info h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 0.15rem;
+}
+
+.mini-info p {
+    color: var(--gray);
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+/* Impact Section - Compact */
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.impact-card {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.015) 100%);
+    border-radius: 14px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.2s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(251, 237, 82, 0.12);
+}
+
+.impact-card.high-impact { border-left: 2px solid #ff4757; }
+.impact-card.medium-impact { border-left: 2px solid #ffc107; }
+.impact-card.low-impact { border-left: 2px solid #34A853; }
+
+.impact-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    font-weight: 800;
-    flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 
-        0 4px 12px rgba(251, 237, 82, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    margin-bottom: 0.75rem;
+    color: var(--primary);
 }
 
-.step-content.ultra-compact h5 {
-    font-size: 1rem;
+.impact-content h3 {
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--light);
     margin-bottom: 0.4rem;
 }
 
-.step-content.ultra-compact p {
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* Compact Insights Grid - Premium */
-.insights-grid.ultra-compact {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-}
-
-.insight-card.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06) 0%, 
-        rgba(255, 255, 255, 0.03) 100%);
-    border-radius: 14px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-}
-
-.insight-card.ultra-compact:hover {
-    transform: translateY(-3px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 
-        0 8px 25px rgba(251, 237, 82, 0.1),
-        0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.insight-card.ultra-compact.critical {
-    background: linear-gradient(145deg, 
-        rgba(255, 71, 87, 0.1) 0%, 
-        rgba(255, 71, 87, 0.05) 100%);
-    border-color: rgba(255, 71, 87, 0.15);
-}
-
-.insight-icon.ultra-compact {
-    width: 40px;
-    height: 40px;
-    background: rgba(251, 237, 82, 0.15);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    font-size: 1rem;
-    border: 1px solid rgba(251, 237, 82, 0.25);
-}
-
-.insight-card.ultra-compact.critical .insight-icon.ultra-compact {
-    background: rgba(255, 71, 87, 0.15);
-    color: #ff4757;
-    border-color: rgba(255, 71, 87, 0.25);
-}
-
-.insight-card.ultra-compact h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--light);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
-
-.insight-card.ultra-compact p {
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin: 0;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-/* Compact Recommendations - Professional */
-.recommendations-grid.ultra-compact {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-}
-
-.recommendation-card.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06) 0%, 
-        rgba(255, 255, 255, 0.03) 100%);
-    border-radius: 14px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-}
-
-.recommendation-card.ultra-compact:hover {
-    transform: translateY(-3px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 
-        0 8px 25px rgba(251, 237, 82, 0.1),
-        0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.rec-priority.ultra-compact {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.7rem;
-    font-weight: 800;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    border: 1px solid;
-}
-
-.rec-priority.high.ultra-compact {
-    background: rgba(255, 71, 87, 0.2);
-    color: #ff4757 !important;
-    border-color: rgba(255, 71, 87, 0.3);
-}
-
-.rec-priority.medium.ultra-compact {
-    background: rgba(255, 193, 7, 0.2);
-    color: #ffc107 !important;
-    border-color: rgba(255, 193, 7, 0.3);
-}
-
-.rec-priority.low.ultra-compact {
-    background: rgba(40, 167, 69, 0.2);
-    color: #28a745 !important;
-    border-color: rgba(40, 167, 69, 0.3);
-}
-
-.recommendation-card.ultra-compact h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--light);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
-
-.recommendation-card.ultra-compact p {
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin: 0;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-/* Compact Tech Stack - Professional */
-.tech-stack.ultra-compact {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-}
-
-.tech-category.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06) 0%, 
-        rgba(255, 255, 255, 0.03) 100%);
-    border-radius: 14px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.tech-category.ultra-compact h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--light);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.tech-category.ultra-compact i {
-    color: var(--primary);
-    font-size: 1rem;
-    background: rgba(251, 237, 82, 0.1);
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(251, 237, 82, 0.2);
-}
-
-.tech-tools.ultra-compact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
-
-.tech-tool.ultra-compact {
-    background: linear-gradient(135deg, 
-        rgba(251, 237, 82, 0.12) 0%, 
-        rgba(251, 237, 82, 0.06) 100%);
-    color: var(--primary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border: 1px solid rgba(251, 237, 82, 0.15);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.tech-tool.ultra-compact:hover {
-    background: linear-gradient(135deg, 
-        rgba(251, 237, 82, 0.2) 0%, 
-        rgba(251, 237, 82, 0.1) 100%);
-    transform: translateY(-2px);
-    border-color: rgba(251, 237, 82, 0.3);
-    box-shadow: 0 4px 12px rgba(251, 237, 82, 0.15);
-}
-
-/* Compact Impact Metrics - Enhanced */
-.impact-metrics.ultra-compact {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-}
-
-.metric-card.ultra-compact {
-    text-align: center;
-    padding: 1.5rem;
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06) 0%, 
-        rgba(255, 255, 255, 0.03) 100%);
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-}
-
-.metric-card.ultra-compact:hover {
-    transform: translateY(-3px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 
-        0 8px 25px rgba(251, 237, 82, 0.1),
-        0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.metric-value.ultra-compact {
-    font-size: 1.8rem;
+.impact-value {
+    font-size: 1.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
@@ -8855,315 +8444,422 @@ footer p.copyright {
     color: transparent;
     line-height: 1;
     margin-bottom: 0.5rem;
-    text-shadow: 0 2px 8px rgba(251, 237, 82, 0.2);
 }
 
-.metric-label.ultra-compact {
-    font-size: 0.75rem;
+.impact-description {
     color: var(--gray);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+    font-size: 0.75rem;
     line-height: 1.3;
+    margin-bottom: 0.8rem;
 }
 
-/* Enhanced Close Button - Premium */
-.close-modal.ultra-compact {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.1) 0%, 
-        rgba(255, 255, 255, 0.05) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+.impact-tags {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.2rem 0.5rem;
+    background: rgba(251, 237, 82, 0.07);
+    color: var(--primary);
     border-radius: 12px;
-    color: var(--light);
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 1px solid rgba(251, 237, 82, 0.12);
+}
+
+/* Technical Section - Compact */
+.pipeline-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+}
+
+.pipeline-stage {
+    flex: 1;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.015) 100%);
+    border-radius: 14px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.2s ease;
+    min-height: 80px;
+}
+
+.pipeline-stage:hover {
+    background: rgba(251, 237, 82, 0.05);
+    border-color: rgba(251, 237, 82, 0.12);
+    transform: translateY(-2px);
+}
+
+.stage-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
-    backdrop-filter: blur(10px);
-}
-
-.close-modal.ultra-compact:hover {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: #000;
-    transform: rotate(90deg) scale(1.1);
-    border-color: transparent;
-    box-shadow: 
-        0 8px 25px rgba(251, 237, 82, 0.3),
-        0 0 0 1px rgba(251, 237, 82, 0.2);
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
-/* Premium Modal Footer */
-.modal-footer.ultra-compact {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 2rem;
+.stage-content {
+    flex: 1;
+    min-width: 0;
 }
 
-.modal-footer.ultra-compact .btn {
-    padding: 0.9rem 2rem;
+.stage-content h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 0.3rem;
+}
+
+.stage-content p {
+    color: var(--gray);
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.stage-tools {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.tool-tag {
+    padding: 0.2rem 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--primary);
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pipeline-connector {
+    color: var(--primary);
+    font-size: 0.9rem;
+    padding: 0 0.3rem;
+}
+
+/* Recommendations - Compact */
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.recommendation-card {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.015) 100%);
+    border-radius: 14px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.2s ease;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-2px);
+}
+
+.recommendation-card.priority-high { border-top: 2px solid #ff4757; }
+.recommendation-card.priority-medium { border-top: 2px solid #ffc107; }
+
+.recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    gap: 0.4rem;
+}
+
+.priority-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.recommendation-card.priority-high .priority-badge {
+    background: rgba(255, 71, 87, 0.12);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.recommendation-card.priority-medium .priority-badge {
+    background: rgba(255, 193, 7, 0.12);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.expected-impact {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.recommendation-card h3 {
     font-size: 0.95rem;
     font-weight: 700;
-    display: inline-flex;
+    color: var(--light);
+    margin-bottom: 0.6rem;
+}
+
+.recommendation-description {
+    color: var(--gray);
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+}
+
+.implementation-details {
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+.detail {
+    display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.3rem;
+    color: var(--gray);
+    font-size: 0.75rem;
+}
+
+.detail i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+/* Modal Footer - Compact */
+.modal-footer.executive {
+    padding: 1.2rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(251, 237, 82, 0.015) 100%);
+}
+
+.footer-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.85rem;
+}
+
+.btn-primary {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #000000 !important;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 14px;
-    box-shadow: 
-        0 6px 20px rgba(251, 237, 82, 0.25),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #000;
 }
 
-.modal-footer.ultra-compact .btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 12px 35px rgba(251, 237, 82, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.2);
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(251, 237, 82, 0.2);
 }
 
-/* Light Mode Adjustments - Premium */
-[data-theme="light"] .modal-content.ultra-compact {
-    background: linear-gradient(165deg, 
-        rgba(255, 255, 255, 0.98) 0%, 
-        rgba(250, 251, 252, 0.98) 100%);
-    border: 1px solid rgba(255, 157, 0, 0.15);
-    box-shadow: 
-        0 25px 80px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(255, 157, 0, 0.08);
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-[data-theme="light"] .modal-section.ultra-compact,
-[data-theme="light"] .stat-card.ultra-compact,
-[data-theme="light"] .insight-card.ultra-compact,
-[data-theme="light"] .recommendation-card.ultra-compact,
-[data-theme="light"] .tech-category.ultra-compact,
-[data-theme="light"] .metric-card.ultra-compact,
-[data-theme="light"] .process-step.ultra-compact {
-    background: linear-gradient(145deg, 
-        rgba(0, 0, 0, 0.02) 0%, 
-        rgba(0, 0, 0, 0.01) 100%);
-    border-color: rgba(0, 0, 0, 0.08);
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+    border-color: rgba(251, 237, 82, 0.12);
 }
 
-[data-theme="light"] .modal-section.ultra-compact:hover,
-[data-theme="light"] .stat-card.ultra-compact:hover,
-[data-theme="light"] .insight-card.ultra-compact:hover,
-[data-theme="light"] .recommendation-card.ultra-compact:hover,
-[data-theme="light"] .metric-card.ultra-compact:hover {
-    border-color: rgba(255, 157, 0, 0.25);
-    box-shadow: 
-        0 10px 30px rgba(255, 157, 0, 0.08),
-        0 4px 12px rgba(0, 0, 0, 0.04);
+.footer-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
 }
 
-[data-theme="light"] .stat-value.ultra-compact,
-[data-theme="light"] .gallery-caption.ultra-compact h5,
-[data-theme="light"] .section-header.ultra-compact h3,
-[data-theme="light"] .insight-card.ultra-compact h5,
-[data-theme="light"] .recommendation-card.ultra-compact h5,
-[data-theme="light"] .tech-category.ultra-compact h5,
-[data-theme="light"] .metric-label.ultra-compact {
-    color: #111;
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
-[data-theme="light"] .modal-subtitle.ultra-compact,
-[data-theme="light"] .stat-label.ultra-compact,
-[data-theme="light"] .gallery-caption.ultra-compact p,
-[data-theme="light"] .step-content.ultra-compact p,
-[data-theme="light"] .insight-card.ultra-compact p,
-[data-theme="light"] .recommendation-card.ultra-compact p {
-    color: rgba(0, 0, 0, 0.65);
+.meta-item i {
+    color: var(--primary);
+    font-size: 0.8rem;
 }
 
-/* Professional Scrollbar */
-.project-modal::-webkit-scrollbar {
-    width: 8px;
-}
-
-.project-modal::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 4px;
-}
-
-.project-modal::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.project-modal::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--secondary), var(--primary));
-}
-
-/* Responsive Design - Professional */
-@media (max-width: 992px) {
-    .modal-content.ultra-compact {
-        width: 94%;
-        margin: 2% auto;
-        padding: 2.5rem;
-    }
-    
-    .dashboard-gallery.ultra-compact {
-        grid-template-columns: 1fr;
-    }
-    
-    .gallery-item.ultra-compact {
-        height: 320px;
-    }
-}
-
+/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 768px) {
-    .modal-content.ultra-compact {
-        width: 96%;
-        margin: 1% auto;
-        padding: 2rem;
-        border-radius: 24px;
+    .modal-content.executive {
+        width: 94%;
+        margin: 3vh auto;
+        border-radius: 14px;
     }
     
-    .modal-header.ultra-compact h2 {
-        font-size: 1.8rem;
+    .modal-header.executive,
+    .modal-body.executive,
+    .modal-footer.executive {
+        padding: 1rem;
     }
     
-    .modal-header.ultra-compact {
-        padding: 2rem 1.5rem;
+    .project-title {
+        font-size: 1.3rem;
     }
     
-    .quick-stats.ultra-compact,
-    .impact-metrics.ultra-compact,
-    .insights-grid.ultra-compact,
-    .recommendations-grid.ultra-compact,
-    .tech-stack.ultra-compact {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-    
-    .dashboard-gallery.ultra-compact .gallery-item.ultra-compact {
-        height: 260px;
-    }
-    
-    .modal-grid.ultra-compact {
+    .executive-summary {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-content.ultra-compact {
-        padding: 1.5rem;
-        border-radius: 20px;
-        margin: 0.5% auto;
+        gap: 0.6rem;
     }
     
-    .modal-header.ultra-compact h2 {
-        font-size: 1.5rem;
-    }
-    
-    .modal-badge.ultra-compact {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.7rem;
-    }
-    
-    .quick-stats.ultra-compact,
-    .impact-metrics.ultra-compact,
-    .insights-grid.ultra-compact,
-    .recommendations-grid.ultra-compact,
-    .tech-stack.ultra-compact {
+    .dashboard-grid {
         grid-template-columns: 1fr;
         gap: 0.8rem;
     }
     
-    .dashboard-gallery.ultra-compact .gallery-item.ultra-compact {
-        height: 220px;
+    .dashboard-preview {
+        height: 140px;
     }
     
-    .close-modal.ultra-compact {
-        top: 1rem;
-        right: 1rem;
-        width: 40px;
-        height: 40px;
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .pipeline-diagram {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .pipeline-connector {
+        transform: rotate(90deg);
+        padding: 0.4rem 0;
+    }
+    
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .footer-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .footer-meta {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content.executive {
+        width: 96%;
+        margin: 2vh auto;
+        border-radius: 12px;
+    }
+    
+    .project-title {
         font-size: 1.2rem;
     }
-}
-
-/* Professional Animations */
-@keyframes professionalReveal {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.98);
+    
+    .close-modal.executive {
+        top: 0.8rem;
+        right: 0.8rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+    
+    .summary-card,
+    .dashboard-mini-card,
+    .impact-card,
+    .pipeline-stage,
+    .recommendation-card {
+        padding: 0.75rem;
     }
-}
-
-.modal-section.ultra-compact,
-.stat-card.ultra-compact,
-.insight-card.ultra-compact,
-.recommendation-card.ultra-compact,
-.gallery-item.ultra-compact,
-.metric-card.ultra-compact {
-    animation: professionalReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
-}
-
-/* Stagger animations for professional feel */
-.modal-section.ultra-compact:nth-child(1) { animation-delay: 0.1s; }
-.modal-section.ultra-compact:nth-child(2) { animation-delay: 0.2s; }
-.modal-section.ultra-compact:nth-child(3) { animation-delay: 0.3s; }
-
-.stat-card.ultra-compact:nth-child(1) { animation-delay: 0.1s; }
-.stat-card.ultra-compact:nth-child(2) { animation-delay: 0.15s; }
-.stat-card.ultra-compact:nth-child(3) { animation-delay: 0.2s; }
-.stat-card.ultra-compact:nth-child(4) { animation-delay: 0.25s; }
-
-.gallery-item.ultra-compact:nth-child(1) { animation-delay: 0.2s; }
-.gallery-item.ultra-compact:nth-child(2) { animation-delay: 0.3s; }
-.gallery-item.ultra-compact:nth-child(3) { animation-delay: 0.4s; }
-.gallery-item.ultra-compact:nth-child(4) { animation-delay: 0.5s; }
-
-/* Loading shimmer effect for images */
-@keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
+    
+    .stage-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
     }
 }
 
-.gallery-item.ultra-compact img {
-    background: linear-gradient(90deg, 
-        rgba(255, 255, 255, 0.05) 25%, 
-        rgba(255, 255, 255, 0.1) 50%, 
-        rgba(255, 255, 255, 0.05) 75%);
-    background-size: 1000px 100%;
-    animation: shimmer 2s infinite;
+/* Light Mode Adjustments */
+[data-theme="light"] .modal-content.executive {
+    background: linear-gradient(165deg, 
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(248, 249, 252, 0.99) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.12);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(255, 157, 0, 0.04);
 }
 
-/* Professional hover effects */
-.modal-content.ultra-compact {
-    transition: transform 0.3s ease;
+[data-theme="light"] .summary-card,
+[data-theme="light"] .dashboard-card.featured,
+[data-theme="light"] .dashboard-mini-card,
+[data-theme="light"] .impact-card,
+[data-theme="light"] .pipeline-stage,
+[data-theme="light"] .recommendation-card {
+    background: linear-gradient(145deg, 
+        rgba(0, 0, 0, 0.01) 0%,
+        rgba(0, 0, 0, 0.005) 100%);
+    border-color: rgba(0, 0, 0, 0.06);
 }
 
-.modal-content.ultra-compact:hover {
-    transform: translateY(-2px);
+[data-theme="light"] .summary-card:hover,
+[data-theme="light"] .dashboard-mini-card:hover,
+[data-theme="light"] .impact-card:hover,
+[data-theme="light"] .pipeline-stage:hover,
+[data-theme="light"] .recommendation-card:hover {
+    background: rgba(255, 157, 0, 0.03);
+    border-color: rgba(255, 157, 0, 0.1);
 }
 
-/* Enhanced focus states for accessibility */
-.modal-content.ultra-compact:focus-within {
-    outline: 2px solid var(--primary);
-    outline-offset: 4px;
+[data-theme="light"] .btn-secondary {
+    background: rgba(0, 0, 0, 0.02);
+    color: #111;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+    background: rgba(255, 157, 0, 0.06);
 }
     
 
@@ -11110,511 +10806,354 @@ footer p.copyright {
 
    <!-- ================= SUPERSTORE PROJECT MODAL ================= -->
 <!-- ================= ULTRA-COMPACT SUPERSTORE MODAL ================= -->
-<div id="superstore-modal" class="project-modal">
-    <div class="modal-content ultra-compact">
+<!-- ================= ULTRA-PROFESSIONAL PROJECT MODAL ================= -->
+<div id="superstore-modal" class="project-modal executive">
+    <div class="modal-content executive">
+        <!-- Header Section -->
+        <div class="modal-header executive">
+            <div class="project-meta">
+                <span class="project-category">Retail Analytics</span>
+                <span class="project-status">
+                    <i class="fas fa-check-circle"></i>
+                    Case Study Completed
+                </span>
+            </div>
+            
+            <div class="header-main">
+                <h1 class="project-title">Superstore Business Intelligence Suite</h1>
+                <div class="project-subtitle">
+                    <span class="subtitle-text">Advanced Retail Analytics Platform</span>
+                    <span class="project-timeline">
+                        <i class="fas fa-calendar-alt"></i>
+                        3-Month Implementation
+                    </span>
+                </div>
+            </div>
+            
+            <div class="executive-summary">
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="summary-content">
+                        <span class="summary-value">23%</span>
+                        <span class="summary-label">Profit Optimization</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="summary-content">
+                        <span class="summary-value">10K+</span>
+                        <span class="summary-label">Data Points</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="summary-content">
+                        <span class="summary-value">85%</span>
+                        <span class="summary-label">Time Saved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Close Button -->
-        <button class="close-modal ultra-compact" aria-label="Close modal">&times;</button>
-        
-        <!-- Header -->
-        <div class="modal-header ultra-compact">
-            <div class="modal-badge ultra-compact">Featured Project</div>
-            <h2>Superstore Business Analysis</h2>
-            <p class="modal-subtitle ultra-compact">Comprehensive retail analytics delivering 23% profit optimization potential</p>
+        <button class="close-modal executive" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Main Content -->
+        <div class="modal-body executive">
+            <!-- Dashboard Showcase -->
+            <section class="showcase-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-tachometer-alt"></i>
+                        Interactive Dashboard Architecture
+                    </h2>
+                    <p class="section-description">Four specialized dashboards providing 360° business visibility</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card featured">
+                        <div class="dashboard-preview">
+                            <img src="new-folder/Superstore/Overview-Dashboard-Figma.png" 
+                                 alt="Executive Overview Dashboard"
+                                 loading="lazy">
+                            <div class="dashboard-overlay">
+                                <button class="view-fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                    Full Preview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="dashboard-info">
+                            <h3>Executive Overview</h3>
+                            <p class="dashboard-description">
+                                Real-time KPI monitoring with predictive trend analysis
+                            </p>
+                            <div class="dashboard-metrics">
+                                <span class="metric">
+                                    <i class="fas fa-eye"></i>
+                                    15+ Key Metrics
+                                </span>
+                                <span class="metric">
+                                    <i class="fas fa-bolt"></i>
+                                    Real-time Updates
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-grid-secondary">
+                        <div class="dashboard-mini-card">
+                            <div class="mini-preview">
+                                <img src="new-folder/Superstore/Product-Dashboard-Figma.png" 
+                                     alt="Product Performance Dashboard"
+                                     loading="lazy">
+                            </div>
+                            <div class="mini-info">
+                                <h4>Product Intelligence</h4>
+                                <p>Category profitability analysis</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-mini-card">
+                            <div class="mini-preview">
+                                <img src="new-folder/Superstore/Customer-Dashboard-Figma.png" 
+                                     alt="Customer Insights Dashboard"
+                                     loading="lazy">
+                            </div>
+                            <div class="mini-info">
+                                <h4>Customer Insights</h4>
+                                <p>Behavioral segmentation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-mini-card">
+                            <div class="mini-preview">
+                                <img src="new-folder/Superstore/OrderDetails-Dashboard.png" 
+                                     alt="Order Analysis Dashboard"
+                                     loading="lazy">
+                            </div>
+                            <div class="mini-info">
+                                <h4>Order Analytics</h4>
+                                <p>Transaction optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Impact -->
+            <section class="impact-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-trophy"></i>
+                        Business Impact Analysis
+                    </h2>
+                    <p class="section-description">Quantified results and strategic recommendations</p>
+                </div>
+                
+                <div class="impact-grid">
+                    <div class="impact-card high-impact">
+                        <div class="impact-icon">
+                            <i class="fas fa-money-bill-trend-up"></i>
+                        </div>
+                        <div class="impact-content">
+                            <h3>Revenue Optimization</h3>
+                            <div class="impact-value">+23%</div>
+                            <p class="impact-description">
+                                Identified underperforming product categories leading to strategic reallocation
+                            </p>
+                            <div class="impact-tags">
+                                <span class="tag">Product Mix</span>
+                                <span class="tag">Pricing Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-card medium-impact">
+                        <div class="impact-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="impact-content">
+                            <h3>Customer Segmentation</h3>
+                            <div class="impact-value">45%</div>
+                            <p class="impact-description">
+                                Corporate clients contributing to majority of profitable transactions
+                            </p>
+                            <div class="impact-tags">
+                                <span class="tag">CLV Analysis</span>
+                                <span class="tag">Retention</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-card low-impact">
+                        <div class="impact-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="impact-content">
+                            <h3>Geographic Insights</h3>
+                            <div class="impact-value">West: +40%</div>
+                            <p class="impact-description">
+                                Regional performance analysis revealing untapped market potential
+                            </p>
+                            <div class="impact-tags">
+                                <span class="tag">Market Expansion</span>
+                                <span class="tag">Local Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Implementation -->
+            <section class="technical-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-cogs"></i>
+                        Technical Architecture
+                    </h2>
+                    <p class="section-description">End-to-end data pipeline and technology stack</p>
+                </div>
+                
+                <div class="pipeline-diagram">
+                    <div class="pipeline-stage">
+                        <div class="stage-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h4>Data Acquisition</h4>
+                            <p>SQL Server extraction with incremental loading</p>
+                            <div class="stage-tools">
+                                <span class="tool-tag"><i class="fas fa-code"></i> Python</span>
+                                <span class="tool-tag"><i class="fas fa-database"></i> SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pipeline-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="pipeline-stage">
+                        <div class="stage-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h4>Data Transformation</h4>
+                            <p>ETL processes with data quality validation</p>
+                            <div class="stage-tools">
+                                <span class="tool-tag"><i class="fas fa-random"></i> Pandas</span>
+                                <span class="tool-tag"><i class="fas fa-check-circle"></i> Validation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pipeline-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="pipeline-stage">
+                        <div class="stage-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h4>Visualization Layer</h4>
+                            <p>Interactive dashboards with drill-down capabilities</p>
+                            <div class="stage-tools">
+                                <span class="tool-tag"><i class="fas fa-chart-line"></i> Tableau</span>
+                                <span class="tool-tag"><i class="fab fa-figma"></i> Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategic Recommendations -->
+            <section class="recommendations-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-chess-queen"></i>
+                        Strategic Recommendations
+                    </h2>
+                    <p class="section-description">Data-driven insights for executive decision making</p>
+                </div>
+                
+                <div class="recommendations-grid">
+                    <div class="recommendation-card priority-high">
+                        <div class="recommendation-header">
+                            <span class="priority-badge">Priority: High</span>
+                            <span class="expected-impact">Impact: 23% Revenue</span>
+                        </div>
+                        <h3>Product Portfolio Optimization</h3>
+                        <p class="recommendation-description">
+                            Reallocate marketing budget from Furniture (8% margin) to Technology (15% growth) categories
+                        </p>
+                        <div class="implementation-details">
+                            <div class="detail">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Timeline: Q1 2025</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-users"></i>
+                                <span>Stakeholders: Marketing, Sales</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recommendation-card priority-medium">
+                        <div class="recommendation-header">
+                            <span class="priority-badge">Priority: Medium</span>
+                            <span class="expected-impact">Impact: 15% Efficiency</span>
+                        </div>
+                        <h3>Regional Expansion Strategy</h3>
+                        <p class="recommendation-description">
+                            Leverage West region performance model for targeted market expansion
+                        </p>
+                        <div class="implementation-details">
+                            <div class="detail">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Timeline: Q2 2025</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-users"></i>
+                                <span>Stakeholders: Operations, Finance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Quick Stats -->
-        <div class="quick-stats ultra-compact">
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-database"></i></div>
-                <div class="stat-value ultra-compact">10K+</div>
-                <div class="stat-label ultra-compact">Data Records</div>
+        <!-- Modal Footer -->
+        <div class="modal-footer executive">
+            <div class="footer-actions">
+                <button class="btn-primary">
+                    <i class="fas fa-download"></i>
+                    Download Case Study PDF
+                </button>
+                <button class="btn-secondary">
+                    <i class="fas fa-video"></i>
+                    Schedule Live Demo
+                </button>
             </div>
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-tachometer-alt"></i></div>
-                <div class="stat-value ultra-compact">4</div>
-                <div class="stat-label ultra-compact">Dashboards</div>
+            <div class="footer-meta">
+                <span class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    Last Updated: January 2025
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-shield-alt"></i>
+                    Confidential Business Intelligence
+                </span>
             </div>
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-lightbulb"></i></div>
-                <div class="stat-value ultra-compact">15+</div>
-                <div class="stat-label ultra-compact">Insights</div>
-            </div>
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-chart-line"></i></div>
-                <div class="stat-value ultra-compact">23%</div>
-                <div class="stat-label ultra-compact">Impact</div>
-            </div>
-        </div>
-
-        <!-- Video Demonstration -->
-        <div class="video-container ultra-compact">
-            <video controls preload="metadata" poster="new-folder/Superstore/Overview-Dashboard-Figma.png">
-                <source src="km_20250424-1_1080p_30f_20250429_163107.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- Main Content Grid -->
-        <div class="modal-grid ultra-compact">
-            <!-- Left Column -->
-            <div>
-                <!-- Dashboard Gallery -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-tachometer-alt"></i> Dashboard Architecture</h3>
-                    </div>
-                    <div class="dashboard-gallery ultra-compact">
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Superstore/Overview-Dashboard-Figma.png" alt="Executive Dashboard">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Executive Overview</h5>
-                                <p>High-level KPIs</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Superstore/OrderDetails-Dashboard.png" alt="Order Analysis">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Order Analysis</h5>
-                                <p>Transaction insights</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Superstore/Product-Dashboard-Figma.png" alt="Product Performance">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Product Performance</h5>
-                                <p>Category profitability</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Superstore/Customer-Dashboard-Figma.png" alt="Customer Segmentation">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Customer Insights</h5>
-                                <p>Behavioral analysis</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Insights -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-chart-line"></i> Key Insights</h3>
-                    </div>
-                    <div class="insights-grid ultra-compact">
-                        <div class="insight-card ultra-compact">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-rocket"></i></div>
-                            <h5>Category Performance</h5>
-                            <p>Technology: 15% growth vs Furniture: 8% margins</p>
-                        </div>
-                        <div class="insight-card ultra-compact">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-map-marked-alt"></i></div>
-                            <h5>Regional Analysis</h5>
-                            <p>West region: 23% higher profitability</p>
-                        </div>
-                        <div class="insight-card ultra-compact">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-users"></i></div>
-                            <h5>Customer Segmentation</h5>
-                            <p>Corporate: 45% revenue, 35% profits</p>
-                        </div>
-                        <div class="insight-card ultra-compact">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-calendar-alt"></i></div>
-                            <h5>Seasonal Trends</h5>
-                            <p>Q4 sales: 40% higher than average</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column -->
-            <div>
-                <!-- Business Challenge -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-bullseye"></i> Business Challenge</h3>
-                    </div>
-                    <div class="challenge-card ultra-compact">
-                        <p>Identifying declining profitability trends and optimizing resource allocation across product categories and regions.</p>
-                    </div>
-                </div>
-
-                <!-- Methodology -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-project-diagram"></i> Methodology</h3>
-                    </div>
-                    <div class="process-steps ultra-compact">
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">1</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Requirements</h5>
-                                <p>Stakeholder interviews & KPI definition</p>
-                            </div>
-                        </div>
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">2</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Data Preparation</h5>
-                                <p>SQL extraction & Python cleaning</p>
-                            </div>
-                        </div>
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">3</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Analysis</h5>
-                                <p>Statistical analysis with Pandas</p>
-                            </div>
-                        </div>
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">4</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Visualization</h5>
-                                <p>Tableau dashboard development</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recommendations -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-lightbulb"></i> Recommendations</h3>
-                    </div>
-                    <div class="recommendations-grid ultra-compact">
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority high ultra-compact">High</span>
-                            <h5>Marketing Reallocation</h5>
-                            <p>Focus on Technology in West region</p>
-                        </div>
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority high ultra-compact">High</span>
-                            <h5>Pricing Strategy</h5>
-                            <p>Review Furniture pricing model</p>
-                        </div>
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority medium ultra-compact">Medium</span>
-                            <h5>Client Promotions</h5>
-                            <p>Target Corporate segment</p>
-                        </div>
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority low ultra-compact">Low</span>
-                            <h5>Inventory Planning</h5>
-                            <p>Expand Q4 capacity by 30%</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technical Stack -->
-        <div class="modal-section ultra-compact">
-            <div class="section-header ultra-compact">
-                <h3><i class="fas fa-code"></i> Technical Stack</h3>
-            </div>
-            <div class="tech-stack ultra-compact">
-                <div class="tech-category ultra-compact">
-                    <h5><i class="fas fa-database"></i> Data Engineering</h5>
-                    <div class="tech-tools ultra-compact">
-                        <span class="tech-tool ultra-compact">Python</span>
-                        <span class="tech-tool ultra-compact">SQL</span>
-                        <span class="tech-tool ultra-compact">Pandas</span>
-                    </div>
-                </div>
-                <div class="tech-category ultra-compact">
-                    <h5><i class="fas fa-chart-bar"></i> Visualization</h5>
-                    <div class="tech-tools ultra-compact">
-                        <span class="tech-tool ultra-compact">Tableau</span>
-                        <span class="tech-tool ultra-compact">Figma</span>
-                        <span class="tech-tool ultra-compact">Draw.io</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Impact Metrics -->
-        <div class="modal-section ultra-compact">
-            <div class="section-header ultra-compact">
-                <h3><i class="fas fa-trophy"></i> Impact Metrics</h3>
-            </div>
-            <div class="impact-metrics ultra-compact">
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">23%</div>
-                    <div class="metric-label ultra-compact">Profit Increase</div>
-                </div>
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">85%</div>
-                    <div class="metric-label ultra-compact">Time Saved</div>
-                </div>
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">4</div>
-                    <div class="metric-label ultra-compact">Dashboards</div>
-                </div>
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">15+</div>
-                    <div class="metric-label ultra-compact">Insights</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="modal-footer ultra-compact">
-            <button class="btn">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ================= ULTRA-COMPACT ROAD ACCIDENT MODAL ================= -->
-<div id="road-accident-modal" class="project-modal">
-    <div class="modal-content ultra-compact">
-        <!-- Close Button -->
-        <button class="close-modal ultra-compact" aria-label="Close modal">&times;</button>
-        
-        <!-- Header -->
-        <div class="modal-header ultra-compact">
-            <div class="modal-badge ultra-compact">Safety Analytics</div>
-            <h2>Road Accident Intelligence</h2>
-            <p class="modal-subtitle ultra-compact">Excel-based analytical solution for transportation safety optimization</p>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="quick-stats ultra-compact">
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-car-crash"></i></div>
-                <div class="stat-value ultra-compact">5K+</div>
-                <div class="stat-label ultra-compact">Accident Records</div>
-            </div>
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-chart-bar"></i></div>
-                <div class="stat-value ultra-compact">7</div>
-                <div class="stat-label ultra-compact">Analytical Views</div>
-            </div>
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-shield-alt"></i></div>
-                <div class="stat-value ultra-compact">6</div>
-                <div class="stat-label ultra-compact">Safety Initiatives</div>
-            </div>
-            <div class="stat-card ultra-compact">
-                <div class="stat-icon ultra-compact"><i class="fas fa-clock"></i></div>
-                <div class="stat-value ultra-compact">85%</div>
-                <div class="stat-label ultra-compact">Faster Analysis</div>
-            </div>
-        </div>
-
-        <!-- Video Demonstration -->
-        <div class="video-container ultra-compact">
-            <video controls preload="metadata" poster="new-folder/Road Accident/Main Sheet.png">
-                <source src="new-folder/Road Accident/Road_Accident_Analysis.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- Main Content Grid -->
-        <div class="modal-grid ultra-compact">
-            <!-- Left Column -->
-            <div>
-                <!-- Dashboard Views -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-sitemap"></i> Dashboard Views</h3>
-                    </div>
-                    <div class="dashboard-gallery ultra-compact">
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Road Accident/Main Sheet.png" alt="Main Dashboard">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Executive Overview</h5>
-                                <p>High-level KPIs</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Road Accident/Accident Analysis.png" alt="Accident Analysis">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Accident Analysis</h5>
-                                <p>Severity & frequency</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Road Accident/Driver Analysis.png" alt="Driver Analysis">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Driver Analysis</h5>
-                                <p>Demographics</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item ultra-compact">
-                            <img src="new-folder/Road Accident/Location Analysis.png" alt="Location Analysis">
-                            <div class="gallery-caption ultra-compact">
-                                <h5>Location Analysis</h5>
-                                <p>Geographic hotspots</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Insights -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-binoculars"></i> Key Insights</h3>
-                    </div>
-                    <div class="insights-grid ultra-compact">
-                        <div class="insight-card ultra-compact critical">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-clock"></i></div>
-                            <h5>Temporal Patterns</h5>
-                            <p>28% higher accidents Friday evenings</p>
-                        </div>
-                        <div class="insight-card ultra-compact critical">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-city"></i></div>
-                            <h5>Urban Concentration</h5>
-                            <p>65% accidents in urban areas</p>
-                        </div>
-                        <div class="insight-card ultra-compact critical">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-motorcycle"></i></div>
-                            <h5>Vehicle Risk</h5>
-                            <p>Motorcycles: 40% fatal accidents</p>
-                        </div>
-                        <div class="insight-card ultra-compact critical">
-                            <div class="insight-icon ultra-compact"><i class="fas fa-road"></i></div>
-                            <h5>Surface Conditions</h5>
-                            <p>Wet surfaces: 35% more severe</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column -->
-            <div>
-                <!-- Problem Statement -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-exclamation-triangle"></i> Problem Statement</h3>
-                    </div>
-                    <div class="challenge-card ultra-compact">
-                        <p>Transportation authorities needed centralized analytical tool to identify high-risk areas and optimize safety resource allocation.</p>
-                    </div>
-                </div>
-
-                <!-- Analysis Process -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-cogs"></i> Analysis Process</h3>
-                    </div>
-                    <div class="process-steps ultra-compact">
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">1</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Data Acquisition</h5>
-                                <p>Aggregate accident records</p>
-                            </div>
-                        </div>
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">2</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Data Cleaning</h5>
-                                <p>Power Query transformations</p>
-                            </div>
-                        </div>
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">3</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Data Modeling</h5>
-                                <p>Power Pivot relationships</p>
-                            </div>
-                        </div>
-                        <div class="process-step ultra-compact">
-                            <div class="step-number ultra-compact">4</div>
-                            <div class="step-content ultra-compact">
-                                <h5>Dashboard Development</h5>
-                                <p>Interactive interfaces</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recommendations -->
-                <div class="modal-section ultra-compact">
-                    <div class="section-header ultra-compact">
-                        <h3><i class="fas fa-clipboard-check"></i> Recommendations</h3>
-                    </div>
-                    <div class="recommendations-grid ultra-compact">
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority high ultra-compact">High</span>
-                            <h5>Enhanced Enforcement</h5>
-                            <p>Increase patrols Friday evenings</p>
-                        </div>
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority high ultra-compact">High</span>
-                            <h5>Urban Safety</h5>
-                            <p>Targeted pedestrian campaigns</p>
-                        </div>
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority medium ultra-compact">Medium</span>
-                            <h5>Motorcycle Safety</h5>
-                            <p>Mandatory training programs</p>
-                        </div>
-                        <div class="recommendation-card ultra-compact">
-                            <span class="rec-priority low ultra-compact">Low</span>
-                            <h5>Infrastructure</h5>
-                            <p>Improve road drainage systems</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technical Implementation -->
-        <div class="modal-section ultra-compact">
-            <div class="section-header ultra-compact">
-                <h3><i class="fas fa-tools"></i> Technical Implementation</h3>
-            </div>
-            <div class="tech-stack ultra-compact">
-                <div class="tech-category ultra-compact">
-                    <h5><i class="fas fa-file-excel"></i> Excel Platform</h5>
-                    <div class="tech-tools ultra-compact">
-                        <span class="tech-tool ultra-compact">Power Query</span>
-                        <span class="tech-tool ultra-compact">Power Pivot</span>
-                        <span class="tech-tool ultra-compact">Pivot Tables</span>
-                    </div>
-                </div>
-                <div class="tech-category ultra-compact">
-                    <h5><i class="fas fa-chart-line"></i> Analysis Methods</h5>
-                    <div class="tech-tools ultra-compact">
-                        <span class="tech-tool ultra-compact">Geospatial</span>
-                        <span class="tech-tool ultra-compact">Time Series</span>
-                        <span class="tech-tool ultra-compact">Risk Scoring</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Impact Metrics -->
-        <div class="modal-section ultra-compact">
-            <div class="section-header ultra-compact">
-                <h3><i class="fas fa-chart-line"></i> Impact Metrics</h3>
-            </div>
-            <div class="impact-metrics ultra-compact">
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">85%</div>
-                    <div class="metric-label ultra-compact">Faster Analysis</div>
-                </div>
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">7</div>
-                    <div class="metric-label ultra-compact">Dimensions</div>
-                </div>
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">15+</div>
-                    <div class="metric-label ultra-compact">Risk Factors</div>
-                </div>
-                <div class="metric-card ultra-compact">
-                    <div class="metric-value ultra-compact">6</div>
-                    <div class="metric-label ultra-compact">Initiatives</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="modal-footer ultra-compact">
-            <button class="btn">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
-            </button>
         </div>
     </div>
 </div>

@@ -372,33 +372,7 @@ header.scrolled .logo .logo-solid {
         }
 
 
-        /* Add this to your existing CSS */
-.section-badge {
-    display: inline-block;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
 
-/* Keep your original badge style for backward compatibility */
-.badge {
-    display: inline-block;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
 
 
         /* ================= PROFESSIONAL SIDEBAR PROFILE ================= */
@@ -10969,6 +10943,671 @@ body.loaded {
     }
 }
 
+
+/* Light mode variables */
+[data-theme="light"] {
+    --primary: linear-gradient(135deg, #ff9d00, #fbed52);
+    --primary-solid: #ff9d00;
+    --secondary: #ff6b00;
+    --dark: #f8f9fa;
+    --darker: #e9ecef;
+    --light: #212529;
+    --gray: #495057;
+    --dark-gray: #dee2e6;
+    --card-bg: #ffffff;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Light mode specific styles */
+[data-theme="light"] {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/* Header in light mode */
+[data-theme="light"] header {
+    background-color: rgba(248, 249, 250, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Logo text color in light mode */
+[data-theme="light"] .logo .logo-solid {
+    color: #111;
+}
+
+[data-theme="light"] header.scrolled .logo .logo-solid {
+    color: #111;
+}
+
+/* Theme toggle in light mode */
+[data-theme="light"] .theme-toggle {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Navigation links in light mode */
+[data-theme="light"] .nav-links a {
+    color: var(--light);
+}
+
+/* Hero section in light mode */
+[data-theme="light"] .hero {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(248, 249, 250, 0.97) 100%);
+}
+
+[data-theme="light"] .hero-text p {
+    color: rgba(33, 37, 41, 0.85);
+}
+
+/* Section titles with gradient colors */
+[data-theme="light"] .section-title h2,
+[data-theme="light"] .hero-text h1,
+[data-theme="light"] .hero-text h2,
+[data-theme="light"] .projects-header .title-gradient,
+[data-theme="light"] .projects-header i.fas.fa-project-diagram,
+[data-theme="light"] .certifications-header .title-gradient,
+[data-theme="light"] .certifications-header i.fas.fa-award,
+[data-theme="light"] .skills-header .title-gradient,
+[data-theme="light"] .contact-header .title-gradient,
+[data-theme="light"] .achievements-header .title-gradient,
+[data-theme="light"] .Portfolio-section-header .title-gradient,
+[data-theme="light"] .footer-logo .omar-gradient,
+[data-theme="light"] .footer-logo i,
+[data-theme="light"] .project-title {
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Icons not black - using primary gradient */
+[data-theme="light"] .section-title h2 i,
+[data-theme="light"] .projects-header h2 i,
+[data-theme="light"] .certifications-header h2 i,
+[data-theme="light"] .skills-header h2 i,
+[data-theme="light"] .contact-header h2 i,
+[data-theme="light"] .achievements-header h2 i,
+[data-theme="light"] .footer-logo i {
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Solid text colors for contrast */
+[data-theme="light"] .section-title h2 .title-solid,
+[data-theme="light"] .projects-header .title-solid,
+[data-theme="light"] .certifications-header .title-solid,
+[data-theme="light"] .skills-header .title-solid,
+[data-theme="light"] .contact-header .title-solid,
+[data-theme="light"] .achievements-header .title-solid,
+[data-theme="light"] .Portfolio-section-header .title-solid {
+    color: #111;
+}
+
+/* Subtitles and descriptions */
+[data-theme="light"] .section-subtitle,
+[data-theme="light"] .projects-header p,
+[data-theme="light"] .certifications-header .section-subtitle,
+[data-theme="light"] .skills-header p,
+[data-theme="light"] .contact-header .section-subtitle,
+[data-theme="light"] .achievements-header .section-subtitle,
+[data-theme="light"] .Portfolio-section-header .section-subtitle {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Card backgrounds in light mode */
+[data-theme="light"] .experience-card-content,
+[data-theme="light"] .about-main-card,
+[data-theme="light"] .about-expertise-card,
+[data-theme="light"] .about-approach-card,
+[data-theme="light"] .about-philosophy-card,
+[data-theme="light"] .skill-category-compact,
+[data-theme="light"] .skills-summary-compact,
+[data-theme="light"] .project-card-premium,
+[data-theme="light"] .certification-card,
+[data-theme="light"] .achievement-main-card,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .form-card,
+[data-theme="light"] .availability-card,
+[data-theme="light"] .quick-contact,
+[data-theme="light"] .projects-showcase,
+[data-theme="light"] .certifications-cta,
+[data-theme="light"] .skills-cta-compact,
+[data-theme="light"] .projects-cta,
+[data-theme="light"] .experience-cta,
+[data-theme="light"] .achievement-secondary-card,
+[data-theme="light"] .form-success {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.98) 0%, 
+        rgba(255, 255, 255, 0.96) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Featured card in light mode */
+[data-theme="light"] .certification-card.featured {
+    background: linear-gradient(145deg, 
+        rgba(255, 157, 0, 0.04) 0%, 
+        rgba(255, 157, 0, 0.02) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(255, 157, 0, 0.04);
+}
+
+/* Card headers and borders */
+[data-theme="light"] .professional-header,
+[data-theme="light"] .expertise-header,
+[data-theme="light"] .approach-header,
+[data-theme="light"] .philosophy-header,
+[data-theme="light"] .experience-header,
+[data-theme="light"] .project-header-premium,
+[data-theme="light"] .certification-header,
+[data-theme="light"] .achievement-header,
+[data-theme="light"] .contact-card-footer,
+[data-theme="light"] .project-actions,
+[data-theme="light"] .modal-header.executive,
+[data-theme="light"] .section-header {
+    border-bottom: 1px solid rgba(255, 157, 0, 0.1);
+}
+
+/* Form inputs in light mode */
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select,
+[data-theme="light"] .form-group textarea {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-weight: 600;
+}
+
+[data-theme="light"] .form-group input:focus,
+[data-theme="light"] .form-group select:focus,
+[data-theme="light"] .form-group textarea:focus {
+    background: rgba(255, 157, 0, 0.05);
+    box-shadow: 0 0 0 2px rgba(255, 157, 0, 0.15);
+}
+
+/* Text content in light mode */
+[data-theme="light"] .role-title,
+[data-theme="light"] .company-name,
+[data-theme="light"] .responsibility-item,
+[data-theme="light"] .achievement-item,
+[data-theme="light"] .project-title,
+[data-theme="light"] .project-description p,
+[data-theme="light"] .certification-title,
+[data-theme="light"] .achievement-content h3,
+[data-theme="light"] .contact-link,
+[data-theme="light"] .cta-content h3,
+[data-theme="light"] .showcase-header h3,
+[data-theme="light"] .summary-header-compact h3,
+[data-theme="light"] .category-title-compact h3,
+[data-theme="light"] .skill-name-compact,
+[data-theme="light"] .availability-header h4,
+[data-theme="light"] .quick-contact-header h4,
+[data-theme="light"] .form-card-header h3,
+[data-theme="light"] .contact-card-header h3,
+[data-theme="light"] .impact-content h3,
+[data-theme="light"] .recommendation-card h3,
+[data-theme="light"] .stage-content h4,
+[data-theme="light"] .dashboard-info h3,
+[data-theme="light"] .mini-info h4,
+[data-theme="light"] .achievement-secondary-content h4,
+[data-theme="light"] .partner-name,
+[data-theme="light"] .status-text strong,
+[data-theme="light"] .close-success,
+[data-theme="light"] .quick-link {
+    color: #111;
+}
+
+/* Secondary text in light mode */
+[data-theme="light"] .project-subtitle,
+[data-theme="light"] .certification-description,
+[data-theme="light"] .achievement-description p,
+[data-theme="light"] .contact-card-header p,
+[data-theme="light"] .form-card-header p,
+[data-theme="light"] .cta-description,
+[data-theme="light"] .showcase-header p,
+[data-theme="light"] .summary-header-compact p,
+[data-theme="light"] .category-title-compact p,
+[data-theme="light"] .dashboard-description,
+[data-theme="light"] .mini-info p,
+[data-theme="light"] .achievement-secondary-content p,
+[data-theme="light"] .partner-role,
+[data-theme="light"] .status-text span,
+[data-theme="light"] .availability-note,
+[data-theme="light"] .form-note,
+[data-theme="light"] .checkbox-label {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Labels and meta info */
+[data-theme="light"] .skills-title,
+[data-theme="light"] .achievements-title,
+[data-theme="light"] .tech-title,
+[data-theme="light"] .metric-label,
+[data-theme="light"] .impact-label,
+[data-theme="light"] .stat-label,
+[data-theme="light"] .stat-label-compact,
+[data-theme="light"] .contact-detail-content h4,
+[data-theme="light"] .contact-card-footer h4,
+[data-theme="light"] .company-location,
+[data-theme="light"] .certification-issuer,
+[data-theme="light"] .meta-item,
+[data-theme="light"] .certificate-meta,
+[data-theme="light"] .sql-meta,
+[data-theme="light"] .experience-item,
+[data-theme="light"] .expertise-subtitle,
+[data-theme="light"] .approach-subtitle,
+[data-theme="light"] .philosophy-subtitle,
+[data-theme="light"] .stat-label,
+[data-theme="light"] .showcase-stat p,
+[data-theme="light"] .impact-description,
+[data-theme="light"] .recommendation-description,
+[data-theme="light"] .stage-content p,
+[data-theme="light"] .summary-label,
+[data-theme="light"] .certificate-meta,
+[data-theme="light"] .detail {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Filter buttons in light mode */
+[data-theme="light"] .filter-btn,
+[data-theme="light"] .certifications-filter .filter-btn {
+    background: rgba(0, 0, 0, 0.015);
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .filter-btn:hover:not(.active),
+[data-theme="light"] .certifications-filter .filter-btn:hover:not(.active) {
+    background: rgba(255, 157, 0, 0.04);
+    border-color: rgba(255, 157, 0, 0.12);
+    box-shadow: 0 2px 8px rgba(255, 157, 0, 0.06);
+}
+
+[data-theme="light"] .filter-btn.active,
+[data-theme="light"] .certifications-filter .filter-btn.active {
+    box-shadow: 0 2px 10px rgba(255, 157, 0, 0.15);
+}
+
+/* Skill tags and badges in light mode */
+[data-theme="light"] .skill-tag,
+[data-theme="light"] .tag,
+[data-theme="light"] .tech-tag,
+[data-theme="light"] .tool-tag {
+    background: rgba(255, 157, 0, 0.06);
+    color: #ff9d00;
+    border: 1px solid rgba(255, 157, 0, 0.12);
+    font-weight: 600;
+}
+
+[data-theme="light"] .skill-tag:hover,
+[data-theme="light"] .tech-tag:hover {
+    background: rgba(255, 157, 0, 0.1);
+}
+
+/* Professional badge in light mode */
+[data-theme="light"] .professional-badge {
+    background: linear-gradient(135deg, 
+        rgba(255, 157, 0, 0.08) 0%, 
+        rgba(255, 157, 0, 0.03) 100%);
+    color: #ff9d00;
+    border: 1px solid rgba(255, 157, 0, 0.1);
+}
+
+/* Status badges in light mode */
+[data-theme="light"] .project-status,
+[data-theme="light"] .certification-badge,
+[data-theme="light"] .experience-date {
+    background: rgba(255, 157, 0, 0.08);
+    color: #ff9d00;
+    border: 1px solid rgba(255, 157, 0, 0.12);
+}
+
+/* Button hover effects in light mode */
+[data-theme="light"] .btn:hover,
+[data-theme="light"] .project-btn.primary:hover,
+[data-theme="light"] .cta-button:hover,
+[data-theme="light"] .cta-content .btn:hover,
+[data-theme="light"] .submit-button:hover,
+[data-theme="light"] .btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(255, 157, 0, 0.25);
+}
+
+/* Secondary button in light mode */
+[data-theme="light"] .project-btn.secondary {
+    color: #ff9d00;
+    border: 1px solid rgba(255, 157, 0, 0.2);
+}
+
+[data-theme="light"] .project-btn.secondary:hover {
+    border-color: rgba(255, 157, 0, 0.3);
+    background: rgba(255, 157, 0, 0.03);
+    box-shadow: 0 2px 6px rgba(255, 157, 0, 0.08);
+}
+
+/* Cards hover effects in light mode */
+[data-theme="light"] .experience-card-content:hover,
+[data-theme="light"] .about-main-card:hover,
+[data-theme="light"] .skill-category-compact:hover,
+[data-theme="light"] .project-card-premium:hover,
+[data-theme="light"] .certification-card:hover,
+[data-theme="light"] .achievement-main-card:hover,
+[data-theme="light"] .achievement-secondary-card:hover,
+[data-theme="light"] .dashboard-card.featured:hover,
+[data-theme="light"] .summary-card:hover,
+[data-theme="light"] .pipeline-stage:hover,
+[data-theme="light"] .impact-card:hover,
+[data-theme="light"] .recommendation-card:hover,
+[data-theme="light"] .stat-item-compact:hover,
+[data-theme="light"] .showcase-stat:hover {
+    box-shadow: 0 15px 40px rgba(255, 157, 0, 0.1);
+    border-color: rgba(255, 157, 0, 0.15);
+}
+
+/* Icons in light mode - using primary color */
+[data-theme="light"] .skills-title i,
+[data-theme="light"] .achievements-title i,
+[data-theme="light"] .tech-title i,
+[data-theme="light"] .experience-item i,
+[data-theme="light"] .category-title i,
+[data-theme="light"] .principle-icon,
+[data-theme="light"] .value-icon,
+[data-theme="light"] .step-number,
+[data-theme="light"] .summary-icon,
+[data-theme="light"] .impact-icon,
+[data-theme="light"] .stage-icon,
+[data-theme="light"] .category-icon-compact,
+[data-theme="light"] .skill-icon-compact,
+[data-theme="light"] .company-icon,
+[data-theme="light"] .contact-detail-icon,
+[data-theme="light"] .availability-header i,
+[data-theme="light"] .quick-contact-header i,
+[data-theme="light"] .sql-icon,
+[data-theme="light"] .certificate-icon,
+[data-theme="light"] .partner-icon,
+[data-theme="light"] .achievement-secondary-icon,
+[data-theme="light"] .form-group label i,
+[data-theme="light"] .detail i,
+[data-theme="light"] .meta-item i,
+[data-theme="light"] .availability-note i,
+[data-theme="light"] .form-note i,
+[data-theme="light"] .achievement-item i,
+[data-theme="light"] .certification-issuer i,
+[data-theme="light"] .location i,
+[data-theme="light"] .status i,
+[data-theme="light"] .quick-link i,
+[data-theme="light"] .footer-links a i {
+    color: var(--primary-solid, #ff9d00);
+}
+
+/* Modal in light mode */
+[data-theme="light"] .project-modal.executive {
+    background: rgba(248, 249, 250, 0.95);
+}
+
+[data-theme="light"] .modal-content.executive {
+    background: linear-gradient(165deg, 
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(250, 250, 252, 0.99) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.1);
+    box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile sidebar in light mode */
+[data-theme="light"] .mobile-sidebar {
+    background: linear-gradient(135deg, 
+        rgba(248, 249, 250, 0.98) 0%, 
+        rgba(248, 249, 250, 0.95) 100%);
+    border-left: 1px solid rgba(255, 157, 0, 0.08);
+}
+
+[data-theme="light"] .sidebar-header {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95), 
+        rgba(255, 255, 255, 0.92));
+    border: 1px solid rgba(255, 157, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .sidebar-header:hover {
+    box-shadow: 0 8px 25px rgba(255, 157, 0, 0.15);
+    border-color: rgba(255, 157, 0, 0.25);
+}
+
+/* Profile elements in light mode */
+[data-theme="light"] .name-solid,
+[data-theme="light"] .sidebar-cv-download .btn,
+[data-theme="light"] .nav-text,
+[data-theme="light"] .social-header h4 {
+    color: #111;
+}
+
+[data-theme="light"] .profile-title,
+[data-theme="light"] .nav-subtext,
+[data-theme="light"] .social-header p,
+[data-theme="light"] .sidebar-copyright,
+[data-theme="light"] .nav-section-title,
+[data-theme="light"] .contact-cta {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .nav-icon,
+[data-theme="light"] .nav-arrow {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .location,
+[data-theme="light"] .location span {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/* Close button in light mode */
+[data-theme="light"] .sidebar-close,
+[data-theme="light"] .close-modal.executive {
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .sidebar-close:hover,
+[data-theme="light"] .close-modal.executive:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+}
+
+/* Scrollbar in light mode */
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: rgba(248, 249, 250, 0.8);
+}
+
+/* Hero image in light mode */
+[data-theme="light"] .hero-image::before {
+    background: conic-gradient(
+        from 0deg,
+        #FF9D00,
+        #FFC107,
+        #FF9D00
+    );
+}
+
+[data-theme="light"] .hero-image::after {
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 157, 0, 0.3) 0%, 
+        rgba(255, 157, 0, 0.2) 30%, 
+        rgba(255, 157, 0, 0.1) 60%, 
+        transparent 80%);
+}
+
+[data-theme="light"] .hero-image img {
+    background: linear-gradient(var(--light), var(--light)) padding-box,
+                linear-gradient(135deg, #FF9D00, #FFC107) border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .hero-image img:hover {
+    box-shadow: 0 30px 70px rgba(255, 157, 0, 0.2),
+                0 0 0 2px rgba(255, 157, 0, 0.15);
+}
+
+/* Video play button in light mode */
+[data-theme="light"] .video-play-btn {
+    background: linear-gradient(135deg, 
+        #ff9500 0%,
+        #ffbb00 50%,
+        #ffd700 100%
+    );
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.3);
+}
+
+[data-theme="light"] .video-play-btn:hover {
+    background: linear-gradient(135deg, 
+        #ff8800 0%,
+        #ffaa00 50%,
+        #ffcc00 100%
+    );
+    box-shadow: 0 15px 40px rgba(255, 149, 0, 0.4);
+}
+
+/* Form success in light mode */
+[data-theme="light"] .form-success {
+    background: linear-gradient(135deg, 
+        rgba(52, 168, 83, 0.08) 0%, 
+        rgba(46, 125, 50, 0.04) 100%);
+    border: 1px solid rgba(52, 168, 83, 0.15);
+}
+
+[data-theme="light"] .close-success {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+[data-theme="light"] .close-success:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Quick link in light mode */
+[data-theme="light"] .quick-link {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #333;
+}
+
+[data-theme="light"] .quick-link:hover {
+    background: rgba(255, 157, 0, 0.08);
+    border-color: rgba(255, 157, 0, 0.15);
+}
+
+/* Outline button in light mode */
+[data-theme="light"] .btn-outline i {
+    background: linear-gradient(90deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Button outline hover in light mode */
+[data-theme="light"] .btn-outline:hover {
+    background: rgba(255, 157, 0, 0.08);
+    box-shadow: 0 6px 18px rgba(255, 157, 0, 0.25);
+    color: var(--secondary);
+}
+
+/* For browsers that don't support gradient text */
+@supports not (background-clip: text) {
+    [data-theme="light"] .section-title h2 .title-gradient,
+    [data-theme="light"] .projects-header .title-gradient,
+    [data-theme="light"] .certifications-header .title-gradient,
+    [data-theme="light"] .skills-header .title-gradient,
+    [data-theme="light"] .contact-header .title-gradient,
+    [data-theme="light"] .achievements-header .title-gradient,
+    [data-theme="light"] .Portfolio-section-header .title-gradient,
+    [data-theme="light"] .footer-logo .omar-gradient {
+        color: #ff9d00;
+    }
+    
+    [data-theme="light"] .section-title h2 i,
+    [data-theme="light"] .projects-header h2 i,
+    [data-theme="light"] .certifications-header h2 i,
+    [data-theme="light"] .skills-header h2 i,
+    [data-theme="light"] .contact-header h2 i,
+    [data-theme="light"] .achievements-header h2 i,
+    [data-theme="light"] .footer-logo i {
+        color: #ff9d00;
+    }
+}
+
+/* Ensure gradient text works on all elements */
+[data-theme="light"] .gradient-text {
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ff9d00; /* Fallback */
+}
+
+/* Ensure all titles use the gradient */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ff9d00; /* Fallback */
+}
+
+/* Override for specific elements that should stay solid */
+[data-theme="light"] .title-solid,
+[data-theme="light"] .name-solid,
+[data-theme="light"] .logo-solid {
+    background: none;
+    -webkit-text-fill-color: #111;
+    color: #111;
+}
+
+/* Ensure icons in headers use gradient */
+[data-theme="light"] .section-title h2 i,
+[data-theme="light"] .projects-header h2 i,
+[data-theme="light"] .certifications-header h2 i,
+[data-theme="light"] .skills-header h2 i,
+[data-theme="light"] .contact-header h2 i,
+[data-theme="light"] .achievements-header h2 i,
+[data-theme="light"] .Portfolio-section-header h2 i {
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ff9d00; /* Fallback */
+}
+
+/* Make sure the footer logo uses gradient */
+[data-theme="light"] .footer-logo i,
+[data-theme="light"] .footer-logo .omar-gradient {
+    background: linear-gradient(135deg, #ff9d00, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ff9d00; /* Fallback */
+}
+
+[data-theme="light"] .footer-logo span:not(.omar-gradient) {
+    color: #111;
+    background: none;
+    -webkit-text-fill-color: #111;
+}
+
+
+
+
     </style>
 
 <!-- Google tag (gtag.js) -->
@@ -12726,6 +13365,7 @@ body.loaded {
         <!-- Section Header -->
         <div class="contact-header">
             <div class="header-content">
+    
                 <div class="badge">GET IN TOUCH</div>
                 <h2>
                     <span class="title-gradient">Let's</span>

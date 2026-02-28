@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -460,12 +459,22 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Toggle - Compact -->
-        <button id="mobile-menu-button" 
-            class="relative w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center"
-            aria-label="Toggle menu">
-            <i class="fas fa-bars text-sm text-gray-700 dark:text-gray-300"></i>
-        </button>
+        <!-- Dark/Light Toggle + Menu for Mobile -->
+        <div class="flex items-center gap-1">
+            <!-- Dark mode toggle (mobile) -->
+            <button id="theme-toggle-mobile" 
+                class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center">
+                <i class="fas fa-sun text-sm text-gray-700 dark:text-gray-300 dark:hidden"></i>
+                <i class="fas fa-moon text-sm hidden dark:inline-block text-gray-700 dark:text-gray-300"></i>
+            </button>
+            
+            <!-- Mobile Menu Toggle - Compact -->
+            <button id="mobile-menu-button" 
+                class="relative w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center"
+                aria-label="Toggle menu">
+                <i class="fas fa-bars text-sm text-gray-700 dark:text-gray-300"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Quick Actions Bar - More Compact -->
@@ -817,9 +826,24 @@
                 </div>
             </nav>
 
-            <!-- Footer Section - Enhanced with Contact Info -->
+            <!-- Footer Section - Enhanced with Contact Info and Dark Mode Toggle -->
             <div class="p-6 border-t border-gray-200 dark:border-gray-800 bg-gradient-to-t from-gray-50 to-transparent dark:from-gray-800/50 dark:to-transparent">
                 
+                <!-- Dark Mode Toggle (Desktop) -->
+                <div class="mb-6 flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <i class="fas fa-palette text-blue-500"></i>
+                        Theme
+                    </span>
+                    <button id="theme-toggle-desktop" 
+                        class="relative w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none">
+                        <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white dark:bg-gray-900 rounded-full shadow-md transform transition-transform duration-300 dark:translate-x-6 flex items-center justify-center">
+                            <i class="fas fa-sun text-xs text-yellow-500 dark:hidden"></i>
+                            <i class="fas fa-moon text-xs hidden dark:inline-block text-gray-300"></i>
+                        </span>
+                    </button>
+                </div>
+
                 <!-- Quick Stats -->
                 <div class="grid grid-cols-3 gap-2 mb-6">
                     <div class="text-center p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
@@ -4133,7 +4157,8 @@
         </main>
     </div>
 
-       <script>
+    <!-- Script with Dark/Light Mode Toggle Logic -->
+    <script>
         (function() {
             'use strict';
 
@@ -4154,8 +4179,55 @@
                 viewButtons: document.querySelectorAll('.view-details-btn'),
                 contactForm: document.getElementById('contactForm'),
                 clearFormButton: document.getElementById('clearForm'),
-                verifyButtons: document.querySelectorAll('.verify-btn')
+                verifyButtons: document.querySelectorAll('.verify-btn'),
+                themeToggleDesktop: document.getElementById('theme-toggle-desktop'),
+                themeToggleMobile: document.getElementById('theme-toggle-mobile')
             };
+
+            // =============================================
+            // Dark/Light Mode Toggle
+            // =============================================
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+                updateToggleIcons();
+            }
+
+            function toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    setTheme('light');
+                } else {
+                    setTheme('dark');
+                }
+            }
+
+            function updateToggleIcons() {
+                const isDark = document.documentElement.classList.contains('dark');
+                // Desktop toggle has its own internal icon handling via CSS (the toggle slider shows sun/moon)
+                // Mobile toggle icons are managed by the existing classes (fa-sun / fa-moon with dark:hidden)
+                // No extra action needed because Tailwind's dark: classes handle visibility.
+            }
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme('dark');
+            }
+
+            // Attach toggle event listeners
+            if (elements.themeToggleDesktop) {
+                elements.themeToggleDesktop.addEventListener('click', toggleTheme);
+            }
+            if (elements.themeToggleMobile) {
+                elements.themeToggleMobile.addEventListener('click', toggleTheme);
+            }
 
             // =============================================
             // Project Data
@@ -4275,103 +4347,103 @@
             // ----------------------------------------------
 
             document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeButton = document.getElementById('close-mobile-menu');
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const closeButton = document.getElementById('close-mobile-menu');
 
-    if (mobileMenuButton && mobileMenu) {
-        // Open menu
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            
-            // Small delay for animation
-            setTimeout(() => {
-                const panel = mobileMenu.querySelector('.absolute');
-                if (panel) panel.style.transform = 'translateX(0)';
-            }, 10);
-        });
+                if (mobileMenuButton && mobileMenu) {
+                    // Open menu
+                    mobileMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
 
-        // Close function
-        function closeMenu() {
-            const panel = mobileMenu.querySelector('.absolute');
-            if (panel) panel.style.transform = 'translateX(100%)';
-            
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 200);
-        }
+                        // Small delay for animation
+                        setTimeout(() => {
+                            const panel = mobileMenu.querySelector('.absolute');
+                            if (panel) panel.style.transform = 'translateX(0)';
+                        }, 10);
+                    });
 
-        // Close button
-        if (closeButton) {
-            closeButton.addEventListener('click', closeMenu);
-        }
+                    // Close function
+                    function closeMenu() {
+                        const panel = mobileMenu.querySelector('.absolute');
+                        if (panel) panel.style.transform = 'translateX(100%)';
 
-        // Close when clicking outside
-        mobileMenu.addEventListener('click', function(e) {
-            if (e.target === mobileMenu) {
-                closeMenu();
-            }
-        });
-
-        // Close when clicking navigation links
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // Close on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-                closeMenu();
-            }
-        });
-    }
-
-    // Active link highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function highlightNavigation() {
-        let scrollPosition = window.scrollY + 80;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            document.body.style.overflow = '';
+                        }, 200);
                     }
-                });
-            }
-        });
-    }
 
-    window.addEventListener('scroll', highlightNavigation);
-    highlightNavigation();
+                    // Close button
+                    if (closeButton) {
+                        closeButton.addEventListener('click', closeMenu);
+                    }
 
-    // Smooth scroll
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 70;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                    // Close when clicking outside
+                    mobileMenu.addEventListener('click', function(e) {
+                        if (e.target === mobileMenu) {
+                            closeMenu();
+                        }
+                    });
+
+                    // Close when clicking navigation links
+                    const mobileLinks = mobileMenu.querySelectorAll('a');
+                    mobileLinks.forEach(link => {
+                        link.addEventListener('click', closeMenu);
+                    });
+
+                    // Close on escape key
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                            closeMenu();
+                        }
+                    });
+                }
+
+                // Active link highlighting
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                function highlightNavigation() {
+                    let scrollPosition = window.scrollY + 80;
+
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionBottom = sectionTop + section.offsetHeight;
+                        const sectionId = section.getAttribute('id');
+
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', highlightNavigation);
+                highlightNavigation();
+
+                // Smooth scroll
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 70;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
                 });
-            }
-        });
-    });
-});
+            });
 
             // =============================================
             // Utility Functions
@@ -4440,34 +4512,34 @@
 
                 // Hide grid, show details
                 elements.projectsGrid?.classList.add('fade-out');
-                
+
                 setTimeout(() => {
                     elements.projectsGrid?.classList.add('hidden');
                     if (elements.projectDetailsContent) {
                         elements.projectDetailsContent.innerHTML = generateProjectDetailsHTML(project);
                     }
                     elements.projectDetails?.classList.remove('hidden');
-                    
+
                     setTimeout(() => {
                         elements.projectDetails?.classList.add('fade-in');
                     }, 10);
-                    
+
                     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 300);
             }
 
             function showProjectsGrid() {
                 elements.projectDetails?.classList.remove('fade-in');
-                
+
                 setTimeout(() => {
                     elements.projectDetails?.classList.add('hidden');
                     elements.projectsGrid?.classList.remove('hidden');
-                    
+
                     setTimeout(() => {
                         elements.projectsGrid?.classList.remove('fade-out');
                         elements.projectsGrid?.classList.add('fade-in');
                     }, 10);
-                    
+
                     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 300);
             }
@@ -4478,7 +4550,7 @@
                     green: { bg: 'from-green-600 to-emerald-600', badge: 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300', icon: 'text-green-500' },
                     purple: { bg: 'from-purple-600 to-pink-600', badge: 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300', icon: 'text-purple-500' }
                 };
-                
+
                 const color = colorClasses[project.color] || colorClasses.blue;
 
                 return `
@@ -4592,7 +4664,7 @@
             // =============================================
             function init() {
                 setCurrentYear();
-                
+
                 // Determine initial section
                 const hash = window.location.hash.substring(1);
                 if (hash) {
@@ -4601,7 +4673,7 @@
                     showSection('home');
                     history.replaceState(null, null, '#home');
                 }
-                
+
                 setupEventListeners();
             }
 
@@ -4610,5 +4682,4 @@
         })();
     </script>
 </body>
-
 </html>
